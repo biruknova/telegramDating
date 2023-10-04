@@ -19,7 +19,7 @@ const Rootlayout = () => {
       </div>
 
       <div
-        className={`w-full py-2 text-white text-xs bg-black/20 backdrop-blur-md w-full flex items-center sticky bottom-0 border-t border-slate-100 dark:border-black/20 `}
+        className={`w-full py-2 text-white text-xs bg-black/5 backdrop-blur-md w-full flex items-center sticky bottom-0 border-t border-slate-100 dark:border-black/20 `}
       >
         <Link to="/" className="flex flex-col items-center space-y-1.5 w-1/3">
           <HomeIcon styles="w-5 h-5 text-white" />
