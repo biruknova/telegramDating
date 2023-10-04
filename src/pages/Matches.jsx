@@ -1,11 +1,24 @@
 import MatchCard from "../components/cards/MatchCard";
+import dummyData from "../dummy";
 
 const MatchesPage = () => {
   return (
-    <div className="flex flex-col w-full  p-4 ">
-      <MatchCard name="Biruk K." age="25" />
-      <MatchCard name="Biruk K." age="25" />
-      <MatchCard name="Biruk K." age="25" />
+    <div className="flex flex-col w-full">
+      {dummyData.map((match, index) => {
+        return (
+          <MatchCard
+            key={match.id}
+            name={match.name}
+            age={match.age}
+            img={match.img}
+            style={
+              index === dummyData.length - 1
+                ? ""
+                : "border-b border-slate-100 dark:border-black/20"
+            }
+          />
+        );
+      })}
     </div>
   );
 };
