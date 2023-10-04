@@ -4,7 +4,7 @@ import HeartIcon from "../icons/Heart";
 const ProfileCard = ({ name, age, bio, img, onClick }) => {
   return (
     <section className="w-full max-w-[500px] mx-auto flex flex-col items-center">
-      <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-2">
+      <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-3.5">
         <div className="w-full flex flex-col space-y-5">
           <div className="w-full relative">
             <img src={img} alt="profile" className="w-full" />
@@ -18,7 +18,9 @@ const ProfileCard = ({ name, age, bio, img, onClick }) => {
             <h1 className={`text-gray-400 text-xs`}>Bio</h1>
           </div>
         </div>
-        <hr className="border-t border-slate-100 dark:border-gray-800 mx-4 w-full" />
+        <div className="px-4 w-full">
+          <hr className="border-t border-slate-100 dark:border-gray-800 w-full" />
+        </div>
 
         <div className="flex space-x-4 px-4 w-full">
           <button
