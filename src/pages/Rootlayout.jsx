@@ -8,7 +8,7 @@ const Rootlayout = () => {
   const bgColor = window.Telegram.WebApp.bg_color;
   const secondaryBgColor = window.Telegram.WebApp.secondary_bg_color;
 
-  alert(window.Telegram.WebApp.is_bot);
+  alert(window.Telegram.WebApp.initData);
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
