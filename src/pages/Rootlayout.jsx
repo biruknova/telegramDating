@@ -5,9 +5,10 @@ import HeartIcon from "../components/icons/Heart";
 import PersonIcon from "../components/icons/Person";
 
 const Rootlayout = () => {
+  const bgColor = window.Telegram.WebApp.bg_color;
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
-      <div className="flex-grow bg-white dark:bg-[#232c3e] p-3">
+      <div className={`flex-grow bg-[${bgColor}] p-3`}>
         <Outlet />
       </div>
 
