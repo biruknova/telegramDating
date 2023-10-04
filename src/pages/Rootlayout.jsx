@@ -7,11 +7,9 @@ import PersonIcon from "../components/icons/Person";
 const Rootlayout = () => {
   const bgColor = window.Telegram.WebApp.bg_color;
 
-  const chat = window.Telegram.WebApp.chat;
-
-  console.log(chat);
   const data = window.Telegram.WebApp;
-  console.log(data);
+  console.log("initData", data.initData);
+  console.log("initDataUnsafe", data.initDataUnsafe);
 
   const queryString = window.Telegram.WebApp.initData;
   console.log(queryString);
