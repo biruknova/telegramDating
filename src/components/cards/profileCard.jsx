@@ -25,13 +25,13 @@ const ProfileCard = ({ name, age, bio, img, onClick }) => {
         <div className="flex space-x-4 px-4 w-full">
           <button
             onClick={onClick}
-            className="w-1/2 h-[50px] rounded bg-[#D70240] flex justify-center items-center"
+            className="w-1/2 h-[45px] rounded bg-[#D70240] flex justify-center items-center"
           >
             <CloseIcon styles="w-7 h-7 text-white" />
           </button>
           <button
             onClick={onClick}
-            className="w-1/2 h-[50px] rounded bg-[#02BF96] flex justify-center items-center"
+            className="w-1/2 h-[45px] rounded bg-[#02BF96] flex justify-center items-center"
           >
             <HeartIcon styles="w-7 h-7 text-white" />
           </button>
