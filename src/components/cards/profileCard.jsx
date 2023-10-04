@@ -3,8 +3,8 @@ import HeartIcon from "../icons/Heart";
 
 const ProfileCard = ({ name, age, bio, img, onClick }) => {
   return (
-    <section className="w-full max-w-[500px]   mx-auto flex flex-col items-center">
-      <div className="flex flex-col items-center  rounded-md overflow-hidden bg-white dark:bg-[#273552]">
+    <section className="w-full max-w-[500px] mx-auto flex flex-col items-center">
+      <div className="flex flex-col items-center  rounded-md overflow-hidden">
         <div className="w-full flex flex-col space-y-5">
           <div className="w-full rounded overflow-hidden relative">
             <img src={img} alt="profile" className="w-full" />
