@@ -22,8 +22,8 @@ const ProfileCard = ({
             </div>
           </div>
           <div className="px-4 flex flex-col w-full space-y-1">
-            <p className={`text-[${textColor}]`}>{bio}</p>
-            <h1 className={`text-[${hintColor}]`}>Bio</h1>
+            <p className={`text-${textColor}`}>{bio}</p>
+            <h1 className={`text-${hintColor}`}>Bio</h1>
           </div>
         </div>
 
