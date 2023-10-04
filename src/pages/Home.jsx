@@ -5,6 +5,7 @@ import ProfileCard from "../components/cards/profileCard";
 import dummyData from "../dummy";
 
 const HomePage = () => {
+  alert(window.Telegram.WebApp.colorScheme);
   const [index, setIndex] = useState(0);
 
   const changePerson = () => {
