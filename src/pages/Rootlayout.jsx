@@ -7,16 +7,8 @@ import PersonIcon from "../components/icons/Person";
 const Rootlayout = () => {
   const bgColor = window.Telegram.WebApp.backgroundColor;
 
-  const data = window.Telegram.WebApp;
-
-  console.log("initData", data.initData);
-
-  console.log("initDataUnsafe", data.initDataUnsafe);
-
   const queryString = window.Telegram.WebApp.initData;
   console.log(queryString);
-  const decoded = decodeURIComponent(queryString);
-  console.log(decoded);
 
   const activeClass =
     "flex flex-col items-center space-y-1.5 w-1/3 text-black dark:text-red-500";
