@@ -4,7 +4,7 @@ import HeartIcon from "../icons/Heart";
 const ProfileCard = ({ name, age, bio, img, onClick }) => {
   return (
     <section className="w-full max-w-[500px] mx-auto flex flex-col items-center">
-      <div className="flex flex-col items-center  rounded-md overflow-hidden divide-y divide-slate-100 dark:divide-black">
+      <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-5 divide-slate-100 dark:divide-gray-700">
         <div className="w-full flex flex-col space-y-5">
           <div className="w-full relative">
             <img src={img} alt="profile" className="w-full" />
@@ -19,7 +19,7 @@ const ProfileCard = ({ name, age, bio, img, onClick }) => {
           </div>
         </div>
 
-        <div className="flex space-x-4 mt-6 p-5 w-full">
+        <div className="flex space-x-4 px-4 w-full">
           <button
             onClick={onClick}
             className="w-1/2 h-[50px] rounded bg-[#D70240] flex justify-center items-center"

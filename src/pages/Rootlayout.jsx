@@ -9,7 +9,7 @@ const Rootlayout = () => {
   const secondaryBgColor = window.Telegram.WebApp.secondary_bg_color;
 
   const queryString = window.Telegram.WebApp.initData;
-
+  console.log(queryString);
   const decoded = decodeURIComponent(queryString);
   console.log(decoded);
 
