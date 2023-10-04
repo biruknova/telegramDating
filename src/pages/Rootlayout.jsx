@@ -7,7 +7,7 @@ import PersonIcon from "../components/icons/Person";
 const Rootlayout = () => {
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
-      <div className="flex-grow bg-[#232c3e] p-3">
+      <div className="flex-grow bg-white dark:bg-[#232c3e] p-3">
         <Outlet />
       </div>
 
