@@ -8,7 +8,6 @@ const HomePage = () => {
   const textColor = window.Telegram.WebApp.text_color;
   const hintColor = window.Telegram.WebApp.hint_color;
 
-  alert(textColor, hintColor);
   const [index, setIndex] = useState(0);
 
   const changePerson = () => {

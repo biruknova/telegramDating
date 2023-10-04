@@ -8,6 +8,12 @@ const Rootlayout = () => {
   const bgColor = window.Telegram.WebApp.bg_color;
   const secondaryBgColor = window.Telegram.WebApp.secondary_bg_color;
 
+  const textColor = window.Telegram.WebApp.text_color;
+  const hintColor = window.Telegram.WebApp.hint_color;
+  alert(bgColor, secondaryBgColor);
+
+  alert(textColor, hintColor);
+
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
       <div className={`flex-grow bg-[${bgColor}] p-3`}>
