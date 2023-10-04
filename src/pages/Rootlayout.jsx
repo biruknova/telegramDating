@@ -5,15 +5,13 @@ import HeartIcon from "../components/icons/Heart";
 import PersonIcon from "../components/icons/Person";
 
 const Rootlayout = () => {
-  const bgColor = window.Telegram.WebApp.bg_color;
+  const bgColor = window.Telegram.WebApp.backgroundColor;
 
   const data = window.Telegram.WebApp;
+
   console.log("initData", data.initData);
 
-  console.log("initDataUnsafe", data.initDataUnsafe.receiver);
-
-  console.log("initDataUnsafe", data.initDataUnsafe.chat);
-  console.log("bg-color", data.backgroundColor);
+  console.log("initDataUnsafe", data.initDataUnsafe);
 
   const queryString = window.Telegram.WebApp.initData;
   console.log(queryString);
