@@ -8,9 +8,12 @@ const Rootlayout = () => {
   const bgColor = window.Telegram.WebApp.bg_color;
   const secondaryBgColor = window.Telegram.WebApp.secondary_bg_color;
 
+  const photoUrl = window.Telegram.WebApp.photo_url;
+
   const queryString = window.Telegram.WebApp.initData;
+
   const decoded = decodeURIComponent(queryString);
-  alert(decoded);
+  alert(decoded, photoUrl);
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
