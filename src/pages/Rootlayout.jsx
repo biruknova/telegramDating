@@ -20,7 +20,7 @@ const Rootlayout = () => {
           to="/matches"
           className="flex flex-col items-center space-y-1.5 w-1/3"
         >
-          <HeartIcon styles="w-5 h-\5 text-white" />
+          <HeartIcon styles="w-5 h-5 text-white" />
           <h1>Matches</h1>
         </Link>
         <Link
