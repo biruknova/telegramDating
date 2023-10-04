@@ -13,7 +13,8 @@ const Rootlayout = () => {
   const queryString = window.Telegram.WebApp.initData;
 
   const decoded = decodeURIComponent(queryString);
-  alert(decoded, photoUrl);
+  alert(photoUrl);
+  alert(decoded);
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
