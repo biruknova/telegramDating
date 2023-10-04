@@ -11,23 +11,23 @@ const Rootlayout = () => {
         <Outlet />
       </div>
 
-      <div className="w-full py-2 text-white text-sm bg-[#232c3e] w-full flex items-center sticky bottom-[40px]">
+      <div className="w-full py-2 text-white text-xs bg-[#232c3e] w-full flex items-center sticky bottom-[40px]">
         <Link to="/" className="flex flex-col items-center space-y-1.5 w-1/3">
-          <HomeIcon styles="w-6 h-6 text-white" />
+          <HomeIcon styles="w-4 h-4 text-white" />
           <h1>Home</h1>
         </Link>
         <Link
           to="/matches"
           className="flex flex-col items-center space-y-1.5 w-1/3"
         >
-          <HeartIcon styles="w-6 h-6 text-white" />
+          <HeartIcon styles="w-4 h-4 text-white" />
           <h1>Matches</h1>
         </Link>
         <Link
           to="/profile"
           className="flex flex-col items-center space-y-1.5 w-1/3"
         >
-          <PersonIcon styles="w-6 h-6 text-white" />
+          <PersonIcon styles="w-4 h-4 text-white" />
           <h1>Profile</h1>
         </Link>
       </div>
