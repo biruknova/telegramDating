@@ -9,22 +9,8 @@ const Rootlayout = () => {
   const secondaryBgColor = window.Telegram.WebApp.secondary_bg_color;
 
   const queryString = window.Telegram.WebApp.initData;
-
-  // Split the query string into key-value pairs
-  const keyValuePairs = queryString.split("&");
-
-  // Initialize an empty object to store the decoded data
-  const decodedData = {};
-
-  // Iterate through the key-value pairs
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    // Decode the key and value and assign them to the object
-    decodedData[key] = decodeURIComponent(value);
-  }
-
-  // Now you can access the decoded data
-  alert(decodedData);
+  const decoded = decodeURIComponent(queryString);
+  alert(decoded);
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
