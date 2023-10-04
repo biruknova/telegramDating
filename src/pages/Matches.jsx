@@ -3,7 +3,7 @@ import dummyData from "../dummy";
 
 const MatchesPage = () => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full pb-3">
       {dummyData.map((match, index) => {
         return (
           <MatchCard
