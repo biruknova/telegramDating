@@ -23,9 +23,6 @@ const Rootlayout = () => {
     decodedData[key] = decodeURIComponent(value);
   }
 
-  // Parse the "user" property as JSON
-  decodedData.user = JSON.parse(decodedData.user);
-
   // Now you can access the decoded data
   alert(decodedData);
 
