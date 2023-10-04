@@ -18,7 +18,7 @@ const ProfileCard = ({ name, age, bio, img, onClick }) => {
             <h1 className={`text-gray-400 text-xs`}>Bio</h1>
           </div>
         </div>
-        <hr className="border-t border-slate-100 dark:border-gray-800 mx-4 " />
+        <hr className="border-t border-slate-100 dark:border-gray-800 mx-4 w-full" />
 
         <div className="flex space-x-4 px-4 w-full">
           <button
