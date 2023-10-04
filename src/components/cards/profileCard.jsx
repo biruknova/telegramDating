@@ -13,9 +13,9 @@ const ProfileCard = ({ name, age, bio, img, onClick }) => {
               <h2 className="drop-shadow font-semibold">Age: {age}</h2>
             </div>
           </div>
-          <div className="px-4 flex flex-col w-full space-y-1">
+          <div className="px-4 flex flex-col w-full space-y-1 text-sm">
             <p className={`text-gray-700 dark:text-white`}>{bio}</p>
-            <h1 className={`text-gray-400`}>Bio</h1>
+            <h1 className={`text-gray-400 text-xs`}>Bio</h1>
           </div>
         </div>
 
