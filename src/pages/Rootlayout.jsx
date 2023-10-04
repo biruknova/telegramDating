@@ -11,7 +11,7 @@ const Rootlayout = () => {
         <Outlet />
       </div>
 
-      <div className="w-full py-2 text-white text-sm bg-[#232c3e] w-full flex items-center sticky bottom-0">
+      <div className="w-full py-2 text-white text-sm bg-[#232c3e] w-full flex items-center sticky bottom-[40px]">
         <Link to="/" className="flex flex-col items-center space-y-1.5 w-1/3">
           <HomeIcon styles="w-6 h-6 text-white" />
           <h1>Home</h1>
