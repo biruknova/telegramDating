@@ -5,11 +5,13 @@ const MatchCard = ({ name, age, img, style }) => {
         <img src={img} alt="matched person" />
       </div>
       <div
-        className={`text-white flex flex-grow flex-col  py-2 justify-center ${style} pr-3`}
+        className={`flex flex-grow flex-col  py-2 justify-center ${style} pr-3`}
       >
         <div className=" h-[60px] w-full">
-          <h1 className=" text-lg font-medium">{name}</h1>
-          <p className="text-sm">Age: {age}</p>
+          <h1 className=" text-lg font-medium text-white dark:text-gray-700">
+            {name}
+          </h1>
+          <p className="text-sm text-white dark:text-gray-500">Age: {age}</p>
         </div>
       </div>
     </div>
