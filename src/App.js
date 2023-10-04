@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DatingContextProvider from "./store/ContextProvider";
+
+import Rootlayout from "./pages/Rootlayout";
+import HomePage from "./pages/Home";
+import LoginPage from "./pages/Login";
+import SignupPage from "./pages/Signup";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Rootlayout />,
+      // errorElement: <ErrorPage />,
+      children: [
+        { index: true, element: <HomePage /> },
+        { path: "login", element: <LoginPage /> },
+        { path: "signup", element: <SignupPage /> },
+      ],
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DatingContextProvider>
+      <RouterProvider router={router} />
+    </DatingContextProvider>
   );
 }
 
