@@ -9,9 +9,9 @@ const Rootlayout = () => {
 
   const data = window.Telegram.WebApp;
   console.log("initData", data.initData);
-  console.log("initDataUnsafe", data.initDataUnsafe.receiver.photo_url);
+
   console.log("initDataUnsafe", data.initDataUnsafe.receiver);
-  console.log("initDataUnsafe", data.initDataUnsafe.chat.photo_url);
+
   console.log("initDataUnsafe", data.initDataUnsafe.chat);
   console.log("bg-color", data.backgroundColor);
 
