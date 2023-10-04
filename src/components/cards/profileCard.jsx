@@ -19,7 +19,7 @@ const ProfileCard = ({ name, age, bio, img, onClick }) => {
           </div>
         </div>
         <div className="px-4 w-full">
-          <hr className="border-t border-slate-100 dark:border-black/50 w-full" />
+          <hr className="border-t border-slate-100 dark:border-black/20 w-full" />
         </div>
 
         <div className="flex space-x-4 px-4 w-full">
