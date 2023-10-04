@@ -7,7 +7,7 @@ const ProfileCard = ({
   bio,
   img,
   onClick,
-  hintColor,
+  textColor,
   hintColor,
 }) => {
   return (
