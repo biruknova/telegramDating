@@ -1,15 +1,7 @@
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
-const ProfileCard = ({
-  name,
-  age,
-  bio,
-  img,
-  onClick,
-  textColor,
-  hintColor,
-}) => {
+const ProfileCard = ({ name, age, bio, img, onClick }) => {
   return (
     <section className="w-full max-w-[500px]   mx-auto flex flex-col items-center">
       <div className="flex flex-col items-center  rounded-md overflow-hidden bg-white dark:bg-[#273552]">
@@ -22,8 +14,8 @@ const ProfileCard = ({
             </div>
           </div>
           <div className="px-4 flex flex-col w-full space-y-1">
-            <p className={`text-${textColor}`}>{bio}</p>
-            <h1 className={`text-${hintColor}`}>Bio</h1>
+            <p className={`text-gray-700 dark:text-white`}>{bio}</p>
+            <h1 className={`text-gray-400`}>Bio</h1>
           </div>
         </div>
 
