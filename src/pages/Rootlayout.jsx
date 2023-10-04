@@ -6,13 +6,17 @@ import PersonIcon from "../components/icons/Person";
 
 const Rootlayout = () => {
   const bgColor = window.Telegram.WebApp.bg_color;
+  const secondaryBgColor = window.Telegram.WebApp.secondary_bg_color;
+
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
       <div className={`flex-grow bg-[${bgColor}] p-3`}>
         <Outlet />
       </div>
 
-      <div className="w-full py-2 text-white text-xs bg-[#232c3e] w-full flex items-center sticky bottom-0">
+      <div
+        className={`w-full py-2 text-white text-xs bg-[${secondaryBgColor}] w-full flex items-center sticky bottom-0`}
+      >
         <Link to="/" className="flex flex-col items-center space-y-1.5 w-1/3">
           <HomeIcon styles="w-5 h-5 text-white" />
           <h1>Home</h1>
