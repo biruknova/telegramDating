@@ -1,6 +1,6 @@
 const MatchCard = ({ name, age, img, style }) => {
   return (
-    <div className="w-full flex items-center space-x-5">
+    <button className="w-full flex items-center space-x-5 focus:outline-none appearance-none">
       <div className="w-[60px] h-[60px] bg-black rounded-full ml-3 overflow-hidden">
         <img src={img} alt="matched person" />
       </div>
@@ -12,7 +12,7 @@ const MatchCard = ({ name, age, img, style }) => {
           <p className="text-sm dark:text-white text-gray-500">Age: {age}</p>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 
