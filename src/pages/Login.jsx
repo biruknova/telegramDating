@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(true);
   const navigate = useNavigate();
 
+  const viewPortHeight = window.Telegram.WebApp.viewportHeight;
+
   const autoLogin = () => {
-    setIsLoggingIn(true);
     const queryString = window.Telegram.WebApp.initData;
 
     var newHeader = new Headers();
@@ -42,7 +43,10 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <div className="text-white">
+    <div
+      style={{ height: viewPortHeight }}
+      className="text-white flex items-center justify-center"
+    >
       {isLoggingIn ? "Loging In ..." : "Logged In"}
     </div>
   );
