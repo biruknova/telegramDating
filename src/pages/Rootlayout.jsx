@@ -20,9 +20,9 @@ const Rootlayout = () => {
   const queryString = window.Telegram.WebApp.initData;
   console.log(queryString);
 
-  const activeClass = `flex flex-col items-center space-y-1.5 w-1/3 text-[${btnColor}]`;
-  const inActiveClass =
-    "flex flex-col items-center space-y-1.5 w-1/3 text-gray-500 dark:text-white";
+  // const activeClass = `flex flex-col items-center space-y-1.5 w-1/3 text-[${btnColor}]`;
+  // const inActiveClass =
+  //   "flex flex-col items-center space-y-1.5 w-1/3 text-gray-500 dark:text-white";
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
@@ -39,9 +39,11 @@ const Rootlayout = () => {
       >
         <NavLink
           to="/"
-          className={({ isActive, isPending }) =>
-            isPending || isActive ? activeClass : inActiveClass
-          }
+          className="flex flex-col items-center space-y-1.5 w-1/3"
+          style={{
+            color: isActive ? btnColor : btnTxtColor,
+            // Add other style properties as needed
+          }}
           end
         >
           <HomeIcon styles="w-5 h-5" />
@@ -49,9 +51,11 @@ const Rootlayout = () => {
         </NavLink>
         <NavLink
           to="/matches"
-          className={({ isActive, isPending }) =>
-            isPending || isActive ? activeClass : inActiveClass
-          }
+          className="flex flex-col items-center space-y-1.5 w-1/3"
+          style={{
+            color: isActive ? btnColor : btnTxtColor,
+            // Add other style properties as needed
+          }}
           end
         >
           <HeartIcon styles="w-5 h-5" />
@@ -59,9 +63,11 @@ const Rootlayout = () => {
         </NavLink>
         <NavLink
           to="/profile"
-          className={({ isActive, isPending }) =>
-            isPending || isActive ? activeClass : inActiveClass
-          }
+          className="flex flex-col items-center space-y-1.5 w-1/3"
+          style={{
+            color: isActive ? btnColor : btnTxtColor,
+            // Add other style properties as needed
+          }}
           end
         >
           <PersonIcon styles="w-5 h-5" />
