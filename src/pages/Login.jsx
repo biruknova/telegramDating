@@ -34,7 +34,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     autoLogin();
-  }, []);
+  }, [autoLogin]);
   return <div>This is login page</div>;
 };
 
