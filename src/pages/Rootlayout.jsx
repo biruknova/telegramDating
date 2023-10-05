@@ -17,13 +17,6 @@ const Rootlayout = () => {
 
   console.log("colors", txtColor, hintColor, btnTxtColor);
 
-  const queryString = window.Telegram.WebApp.initData;
-  console.log(queryString);
-
-  // const activeClass = `flex flex-col items-center space-y-1.5 w-1/3 text-[${btnColor}]`;
-  // const inActiveClass =
-  //   "flex flex-col items-center space-y-1.5 w-1/3 text-gray-500 dark:text-white";
-
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
       <div

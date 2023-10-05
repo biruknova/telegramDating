@@ -17,8 +17,8 @@ function App() {
       element: <Rootlayout />,
       // errorElement: <ErrorPage />,
       children: [
-        { index: true, element: <HomePage /> },
-        { path: "login", element: <LoginPage /> },
+        { index: true, element: <LoginPage /> },
+        { path: "home", element: <HomePage /> },
         { path: "signup", element: <SignupPage /> },
         { path: "profile", element: <ProfilePage /> },
         { path: "matches", element: <MatchesPage /> },
