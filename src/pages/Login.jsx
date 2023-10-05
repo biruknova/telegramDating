@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const navigate = useNavigate();
 
   const autoLogin = () => {
+    setIsLoggingIn(true);
     const queryString = window.Telegram.WebApp.initData;
 
     var newHeader = new Headers();
@@ -23,8 +27,10 @@ const LoginPage = () => {
     fetch("https://telegram-date.bytemela.com/api/login", requestOptions)
       .then((response) => response.json())
       .then((result) => {
+        setIsLoggingIn(false);
         if (result.success) {
           navigate("/home");
+          window.Telegram.WebApp.expand();
         }
         console.log(result);
       })
@@ -33,11 +39,11 @@ const LoginPage = () => {
 
   autoLogin();
 
-  // useEffect(() => {
-  //   autoLogin();
-  // }, []);
-
-  return <div>This is login page</div>;
+  return (
+    <div className="text-white">
+      {isLoggingIn ? "Loging In ..." : "Logged In"}
+    </div>
+  );
 };
 
 export default LoginPage;
