@@ -31,7 +31,7 @@ const Rootlayout = () => {
         className={`w-full py-2 text-gray-500 dark:text-white text-xs bg-[${bgColor}] border-t dark:border-black/10 border-slate-100 w-full flex items-center sticky bottom-0 `}
       >
         <NavLink
-          to="/"
+          to="/home"
           className="flex flex-col items-center space-y-1.5 w-1/3"
           style={({ isActive }) => ({
             color: isActive ? btnColor : hintColor,
