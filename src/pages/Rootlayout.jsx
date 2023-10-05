@@ -40,10 +40,9 @@ const Rootlayout = () => {
         <NavLink
           to="/"
           className="flex flex-col items-center space-y-1.5 w-1/3"
-          style={{
+          style={({ isActive }) => ({
             color: isActive ? btnColor : btnTxtColor,
-            // Add other style properties as needed
-          }}
+          })}
           end
         >
           <HomeIcon styles="w-5 h-5" />
@@ -52,10 +51,9 @@ const Rootlayout = () => {
         <NavLink
           to="/matches"
           className="flex flex-col items-center space-y-1.5 w-1/3"
-          style={{
+          style={({ isActive }) => ({
             color: isActive ? btnColor : btnTxtColor,
-            // Add other style properties as needed
-          }}
+          })}
           end
         >
           <HeartIcon styles="w-5 h-5" />
@@ -64,10 +62,9 @@ const Rootlayout = () => {
         <NavLink
           to="/profile"
           className="flex flex-col items-center space-y-1.5 w-1/3"
-          style={{
+          style={({ isActive }) => ({
             color: isActive ? btnColor : btnTxtColor,
-            // Add other style properties as needed
-          }}
+          })}
           end
         >
           <PersonIcon styles="w-5 h-5" />
