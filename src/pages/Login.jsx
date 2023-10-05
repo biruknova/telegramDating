@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+import HeartIcon from "../components/icons/Heart";
+
 const LoginPage = () => {
   const [isLoggingIn, setIsLoggingIn] = useState(true);
   const navigate = useNavigate();
@@ -47,7 +49,7 @@ const LoginPage = () => {
       style={{ height: viewPortHeight }}
       className="text-white flex items-center justify-center"
     >
-      {isLoggingIn ? "Loging In ..." : "Logged In"}
+      {isLoggingIn && <HeartIcon styles="w-7 h-7 animate-ping text-red-600" />}
     </div>
   );
 };
