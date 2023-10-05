@@ -13,7 +13,7 @@ const MatchesPage = () => {
   } = colors;
   return (
     <div className="flex flex-col w-full pb-3">
-      <div className="w-full flex flex-col justify-center items-center py-5 space-y-6 ">
+      <div className="w-full flex flex-col justify-center items-center pt-8 pb-5 space-y-6">
         <div
           style={{ backgroundColor: secondaryBgColor }}
           className="rounded-full p-4"
