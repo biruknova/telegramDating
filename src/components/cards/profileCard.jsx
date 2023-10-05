@@ -47,9 +47,9 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
                         backgroundColor:
                           array[indicatorPosition].id === item.id
                             ? "#ffffff"
-                            : "#64748be0",
+                            : "#ffffff61",
                       }}
-                      className="h-[1.5px] rounded-full drop-shadow transition-colors duration-200"
+                      className="h-[2px] rounded-full transition-colors duration-200"
                     ></div>
                   );
                 })}
