@@ -35,7 +35,7 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
             {array.length > 1 && (
               <div className="absolute top-0 left-0 h-[50px] bg-gradient-to-t from-transparent via-black/20 to-black/40 w-full"></div>
             )}
-            <div className="absolute top-3 w-full flex space-x-1.5 px-1.5">
+            <div className="absolute top-3 w-full flex space-x-1 px-2">
               {array.length > 1 &&
                 array.map((item) => {
                   return (
