@@ -5,17 +5,22 @@ import HeartIcon from "../components/icons/Heart";
 import PersonIcon from "../components/icons/Person";
 
 const Rootlayout = () => {
-  const bgColor = window.Telegram.WebApp.backgroundColor;
-
   const colors = window.Telegram.WebApp.themeParams;
 
-  console.log("colors", colors);
+  const {
+    bg_color: bgColor,
+    text_color: txtColor,
+    hint_color: hintColor,
+    button_color: btnColor,
+    button_text_color: btnTxtColor,
+  } = colors;
+
+  console.log("colors", txtColor, hintColor, btnTxtColor);
 
   const queryString = window.Telegram.WebApp.initData;
   console.log(queryString);
 
-  const activeClass =
-    "flex flex-col items-center space-y-1.5 w-1/3 text-black dark:text-red-500";
+  const activeClass = `flex flex-col items-center space-y-1.5 w-1/3 text-[${btnColor}]`;
   const inActiveClass =
     "flex flex-col items-center space-y-1.5 w-1/3 text-gray-500 dark:text-white";
 
