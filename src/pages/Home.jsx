@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import ProfileCard from "../components/cards/profileCard";
 
@@ -12,6 +12,12 @@ const HomePage = () => {
   const changePerson = () => {
     setIndex((prevIndex) => prevIndex + 1);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.Telegram.WebApp.expand();
+    }, 4000);
+  }, []);
   return (
     <>
       <ProfileCard
