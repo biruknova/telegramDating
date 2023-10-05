@@ -28,7 +28,7 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
     });
   };
   return (
-    <section className="w-full max-w-[500px] mx-auto flex flex-col items-center">
+    <section className="w-full mx-auto flex flex-col items-center">
       <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-4">
         <div className="w-full flex flex-col space-y-5">
           <div className="w-full relative">
