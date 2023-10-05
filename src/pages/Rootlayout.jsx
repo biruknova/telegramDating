@@ -41,7 +41,7 @@ const Rootlayout = () => {
           to="/"
           className="flex flex-col items-center space-y-1.5 w-1/3"
           style={({ isActive }) => ({
-            color: isActive ? btnColor : txtColor,
+            color: isActive ? btnColor : hintColor,
           })}
           end
         >
@@ -52,7 +52,7 @@ const Rootlayout = () => {
           to="/matches"
           className="flex flex-col items-center space-y-1.5 w-1/3"
           style={({ isActive }) => ({
-            color: isActive ? btnColor : txtColor,
+            color: isActive ? btnColor : hintColor,
           })}
           end
         >
@@ -63,7 +63,7 @@ const Rootlayout = () => {
           to="/profile"
           className="flex flex-col items-center space-y-1.5 w-1/3"
           style={({ isActive }) => ({
-            color: isActive ? btnColor : txtColor,
+            color: isActive ? btnColor : hintColor,
           })}
           end
         >
