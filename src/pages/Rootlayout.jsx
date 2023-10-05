@@ -7,7 +7,7 @@ import PersonIcon from "../components/icons/Person";
 const Rootlayout = () => {
   const bgColor = window.Telegram.WebApp.backgroundColor;
 
-  const colors = window.Telegram.WebApp.ThemeParams;
+  const colors = window.Telegram.WebApp.themeParams;
 
   console.log("colors", colors);
 
