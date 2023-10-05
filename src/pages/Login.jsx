@@ -32,9 +32,11 @@ const LoginPage = () => {
       .catch((error) => console.log("error", error));
   };
 
-  useEffect(() => {
-    autoLogin();
-  }, []);
+  autoLogin();
+
+  // useEffect(() => {
+  //   autoLogin();
+  // }, []);
 
   return <div>This is login page</div>;
 };
