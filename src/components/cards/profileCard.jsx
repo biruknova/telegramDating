@@ -1,12 +1,69 @@
+import { useState } from "react";
+
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
 const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
+  const colors = window.Telegram.WebApp.themeParams;
+
+  const { text_color: txtColor, hint_color: hintColor } = colors;
+
+  const [indicatorPosition, setIndicatorPosition] = useState(0);
+
+  const array = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+
+  const leftClick = () => {
+    setIndicatorPosition((prevPos) => {
+      if (prevPos === 0) {
+        return array.length - 1;
+      } else {
+        return prevPos - 1;
+      }
+    });
+  };
+
+  const rightClick = () => {
+    setIndicatorPosition((prevPos) => {
+      if (prevPos === array.length - 1) {
+        return 0;
+      } else {
+        return prevPos + 1;
+      }
+    });
+  };
   return (
     <section className="w-full max-w-[500px] mx-auto flex flex-col items-center">
       <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-4">
         <div className="w-full flex flex-col space-y-5">
           <div className="w-full relative">
+            {array.length > 1 && (
+              <div className="absolute top-0 left-0 h-[50px] bg-gradient-to-t from-transparent via-black/40 to-black/60 w-full"></div>
+            )}
+            <div className="absolute top-2 w-full flex space-x-1.5 px-1.5">
+              {array.length > 1 &&
+                array.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      id={item.id}
+                      style={{
+                        width: `${100 / array.length}%`,
+                        backgroundColor:
+                          array[indicatorPosition].id === item.id
+                            ? txtColor
+                            : hintColor,
+                      }}
+                      className="h-1 rounded-full drop-shadow"
+                    ></div>
+                  );
+                })}
+            </div>
+            {array.length > 1 && (
+              <div className="w-full h-full absolute top-0 left-0 grid grid-cols-2">
+                <div onClick={leftClick} className="bg-transparent"></div>
+                <div onClick={rightClick} className="bg-transparent"></div>
+              </div>
+            )}
             <img src={img} alt="profile" className="w-full" />
             <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 bg-gradient-to-b from-transparent via-black/40 to-black/60 w-full">
               <div className="flex items-center space-x-2">
