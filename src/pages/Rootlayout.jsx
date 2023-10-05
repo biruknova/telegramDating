@@ -17,11 +17,15 @@ const Rootlayout = () => {
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
-      <div className={`flex-grow bg-[${bgColor}]`}>
+      <div
+        style={{ backgroundColor: bgColor }}
+        className={`flex-grow bg-[${bgColor}]`}
+      >
         <Outlet />
       </div>
 
       <div
+        style={{ backgroundColor: bgColor }}
         className={`w-full py-2 text-gray-500 dark:text-white text-xs bg-[${bgColor}] w-full flex items-center sticky bottom-0 `}
       >
         <NavLink
