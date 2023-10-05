@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -36,8 +36,9 @@ const LoginPage = () => {
       })
       .catch((error) => console.log("error", error));
   };
-
-  autoLogin();
+  useEffect(() => {
+    autoLogin();
+  }, []);
 
   return (
     <div className="text-white">
