@@ -16,7 +16,7 @@ const MatchesPage = () => {
       <div className="w-full flex flex-col justify-center items-center pt-8 pb-5 space-y-6">
         <div
           style={{ backgroundColor: secondaryBgColor }}
-          className="rounded-full p-4"
+          className="rounded-full p-5"
         >
           <HeartAnime />
         </div>

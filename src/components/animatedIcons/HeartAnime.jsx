@@ -8,7 +8,7 @@ const HeartAnime = () => {
       loop
       animationData={heartTgs}
       play
-      style={{ width: 70, height: 70 }}
+      style={{ width: 60, height: 60 }}
     />
   );
 };
