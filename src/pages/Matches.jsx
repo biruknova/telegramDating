@@ -20,7 +20,7 @@ const MatchesPage = () => {
         >
           <HeartAnime />
         </div>
-        <div className="flex flex-col space-y-1.5 items-center text-center w-[80%]">
+        <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
           <h1 style={{ color: txtColor }} className="text-2xl font-semibold">
             People You've Matched
           </h1>
