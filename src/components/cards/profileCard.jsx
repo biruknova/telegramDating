@@ -4,10 +4,6 @@ import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
 const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
-  const colors = window.Telegram.WebApp.themeParams;
-
-  const { text_color: txtColor, hint_color: hintColor } = colors;
-
   const [indicatorPosition, setIndicatorPosition] = useState(0);
 
   const array = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
@@ -41,19 +37,19 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
             )}
             <div className="absolute top-2 w-full flex space-x-1.5 px-1.5">
               {array.length > 1 &&
-                array.map((item, index) => {
+                array.map((item) => {
                   return (
                     <div
-                      key={index}
+                      key={item.id}
                       id={item.id}
                       style={{
                         width: `${100 / array.length}%`,
                         backgroundColor:
                           array[indicatorPosition].id === item.id
-                            ? txtColor
-                            : hintColor,
+                            ? "#ffffff"
+                            : "#64748be0",
                       }}
-                      className="h-1 rounded-full drop-shadow"
+                      className="h-[1.5px] rounded-full drop-shadow transition-colors duration-200"
                     ></div>
                   );
                 })}
