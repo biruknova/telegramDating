@@ -1,8 +1,6 @@
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
-import badge from "../../assets/badge.json";
-
 const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
   return (
     <section className="w-full max-w-[500px] mx-auto flex flex-col items-center">
