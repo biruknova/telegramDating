@@ -35,7 +35,7 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
             {array.length > 1 && (
               <div className="absolute top-0 left-0 h-[50px] bg-gradient-to-t from-transparent via-black/40 to-black/60 w-full"></div>
             )}
-            <div className="absolute top-2 w-full flex space-x-1.5 px-1.5">
+            <div className="absolute top-3 w-full flex space-x-1.5 px-1.5">
               {array.length > 1 &&
                 array.map((item) => {
                   return (
@@ -49,7 +49,7 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
                             ? "#ffffff"
                             : "#ffffff61",
                       }}
-                      className="h-[2px] rounded-full transition-colors duration-200"
+                      className="h-[2.5px] rounded-full transition-colors duration-200"
                     ></div>
                   );
                 })}
