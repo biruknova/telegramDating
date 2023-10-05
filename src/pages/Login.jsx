@@ -38,6 +38,7 @@ const LoginPage = () => {
   };
   useEffect(() => {
     autoLogin();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
