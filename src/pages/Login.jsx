@@ -24,7 +24,7 @@ const LoginPage = () => {
     fetch("https://telegram-date.bytemela.com/api/login", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        if (result.status) {
+        if (result.success) {
           navigate("/home");
         }
         console.log(result);
