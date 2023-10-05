@@ -1,7 +1,9 @@
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
-const ProfileCard = ({ name, age, bio, img, onClick }) => {
+import badge from "../../assets/badge.json";
+
+const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
   return (
     <section className="w-full max-w-[500px] mx-auto flex flex-col items-center">
       <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-4">
@@ -9,7 +11,10 @@ const ProfileCard = ({ name, age, bio, img, onClick }) => {
           <div className="w-full relative">
             <img src={img} alt="profile" className="w-full" />
             <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 bg-gradient-to-b from-transparent via-black/40 to-black/60 w-full">
-              <h1 className="text-2xl font-medium drop-shadow">{name}</h1>
+              <div className="flex items-center space-x-2">
+                <h1 className="text-2xl font-medium drop-shadow">{name}</h1>
+                {badge}
+              </div>
               <h2 className="drop-shadow font-semibold">Age: {age}</h2>
             </div>
           </div>

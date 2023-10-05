@@ -4,6 +4,8 @@ import ProfileCard from "../components/cards/profileCard";
 
 import dummyData from "../dummy";
 
+import BadgeIcon from "../components/animatedIcons/Badge";
+
 const HomePage = () => {
   const [index, setIndex] = useState(0);
 
@@ -18,6 +20,7 @@ const HomePage = () => {
         bio={dummyData[index].bio}
         img={dummyData[index].img}
         onClick={changePerson}
+        badge={<BadgeIcon />}
       />
     </>
   );
