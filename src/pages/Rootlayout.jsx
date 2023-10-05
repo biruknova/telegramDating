@@ -26,7 +26,7 @@ const Rootlayout = () => {
 
       <div
         style={{ backgroundColor: bgColor }}
-        className={`w-full py-2 text-gray-500 dark:text-white text-xs bg-[${bgColor}] w-full flex items-center sticky bottom-0 `}
+        className={`w-full py-2 text-gray-500 dark:text-white text-xs bg-[${bgColor}] border-t dark:border-black/10 border-slate-100 w-full flex items-center sticky bottom-0 `}
       >
         <NavLink
           to="/"
