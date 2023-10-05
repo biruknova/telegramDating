@@ -18,7 +18,7 @@ const Rootlayout = () => {
   console.log("colors", txtColor, hintColor, btnTxtColor);
 
   return (
-    <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
+    <div className="flex flex-col min-h-screen w-full max-w-[700px] mx-auto">
       <div
         style={{ backgroundColor: bgColor }}
         className={`flex-grow bg-[${bgColor}]`}
