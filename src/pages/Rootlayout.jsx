@@ -22,7 +22,7 @@ const Rootlayout = () => {
       </div>
 
       <div
-        className={`w-full py-2 text-gray-500 dark:text-white text-xs bg-white/50 dark:bg-black/5 backdrop-blur-md w-full flex items-center sticky bottom-0 `}
+        className={`w-full py-2 text-gray-500 dark:text-white text-xs bg-[${bgColor}] w-full flex items-center sticky bottom-0 `}
       >
         <NavLink
           to="/"
