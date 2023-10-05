@@ -8,7 +8,6 @@ const LoginPage = () => {
   const [isLoggingIn, setIsLoggingIn] = useState(true);
   const navigate = useNavigate();
 
-  window.Telegram.WebApp.ready();
   const viewPortHeight = window.Telegram.WebApp.viewportHeight;
 
   const autoLogin = () => {
