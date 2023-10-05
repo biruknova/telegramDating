@@ -1,7 +1,7 @@
 const MatchCard = ({ name, age, img, style }) => {
   return (
     <button className="w-full flex items-center space-x-5 text-start">
-      <div className="w-[60px] h-[60px] bg-black rounded-full ml-3 overflow-hidden">
+      <div className="w-[55px] h-[55px] bg-black rounded-full ml-3 overflow-hidden">
         <img src={img} alt="matched person" />
       </div>
       <div className={`flex flex-grow flex-col  py-2 ${style} pr-3`}>

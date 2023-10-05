@@ -12,8 +12,8 @@ const MatchesPage = () => {
     hint_color: hintColor,
   } = colors;
   return (
-    <div className="flex flex-col w-full pb-3 ">
-      <div className="w-full flex flex-col justify-center items-center py-5 space-y-5">
+    <div className="flex flex-col w-full pb-3  space-y-5">
+      <div className="w-full flex flex-col justify-center items-center py-5 space-y-6">
         <div
           style={{ backgroundColor: secondaryBgColor }}
           className="rounded-full p-4"
@@ -30,6 +30,12 @@ const MatchesPage = () => {
           </p>
         </div>
       </div>
+
+      <hr
+        style={{ backgroundColor: secondaryBgColor }}
+        className="h-[15px] w-full"
+      />
+
       {dummyData.map((match, index) => {
         return (
           <MatchCard
