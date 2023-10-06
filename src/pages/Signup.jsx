@@ -71,6 +71,29 @@ const SignupPage = () => {
     console.log(formData);
   };
 
+  // const areAllValuesFilled = () => {
+  //   const fieldsAreFilled = Object.values(formData).every((value) => {
+  //     if (typeof value === "string") {
+  //       return value.trim() !== "";
+  //     } else if (typeof value === "number") {
+  //       return !isNaN(value);
+  //     } else {
+  //       return false;
+  //     }
+  //   });
+
+  //   if (fieldsAreFilled) {
+  //     MainButton.show();
+  //     MainButton.onClick(registerUser);
+  //   } else {
+  //     MainButton.hide();
+  //     MainButton.offClick(registerUser);
+  //   }
+  // };
+
+  // Initialize the initial state and previous state as false
+  const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
+
   const areAllValuesFilled = () => {
     const fieldsAreFilled = Object.values(formData).every((value) => {
       if (typeof value === "string") {
@@ -82,14 +105,34 @@ const SignupPage = () => {
       }
     });
 
-    if (fieldsAreFilled) {
-      MainButton.show();
-      MainButton.onClick(registerUser);
-    } else {
-      MainButton.hide();
-      MainButton.offClick(registerUser);
+    // Check if the current state is different from the previous state
+    if (fieldsAreFilled !== prevFieldsAreFilled) {
+      setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
+
+      if (fieldsAreFilled) {
+        MainButton.show();
+        MainButton.onClick(registerUser);
+      } else {
+        MainButton.hide();
+        MainButton.offClick(registerUser);
+      }
     }
   };
+
+  // Use useEffect to update the initial and previous state when formData changes
+  useEffect(() => {
+    setPrevFieldsAreFilled(
+      Object.values(formData).every((value) => {
+        if (typeof value === "string") {
+          return value.trim() !== "";
+        } else if (typeof value === "number") {
+          return !isNaN(value);
+        } else {
+          return false;
+        }
+      })
+    );
+  }, [formData]);
 
   useEffect(() => {
     areAllValuesFilled();
