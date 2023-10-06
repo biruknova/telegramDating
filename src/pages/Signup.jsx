@@ -10,22 +10,7 @@ import RegistrationAnime from "../components/animatedIcons/Registration";
 const SignupPage = () => {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
-
-  const focusHandler = (lable) => {
-    if (lable === "name") {
-      setNameIsFocused(true);
-    } else {
-      setAgeIsFocused(true);
-    }
-  };
-
-  const blurHandler = (lable) => {
-    if (lable === "name") {
-      setNameIsFocused(false);
-    } else {
-      setAgeIsFocused(false);
-    }
-  };
+  const [belowAgeLimit, setBelowAgeLimit] = useState(false);
 
   const colors = window.Telegram.WebApp.themeParams;
 
@@ -54,6 +39,27 @@ const SignupPage = () => {
     tg_data: queryString,
   });
 
+  const focusHandler = (lable) => {
+    if (lable === "name") {
+      setNameIsFocused(true);
+    } else {
+      setAgeIsFocused(true);
+    }
+  };
+
+  const blurHandler = (lable) => {
+    if (lable === "name") {
+      setNameIsFocused(false);
+    } else {
+      if (formData.age !== "" && formData.age.length < 2) {
+        setBelowAgeLimit(true);
+      } else {
+        setBelowAgeLimit(false);
+      }
+      setAgeIsFocused(false);
+    }
+  };
+
   const getGenderId = (val) => {
     setFormData({
       ...formData,
@@ -64,11 +70,30 @@ const SignupPage = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-    console.log(formData);
+
+    if (name === "age") {
+      if (value !== "" && value < 16 && value.length > 1) {
+        setBelowAgeLimit(true);
+      } else {
+        setBelowAgeLimit(false);
+      }
+      if (value.length > 2) {
+        setFormData({
+          ...formData,
+          [name]: value.substr(0, 2),
+        });
+      } else {
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   // Initialize the initial state and previous state as false
@@ -207,14 +232,11 @@ const SignupPage = () => {
             id="age"
             name="age"
             value={formData.age}
-            maxLength="2"
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
             placeholder=" "
             style={{
               border: `1px solid ${
-                formData.age !== "" &&
-                formData.age < 16 &&
-                formData.age.length > 1
+                belowAgeLimit
                   ? "#ef4444"
                   : ageIsFocused || formData.age !== ""
                   ? btnColor
@@ -233,7 +255,11 @@ const SignupPage = () => {
           <label
             htmlFor="age"
             style={{
-              color: ageIsFocused || formData.age !== "" ? btnColor : hintColor,
+              color: belowAgeLimit
+                ? "#ef4444"
+                : ageIsFocused || formData.age !== ""
+                ? btnColor
+                : hintColor,
               backgroundColor: bgColor,
             }}
             className="absolute text-sm  duration-100 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
