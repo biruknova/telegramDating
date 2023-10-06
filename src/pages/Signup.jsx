@@ -33,6 +33,8 @@ const SignupPage = () => {
     button_color: btnColor,
   } = colors;
 
+  const queryString = window.Telegram.WebApp.initData;
+
   const unsafeUserData = window.Telegram.WebApp.initDataUnsafe.user;
 
   const unsafeFirstName = unsafeUserData.first_name;
@@ -44,7 +46,7 @@ const SignupPage = () => {
     fullName: unsafeFullName,
     age: "",
     gender_id: "",
-    tg_data: "asdfasdf",
+    tg_data: queryString,
   });
 
   const getGenderId = (val) => {
