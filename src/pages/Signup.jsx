@@ -84,8 +84,10 @@ const SignupPage = () => {
 
     if (fieldsAreFilled) {
       MainButton.show();
+      MainButton.onClick(registerUser);
     } else {
       MainButton.hide();
+      MainButton.offClick(registerUser);
     }
   };
 
@@ -131,10 +133,10 @@ const SignupPage = () => {
       });
   };
 
-  useEffect(() => {
-    MainButton.onClick(registerUser);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   MainButton.onClick(registerUser);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <div
