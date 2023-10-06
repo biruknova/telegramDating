@@ -13,7 +13,11 @@ const RadioToggle = () => {
 
   const colors = window.Telegram.WebApp.themeParams;
 
-  const { button_color: btnColor, button_text_color: btnTxtColor } = colors;
+  const {
+    button_color: btnColor,
+    hint_color: hintColor,
+    button_text_color: btnTxtColor,
+  } = colors;
 
   return (
     <div className="flex  items-center w-full  space-x-4">
@@ -22,13 +26,13 @@ const RadioToggle = () => {
         style={{
           backgroundColor: selectedOption === 1 ? btnColor : "transparent",
           color: selectedOption === 1 ? btnTxtColor : btnColor,
-          border: `1px solid ${btnColor}`,
-          fontWeight: selectedOption === 1 ? "bold" : "normal",
+          border: `1px solid ${selectedOption === 1 ? btnColor : hintColor}`,
+          fontWeight: selectedOption === 1 ? "500" : "normal",
         }}
-        className={`flex  items-center  w-1/2 rounded p-2 space-x-3`}
+        className={`flex  items-center  w-1/2 rounded p-2 space-x-2`}
       >
-        <MaleIcon styles="w-7 h-7" />
-        <label className="text-lg">Male</label>
+        <MaleIcon styles="w-6 h-6" />
+        <label className="">Male</label>
       </div>
 
       <div
@@ -36,13 +40,13 @@ const RadioToggle = () => {
         style={{
           backgroundColor: selectedOption === 2 ? btnColor : "transparent",
           color: selectedOption === 2 ? btnTxtColor : btnColor,
-          border: `1px solid ${btnColor}`,
-          fontWeight: selectedOption === 2 ? "bold" : "normal",
+          border: `1px solid ${selectedOption === 2 ? btnColor : hintColor}`,
+          fontWeight: selectedOption === 2 ? "500" : "normal",
         }}
-        className={`flex items-center  w-1/2 rounded p-2 space-x-3`}
+        className={`flex items-center  w-1/2 rounded p-2 space-x-2`}
       >
-        <FemaleIcon styles="w-7 h-7" />
-        <label className="text-lg">Female</label>
+        <FemaleIcon styles="w-6 h-6" />
+        <label className="">Female</label>
       </div>
     </div>
   );
