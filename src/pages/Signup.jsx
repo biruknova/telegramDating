@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import RadioToggle from "../components/Radios";
 
+import RegistrationAnime from "../components/animatedIcons/Registration";
+
 const SignupPage = () => {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
@@ -38,8 +40,19 @@ const SignupPage = () => {
   return (
     <div
       style={{ backgroundColor: bgColor }}
-      className="bg-slate-700 flex flex-col justify-center min-h-screen p-5"
+      className="bg-slate-700 flex flex-col  min-h-screen p-5"
     >
+      <div className="flex flex-col items-center py-8 space-y-3">
+        <RegistrationAnime />
+        <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
+          <h1 style={{ color: txtColor }} className="text-2xl font-semibold">
+            Sign Up
+          </h1>
+          <p style={{ color: hintColor }} className="text-sm">
+            Engage with people around your area and spend the time of your life.
+          </p>
+        </div>
+      </div>
       <div className="w-full flex flex-col space-y-6">
         <div className="relative">
           <input
