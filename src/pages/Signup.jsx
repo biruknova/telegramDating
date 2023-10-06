@@ -49,8 +49,8 @@ const SignupPage = () => {
 
   const [formData, setFormData] = useState({
     name: unsafeFullName,
-    age: "",
     gender_id: "",
+    age: "",
     tg_data: queryString,
   });
 
@@ -67,8 +67,6 @@ const SignupPage = () => {
       ...formData,
       [name]: value,
     });
-
-    console.log(formData);
   };
 
   const areAllValuesFilled = () => {
@@ -89,14 +87,14 @@ const SignupPage = () => {
 
   const registerUser = () => {
     MainButton.showProgress();
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    var newHeader = new Headers();
+    newHeader.append("Content-Type", "application/json");
 
     var raw = JSON.stringify(formData);
 
     var requestOptions = {
       method: "POST",
-      headers: myHeaders,
+      headers: newHeader,
       body: raw,
       redirect: "follow",
     };
@@ -105,6 +103,9 @@ const SignupPage = () => {
       .then((response) => response.json())
       .then((result) => {
         MainButton.hideProgress();
+        console.log("data to be sent", formData);
+
+        console.log(result);
 
         if (result.success) {
           navigate("/home");
