@@ -63,7 +63,6 @@ const SignupPage = () => {
   };
 
   const handleInputChange = (e) => {
-    console.log("event", e);
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -99,7 +98,12 @@ const SignupPage = () => {
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({ ...formData });
+    var raw = JSON.stringify({
+      name: formData.name,
+      gender_id: formData.gender_id,
+      age: formData.age,
+      tg_data: formData.tg_data,
+    });
 
     var requestOptions = {
       method: "POST",
