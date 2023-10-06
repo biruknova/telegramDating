@@ -196,7 +196,7 @@ const SignupPage = () => {
                 nameIsFocused || formData.name !== "" ? btnColor : hintColor,
               backgroundColor: bgColor,
             }}
-            className="absolute text-sm  duration-200 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            className="absolute text-sm  duration-100 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
           >
             Full Name
           </label>
@@ -207,11 +207,18 @@ const SignupPage = () => {
             id="age"
             name="age"
             value={formData.age}
+            maxLength="2"
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
             placeholder=" "
             style={{
               border: `1px solid ${
-                ageIsFocused || formData.age !== "" ? btnColor : hintColor
+                formData.age !== "" &&
+                formData.age < 16 &&
+                formData.age.length > 1
+                  ? "#ef4444"
+                  : ageIsFocused || formData.age !== ""
+                  ? btnColor
+                  : hintColor
               }`,
               color: txtColor,
             }}
@@ -229,7 +236,7 @@ const SignupPage = () => {
               color: ageIsFocused || formData.age !== "" ? btnColor : hintColor,
               backgroundColor: bgColor,
             }}
-            className="absolute text-sm  duration-200 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            className="absolute text-sm  duration-100 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
           >
             Age
           </label>
