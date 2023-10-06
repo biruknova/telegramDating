@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import FemaleIcon from "./icons/Female";
 import MaleIcon from "./icons/Male";
 
-const RadioToggle = () => {
+const RadioToggle = ({ onToggle }) => {
   const [selectedOption, setSelectedOption] = useState(0);
 
   const handleOptionChange = (option) => {
     setSelectedOption(option);
+    onToggle(option);
     console.log(`Selected option: ${option}`);
   };
 

@@ -33,10 +33,44 @@ const SignupPage = () => {
     text_color: txtColor,
     hint_color: hintColor,
     button_color: btnColor,
-    button_text_color: btnTxtColor,
   } = colors;
 
-  console.log("colors here", txtColor, hintColor, btnTxtColor);
+  const [formData, setFormData] = useState({
+    fullName: "adsf",
+    age: "",
+    gender_id: "",
+    tg_data: "asdfasdf",
+  });
+
+  const getGenderId = (val) => {
+    setFormData({
+      ...formData,
+      gender_id: val.toString(),
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+
+    console.log(formData);
+  };
+
+  const areAllValuesFilled = () => {
+    console.log(Object.values(formData).every((value) => value.trim() !== ""));
+
+    return Object.values(formData).every((value) => value.trim() !== "");
+  };
+
+  console.log(areAllValuesFilled());
+  const hello = window.Telegram.WebApp.initData.initDataUnsafe;
+  const queryString = window.Telegram.WebApp.initData.initDataUnsafe.user;
+  alert(hello);
+  alert(queryString);
+
   return (
     <div
       style={{ backgroundColor: bgColor }}
@@ -58,12 +92,15 @@ const SignupPage = () => {
           <input
             type="text"
             id="full_name"
+            name="fullName"
+            value={formData.fullName}
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
             placeholder=" "
             style={{
               border: `1px solid ${nameIsFocused ? btnColor : hintColor}`,
               color: txtColor,
             }}
+            onChange={handleInputChange}
             onFocus={() => {
               focusHandler("name");
             }}
@@ -85,13 +122,16 @@ const SignupPage = () => {
         <div className="relative">
           <input
             type="number"
-            id="full_name"
+            id="age"
+            name="age"
+            value={formData.age}
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
             placeholder=" "
             style={{
               border: `1px solid ${ageIsFocused ? btnColor : hintColor}`,
               color: txtColor,
             }}
+            onChange={handleInputChange}
             onFocus={() => {
               focusHandler("age");
             }}
@@ -100,7 +140,7 @@ const SignupPage = () => {
             }}
           />
           <label
-            htmlFor="full_name"
+            htmlFor="age"
             style={{
               color: ageIsFocused ? btnColor : hintColor,
               backgroundColor: bgColor,
@@ -120,7 +160,7 @@ const SignupPage = () => {
             Gender
           </label>
 
-          <RadioToggle />
+          <RadioToggle onToggle={getGenderId} />
         </div>
       </div>
     </div>
