@@ -63,6 +63,7 @@ const SignupPage = () => {
   };
 
   const handleInputChange = (e) => {
+    console.log("event", e);
     const { name, value } = e.target;
     setFormData({
       ...formData,
