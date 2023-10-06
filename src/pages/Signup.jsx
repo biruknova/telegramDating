@@ -154,7 +154,7 @@ const SignupPage = () => {
       body: raw,
       redirect: "follow",
     };
-    MainButton.offClick(registerUser);
+
     fetch(BASE_URL + "/api/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
@@ -170,16 +170,10 @@ const SignupPage = () => {
         }
       })
       .catch((error) => {
-        MainButton.onClick(registerUser);
         MainButton.hideProgress();
         console.log("error", error);
       });
   };
-
-  // useEffect(() => {
-  //   MainButton.onClick(registerUser);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   return (
     <div
