@@ -72,7 +72,13 @@ const SignupPage = () => {
 
   const areAllValuesFilled = () => {
     const fieldsAreFilled = Object.values(formData).every((value) => {
-      return value && value.trim() !== "";
+      if (typeof value === "string") {
+        return value.trim() !== "";
+      } else if (typeof value === "number") {
+        return !isNaN(value);
+      } else {
+        return false;
+      }
     });
 
     if (fieldsAreFilled) {
