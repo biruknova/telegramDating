@@ -12,7 +12,7 @@ const LoginPage = () => {
 
   const autoLogin = () => {
     const queryString = window.Telegram.WebApp.initData;
-    const unsafe = window.Telegram.WebApp.initDataUnsafe;
+    const unsafe = window.Telegram.WebApp.initDataUnsafe.user.first_name;
     console.log("unsafe", unsafe);
 
     var newHeader = new Headers();
