@@ -40,7 +40,7 @@ const SignupPage = () => {
       style={{ backgroundColor: bgColor }}
       className="bg-slate-700 flex flex-col justify-center min-h-screen p-5"
     >
-      <div className="w-full flex flex-col space-y-5">
+      <div className="w-full flex flex-col space-y-6">
         <div className="relative">
           <input
             type="text"
@@ -97,7 +97,7 @@ const SignupPage = () => {
             Age
           </label>
         </div>
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-2">
           <label
             style={{
               color: btnColor,

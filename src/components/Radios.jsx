@@ -25,7 +25,7 @@ const RadioToggle = () => {
           border: `1px solid ${btnColor}`,
           fontWeight: selectedOption === 1 ? "bold" : "normal",
         }}
-        className={`flex flex-col items-center  w-1/2 rounded p-5 space-y-3`}
+        className={`flex  items-center  w-1/2 rounded p-2 space-x-3`}
       >
         <MaleIcon styles="w-7 h-7" />
         <label className="text-lg">Male</label>
@@ -39,7 +39,7 @@ const RadioToggle = () => {
           border: `1px solid ${btnColor}`,
           fontWeight: selectedOption === 2 ? "bold" : "normal",
         }}
-        className={`flex flex-col items-center  w-1/2 rounded p-5 space-y-3`}
+        className={`flex items-center  w-1/2 rounded p-2 space-x-3`}
       >
         <FemaleIcon styles="w-7 h-7" />
         <label className="text-lg">Female</label>
