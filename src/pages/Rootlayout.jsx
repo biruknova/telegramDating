@@ -22,6 +22,11 @@ const Rootlayout = () => {
     location.pathname.startsWith("/signup") ||
     location.pathname.startsWith("/login");
 
+  console.log(
+    location.pathname.startsWith("/signup"),
+    location.pathname.startsWith("/login")
+  );
+
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
       <div
