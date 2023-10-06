@@ -52,7 +52,7 @@ const LoginPage = () => {
       style={{ height: viewPortHeight }}
       className="text-white flex items-center justify-center"
     >
-      {isLoggingIn && <HeartIcon styles="w-7 h-7 animate-ping text-red-600" />}
+      {isLoggingIn && <HeartIcon styles="w-9 h-9 animate-ping text-red-600" />}
     </div>
   );
 };
