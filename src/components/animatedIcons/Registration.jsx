@@ -8,7 +8,7 @@ const RegistrationAnime = () => {
       loop
       animationData={signupJson}
       play
-      style={{ width: 60, height: 60 }}
+      style={{ width: 80, height: 80 }}
     />
   );
 };
