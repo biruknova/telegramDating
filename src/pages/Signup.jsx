@@ -101,7 +101,7 @@ const SignupPage = () => {
       redirect: "follow",
     };
 
-    fetch(`${BASE_URL}/api/register`, requestOptions)
+    fetch(BASE_URL + "/api/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         MainButton.hideProgress();
