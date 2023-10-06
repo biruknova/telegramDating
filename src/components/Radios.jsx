@@ -16,6 +16,7 @@ const RadioToggle = ({ onToggle }) => {
 
   const {
     button_color: btnColor,
+    hint_color: hintColor,
     button_text_color: btnTxtColor,
     secondary_bg_color: secondaryBgColor,
   } = colors;
@@ -26,7 +27,7 @@ const RadioToggle = ({ onToggle }) => {
         onClick={() => handleOptionChange(1)}
         style={{
           backgroundColor: selectedOption === 1 ? btnColor : secondaryBgColor,
-          color: btnTxtColor,
+          color: selectedOption === 1 ? btnTxtColor : hintColor,
 
           fontWeight: selectedOption === 1 ? "500" : "normal",
         }}
@@ -40,7 +41,7 @@ const RadioToggle = ({ onToggle }) => {
         onClick={() => handleOptionChange(2)}
         style={{
           backgroundColor: selectedOption === 2 ? btnColor : secondaryBgColor,
-          color: btnTxtColor,
+          color: selectedOption === 2 ? btnTxtColor : hintColor,
           fontWeight: selectedOption === 2 ? "500" : "normal",
         }}
         className={`flex items-center  w-1/2 rounded p-2 space-x-2 rounded-lg`}
