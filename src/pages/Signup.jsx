@@ -90,7 +90,10 @@ const SignupPage = () => {
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify(formData);
+    var raw = JSON.stringify({
+      ...formData,
+      gender_id: Number(formData.gender_id),
+    });
 
     var requestOptions = {
       method: "POST",
