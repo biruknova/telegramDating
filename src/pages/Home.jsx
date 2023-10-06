@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import context from "../store/context";
 
@@ -7,12 +7,17 @@ import ProfileCard from "../components/cards/profileCard";
 import BadgeIcon from "../components/animatedIcons/Badge";
 
 const HomePage = () => {
-  const { isGettingUsers, users } = useContext(context);
-  const [index, setIndex] = useState(0);
+  const { isGettingUsers, users, setUsers } = useContext(context);
+  const index = 0;
 
   const changePerson = () => {
-    if (users.length < 1 && index < users.length) {
-      setIndex((prevIndex) => prevIndex + 1);
+    if (users.length > 0) {
+      setUsers((prevUsers) => {
+        // Create a new array without the first item
+        const updatedUsers = prevUsers.slice(1);
+        // Update the users state with the new array
+        return updatedUsers;
+      });
     }
   };
 
