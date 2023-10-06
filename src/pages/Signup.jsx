@@ -71,9 +71,9 @@ const SignupPage = () => {
   };
 
   const areAllValuesFilled = () => {
-    const fieldsAreFilled = Object.values(formData).every(
-      (value) => value.trim() !== ""
-    );
+    const fieldsAreFilled = Object.values(formData).every((value) => {
+      return value && value.trim() !== "";
+    });
 
     if (fieldsAreFilled) {
       MainButton.show();
