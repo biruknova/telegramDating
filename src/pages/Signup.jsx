@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BASE_URL from "../config";
@@ -128,7 +128,10 @@ const SignupPage = () => {
       });
   };
 
-  MainButton.onClick(registerUser);
+  useEffect(() => {
+    MainButton.onClick(registerUser);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
