@@ -55,9 +55,10 @@ const SignupPage = () => {
   });
 
   const getGenderId = (val) => {
+    console.log("gender_id", val);
     setFormData({
       ...formData,
-      gender_id: val.toString(),
+      gender_id: val,
     });
   };
 
@@ -93,7 +94,7 @@ const SignupPage = () => {
 
     var raw = JSON.stringify({
       ...formData,
-      gender_id: Number(formData.gender_id),
+
       age: Number(formData.age),
     });
 
