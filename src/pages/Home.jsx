@@ -11,7 +11,7 @@ const HomePage = () => {
   const [index, setIndex] = useState(0);
 
   const changePerson = () => {
-    if (users.length < 2 && index < users.length) {
+    if (users.length < 1 && index < users.length) {
       setIndex((prevIndex) => prevIndex + 1);
     }
   };
