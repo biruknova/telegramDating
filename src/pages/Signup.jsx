@@ -42,29 +42,6 @@ const SignupPage = () => {
     >
       <div className="w-full flex flex-col space-y-5">
         <div className="flex flex-col">
-          <label
-            style={{
-              color: nameIsFocused ? btnColor : hintColor,
-            }}
-          >
-            Full Name
-          </label>
-          <input
-            type="text"
-            style={{
-              borderBottom: `1px solid ${nameIsFocused ? btnColor : hintColor}`,
-              color: txtColor,
-            }}
-            className={`outline-none py-1 bg-transparent transition-colors duration-200`}
-            onFocus={() => {
-              focusHandler("name");
-            }}
-            onBlur={() => {
-              blurHandler("name");
-            }}
-          ></input>
-        </div>
-        <div className="flex flex-col">
           <label style={{ color: ageIsFocused ? btnColor : hintColor }}>
             Age
           </label>
@@ -82,6 +59,28 @@ const SignupPage = () => {
               blurHandler("age");
             }}
           ></input>
+        </div>
+        <div className="relative">
+          <input
+            type="text"
+            id="full_name"
+            className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
+            placeholder=" "
+            style={{
+              border: `1px solid ${nameIsFocused ? btnColor : hintColor}`,
+              color: txtColor,
+            }}
+          />
+          <label
+            htmlFor="full_name"
+            style={{
+              color: nameIsFocused ? btnColor : hintColor,
+              backgroundColor: bgColor,
+            }}
+            className="absolute text-sm  duration-200 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+          >
+            Full Name
+          </label>
         </div>
         <div className="flex flex-col">
           <label>Gender</label>
