@@ -67,9 +67,8 @@ const SignupPage = () => {
 
   console.log(areAllValuesFilled());
   const hello = window.Telegram.WebApp.initData.initDataUnsafe;
-  const queryString = window.Telegram.WebApp.initData.initDataUnsafe.user;
+
   alert(hello);
-  alert(queryString);
 
   return (
     <div
