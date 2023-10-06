@@ -10,6 +10,8 @@ import HomePage from "./pages/Home";
 import ProfilePage from "./pages/Profile";
 import MatchesPage from "./pages/Matches";
 
+import MatchProfile from "./pages/MatchProfile";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -26,6 +28,10 @@ function App() {
     {
       path: "/signup",
       element: <SignupPage />,
+    },
+    {
+      path: "/match-profile/:matchId",
+      element: <MatchProfile />,
     },
   ]);
   return (

@@ -1,6 +1,11 @@
-const MatchCard = ({ name, age, img, style }) => {
+import { Link } from "react-router-dom";
+
+const MatchCard = ({ name, age, img, style, id }) => {
   return (
-    <button className="w-full flex items-center space-x-5 text-start">
+    <Link
+      to={`/match-profile/${id}`}
+      className="w-full flex items-center space-x-5 text-start"
+    >
       <div className="w-[55px] h-[55px] bg-black rounded-full ml-3 overflow-hidden">
         <img src={img} alt="matched person" />
       </div>
@@ -12,7 +17,7 @@ const MatchCard = ({ name, age, img, style }) => {
           <p className="text-sm dark:text-white text-gray-500">Age: {age}</p>
         </div>
       </div>
-    </button>
+    </Link>
   );
 };
 

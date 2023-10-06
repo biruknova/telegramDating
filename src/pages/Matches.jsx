@@ -43,6 +43,7 @@ const MatchesPage = () => {
             name={match.name}
             age={match.age}
             img={match.img}
+            id={match.id}
             style={
               index === dummyData.length - 1
                 ? ""
