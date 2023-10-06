@@ -119,7 +119,7 @@ const SignupPage = () => {
       .catch((error) => console.log("error", error));
   };
 
-  Telegram.WebApp.onEvent("mainButtonClicked", () => {
+  window.Telegram.WebApp.onEvent("mainButtonClicked", () => {
     registerUser();
   });
 
