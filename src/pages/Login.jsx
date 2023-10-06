@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-
 import { useNavigate } from "react-router-dom";
+
+import BASE_URL from "../config";
 
 import HeartIcon from "../components/icons/Heart";
 
@@ -27,7 +28,7 @@ const LoginPage = () => {
       redirect: "follow",
     };
 
-    fetch("https://telegram-date.bytemela.com/api/login", requestOptions)
+    fetch(`${BASE_URL}api/login`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setIsLoggingIn(false);

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import BASE_URL from "../config";
 
 import RadioToggle from "../components/Radios";
 
@@ -33,6 +36,8 @@ const SignupPage = () => {
     button_color: btnColor,
   } = colors;
 
+  const MainButton = window.Telegram.WebApp.MainButton;
+
   const queryString = window.Telegram.WebApp.initData;
 
   const unsafeUserData = window.Telegram.WebApp.initDataUnsafe.user;
@@ -43,7 +48,7 @@ const SignupPage = () => {
   const unsafeFullName = unsafeFirstName + " " + unsafeLastName;
 
   const [formData, setFormData] = useState({
-    fullName: unsafeFullName,
+    name: unsafeFullName,
     age: "",
     gender_id: "",
     tg_data: queryString,
@@ -72,13 +77,43 @@ const SignupPage = () => {
     );
 
     if (fieldsAreFilled) {
-      window.Telegram.WebApp.MainButton.show();
+      MainButton.show();
     } else {
-      window.Telegram.WebApp.MainButton.hide();
+      MainButton.hide();
     }
   };
 
   areAllValuesFilled();
+
+  const navigate = useNavigate();
+
+  const registerUser = () => {
+    MainButton.showProgress();
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(formData);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(`${BASE_URL}/api/register`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        MainButton.hideProgress();
+
+        if (result.success) {
+          navigate("/home");
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  MainButton.onClick(registerUser);
 
   return (
     <div
@@ -101,8 +136,8 @@ const SignupPage = () => {
           <input
             type="text"
             id="full_name"
-            name="fullName"
-            value={formData.fullName}
+            name="name"
+            value={formData.name}
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
             placeholder=" "
             style={{
