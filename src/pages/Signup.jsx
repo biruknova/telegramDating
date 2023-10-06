@@ -52,7 +52,7 @@ const SignupPage = () => {
           <input
             type="text"
             style={{
-              borderBottom: nameIsFocused ? btnColor : hintColor,
+              borderBottom: `1px solid ${ageIsFocused ? btnColor : hintColor}`,
             }}
             className={`outline-none py-1 bg-transparent transition-colors duration-200`}
             onFocus={() => {
@@ -64,12 +64,14 @@ const SignupPage = () => {
           ></input>
         </div>
         <div className="flex flex-col">
-          <label style={{ color: ageIsFocused ? btnColor : secondaryBgColor }}>
+          <label style={{ color: ageIsFocused ? btnColor : hintColor }}>
             Age
           </label>
           <input
             type="number"
-            style={{ borderBottom: ageIsFocused ? btnColor : secondaryBgColor }}
+            style={{
+              borderBottom: `1px solid ${ageIsFocused ? btnColor : hintColor}`,
+            }}
             className={`outline-none py-1 b bg-transparent transition-colors duration-200`}
             onFocus={() => {
               focusHandler("age");
