@@ -38,7 +38,7 @@ const SignupPage = () => {
   return (
     <div
       style={{ backgroundColor: bgColor }}
-      className="bg-slate-700 flex flex-col justify-center min-h-screen p-3"
+      className="bg-slate-700 flex flex-col justify-center min-h-screen p-5"
     >
       <div className="w-full flex flex-col space-y-5">
         <div className="relative">
@@ -97,8 +97,15 @@ const SignupPage = () => {
             Age
           </label>
         </div>
-        <div className="flex flex-col">
-          <label>Gender</label>
+        <div className="flex flex-col space-y-4">
+          <label
+            style={{
+              color: btnColor,
+            }}
+            className="text-sm px-2"
+          >
+            Gender
+          </label>
 
           <RadioToggle />
         </div>
