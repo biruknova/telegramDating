@@ -34,7 +34,7 @@ const SignupPage = () => {
     button_text_color: btnTxtColor,
   } = colors;
 
-  console.log("colors", txtColor, hintColor, btnTxtColor);
+  console.log("colors here", txtColor, hintColor, btnTxtColor);
   return (
     <div
       style={{ backgroundColor: bgColor }}
