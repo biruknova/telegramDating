@@ -126,7 +126,7 @@ const SignupPage = () => {
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify(formData);
+    var raw = JSON.stringify({ ...formData, age: Number(formData.age) });
 
     var requestOptions = {
       method: "POST",
