@@ -16,7 +16,6 @@ const RadioToggle = ({ onToggle }) => {
 
   const {
     button_color: btnColor,
-    hint_color: hintColor,
     button_text_color: btnTxtColor,
     secondary_bg_color: secondaryBgColor,
   } = colors;
