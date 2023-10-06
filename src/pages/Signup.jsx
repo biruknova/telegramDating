@@ -52,7 +52,7 @@ const SignupPage = () => {
           <input
             type="text"
             style={{
-              borderBottom: `1px solid ${ageIsFocused ? btnColor : hintColor}`,
+              borderBottom: `1px solid ${nameIsFocused ? btnColor : hintColor}`,
             }}
             className={`outline-none py-1 bg-transparent transition-colors duration-200`}
             onFocus={() => {
