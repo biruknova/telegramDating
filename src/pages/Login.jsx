@@ -28,7 +28,7 @@ const LoginPage = () => {
       redirect: "follow",
     };
 
-    fetch(BASE_URL + "api/login", requestOptions)
+    fetch(BASE_URL + "/api/login", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setIsLoggingIn(false);
