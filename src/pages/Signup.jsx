@@ -93,16 +93,12 @@ const SignupPage = () => {
   const navigate = useNavigate();
 
   const registerUser = () => {
-    window.Telegram.WebApp.offEvent("mainButtonClicked", registerUser);
+    MainButton.offClick(registerUser);
     MainButton.showProgress();
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      ...formData,
-
-      age: Number(formData.age),
-    });
+    var raw = JSON.stringify(formData);
 
     var requestOptions = {
       method: "POST",
@@ -132,7 +128,7 @@ const SignupPage = () => {
       });
   };
 
-  window.Telegram.WebApp.onEvent("mainButtonClicked", registerUser);
+  MainButton.onClick(registerUser);
 
   return (
     <div
