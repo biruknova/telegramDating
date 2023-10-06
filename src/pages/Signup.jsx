@@ -93,6 +93,7 @@ const SignupPage = () => {
     var raw = JSON.stringify({
       ...formData,
       gender_id: Number(formData.gender_id),
+      age: Number(formData.age),
     });
 
     var requestOptions = {
