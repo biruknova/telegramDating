@@ -19,6 +19,7 @@ const MatchProfile = () => {
     // Clean up the event listener when the component unmounts
     return () => {
       BackButton.offClick(handleBack);
+      BackButton.hide();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
