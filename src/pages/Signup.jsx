@@ -32,7 +32,6 @@ const SignupPage = () => {
     hint_color: hintColor,
     button_color: btnColor,
     button_text_color: btnTxtColor,
-    secondary_bg_color: secondaryBgColor,
   } = colors;
 
   console.log("colors", txtColor, hintColor, btnTxtColor);
@@ -45,7 +44,7 @@ const SignupPage = () => {
         <div className="flex flex-col">
           <label
             style={{
-              color: nameIsFocused ? btnColor : secondaryBgColor,
+              color: nameIsFocused ? btnColor : hintColor,
             }}
           >
             Full Name
@@ -53,7 +52,7 @@ const SignupPage = () => {
           <input
             type="text"
             style={{
-              borderBottom: nameIsFocused ? btnColor : secondaryBgColor,
+              borderBottom: nameIsFocused ? btnColor : hintColor,
             }}
             className={`outline-none py-1 bg-transparent transition-colors duration-200`}
             onFocus={() => {
@@ -73,10 +72,10 @@ const SignupPage = () => {
             style={{ borderBottom: ageIsFocused ? btnColor : secondaryBgColor }}
             className={`outline-none py-1 b bg-transparent transition-colors duration-200`}
             onFocus={() => {
-              focusHandler("name");
+              focusHandler("age");
             }}
             onBlur={() => {
-              blurHandler("name");
+              blurHandler("age");
             }}
           ></input>
         </div>
