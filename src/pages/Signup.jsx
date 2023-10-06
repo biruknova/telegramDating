@@ -72,7 +72,7 @@ const SignupPage = () => {
     const { name, value } = e.target;
 
     if (name === "age") {
-      if (value !== "" && value < 16 && value.length > 1) {
+      if (value !== "" && value.substr(0, 2) < 16 && value.length > 1) {
         setBelowAgeLimit(true);
       } else {
         setBelowAgeLimit(false);
@@ -226,46 +226,53 @@ const SignupPage = () => {
             Full Name
           </label>
         </div>
-        <div className="relative">
-          <input
-            type="number"
-            id="age"
-            name="age"
-            value={formData.age}
-            className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
-            placeholder=" "
-            style={{
-              border: `1px solid ${
-                belowAgeLimit
+        <div className="flex flex-col w-full items-end space-y-1">
+          <div className="relative">
+            <input
+              type="number"
+              id="age"
+              name="age"
+              value={formData.age}
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
+              placeholder=" "
+              style={{
+                border: `1px solid ${
+                  belowAgeLimit
+                    ? "#ef4444"
+                    : ageIsFocused || formData.age !== ""
+                    ? btnColor
+                    : hintColor
+                }`,
+                color: txtColor,
+              }}
+              onChange={handleInputChange}
+              onFocus={() => {
+                focusHandler("age");
+              }}
+              onBlur={() => {
+                blurHandler("age");
+              }}
+            />
+            <label
+              htmlFor="age"
+              style={{
+                color: belowAgeLimit
                   ? "#ef4444"
                   : ageIsFocused || formData.age !== ""
                   ? btnColor
-                  : hintColor
-              }`,
-              color: txtColor,
-            }}
-            onChange={handleInputChange}
-            onFocus={() => {
-              focusHandler("age");
-            }}
-            onBlur={() => {
-              blurHandler("age");
-            }}
-          />
-          <label
-            htmlFor="age"
-            style={{
-              color: belowAgeLimit
-                ? "#ef4444"
-                : ageIsFocused || formData.age !== ""
-                ? btnColor
-                : hintColor,
-              backgroundColor: bgColor,
-            }}
-            className="absolute text-sm  duration-100 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-          >
-            Age
-          </label>
+                  : hintColor,
+                backgroundColor: bgColor,
+              }}
+              className="absolute text-sm  duration-100 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Age
+            </label>
+          </div>
+          {belowAgeLimit && (
+            <span className="text-xs text-red-500 px-2">
+              Can't be below 16.
+            </span>
+          )}
         </div>
         <div className="flex flex-col space-y-2">
           <label
