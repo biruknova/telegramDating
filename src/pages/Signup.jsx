@@ -47,7 +47,7 @@ const SignupPage = () => {
 
   const unsafeFullName = unsafeFirstName + " " + unsafeLastName;
 
-  const [formData, setFormData] = useState({
+  let [formData, setFormData] = useState({
     name: unsafeFullName,
     gender_id: "",
     age: "",
@@ -97,7 +97,6 @@ const SignupPage = () => {
   const navigate = useNavigate();
 
   const registerUser = () => {
-    MainButton.offClick(registerUser);
     MainButton.showProgress();
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
@@ -110,7 +109,7 @@ const SignupPage = () => {
       body: raw,
       redirect: "follow",
     };
-
+    MainButton.offClick(registerUser);
     fetch(BASE_URL + "/api/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
