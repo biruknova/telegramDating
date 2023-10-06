@@ -35,8 +35,15 @@ const SignupPage = () => {
     button_color: btnColor,
   } = colors;
 
+  const unsafeUserData = window.Telegram.WebApp.initDataUnsafe.user;
+
+  const unsafeFirstName = unsafeUserData.first_name;
+  const unsafeLastName = unsafeUserData.last_name;
+
+  const unsafeFullName = unsafeFirstName + unsafeLastName;
+
   const [formData, setFormData] = useState({
-    fullName: "adsf",
+    fullName: unsafeFullName,
     age: "",
     gender_id: "",
     tg_data: "asdfasdf",
@@ -66,10 +73,6 @@ const SignupPage = () => {
   };
 
   console.log(areAllValuesFilled());
-  // const hello = window.Telegram.WebApp.initDataUnsafe;
-  // const queryString = window.Telegram.WebApp.initDataUnsafe.user;
-  // alert((hello));
-  // alert(queryString);
 
   return (
     <div
