@@ -263,7 +263,7 @@ const SignupPage = () => {
                   : hintColor,
                 backgroundColor: bgColor,
               }}
-              className="absolute text-sm  duration-100 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              className="absolute text-sm   transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
             >
               Age
             </label>
@@ -273,7 +273,7 @@ const SignupPage = () => {
               Can't be below 16.
             </span>
           ) : (
-            <div className="w-2 h-2.5"></div>
+            <div className="w-2 h-4"></div>
           )}
         </div>
         <div className="flex flex-col space-y-2">
