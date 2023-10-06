@@ -56,8 +56,12 @@ const SignupPage = () => {
               borderBottom: nameIsFocused ? btnColor : secondaryBgColor,
             }}
             className={`outline-none py-1 bg-transparent transition-colors duration-200`}
-            onFocus={focusHandler}
-            onBlur={blurHandler}
+            onFocus={() => {
+              focusHandler("name");
+            }}
+            onBlur={() => {
+              blurHandler("name");
+            }}
           ></input>
         </div>
         <div className="flex flex-col">
@@ -68,8 +72,12 @@ const SignupPage = () => {
             type="number"
             style={{ borderBottom: ageIsFocused ? btnColor : secondaryBgColor }}
             className={`outline-none py-1 b bg-transparent transition-colors duration-200`}
-            onFocus={focusHandler}
-            onBlur={blurHandler}
+            onFocus={() => {
+              focusHandler("name");
+            }}
+            onBlur={() => {
+              blurHandler("name");
+            }}
           ></input>
         </div>
         <div className="flex flex-col">
