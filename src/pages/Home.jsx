@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import context from "../store/context";
 
 import ProfileCard from "../components/cards/profileCard";
-
-import dummyData from "../dummy";
 
 import BadgeIcon from "../components/animatedIcons/Badge";
 
 const HomePage = () => {
+  const { isGettingUsers, users } = useContext(context);
   const [index, setIndex] = useState(0);
 
   const changePerson = () => {
@@ -15,14 +16,20 @@ const HomePage = () => {
 
   return (
     <>
-      <ProfileCard
-        name={dummyData[index].name}
-        age={dummyData[index].age}
-        bio={dummyData[index].bio}
-        img={dummyData[index].img}
-        onClick={changePerson}
-        badge={<BadgeIcon />}
-      />
+      {isGettingUsers ? (
+        <h1>getting users</h1>
+      ) : users.length !== 0 ? (
+        <ProfileCard
+          name={users[index].name}
+          age={users[index].age}
+          bio={users[index].bio}
+          imgs={users[index].photos}
+          onClick={changePerson}
+          badge={<BadgeIcon />}
+        />
+      ) : (
+        <h1>No Feed</h1>
+      )}
     </>
   );
 };

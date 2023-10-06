@@ -3,7 +3,7 @@ import { useState } from "react";
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
-const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
+const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
   const [indicatorPosition, setIndicatorPosition] = useState(0);
 
   const array = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
@@ -63,7 +63,7 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
                 <div onClick={rightClick} className="bg-transparent"></div>
               </div>
             )}
-            <img src={img} alt="profile" className="w-full" />
+            <img src={imgs[0]} alt="profile" className="w-full" />
             <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 bg-gradient-to-b from-transparent via-black/40 to-black/60 w-full">
               <div className="flex items-center space-x-2">
                 <h1 className="text-2xl font-medium drop-shadow">{name}</h1>

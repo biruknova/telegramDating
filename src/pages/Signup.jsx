@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BASE_URL from "../config";
+import context from "../store/context";
 
 import RadioToggle from "../components/Radios";
 
 import RegistrationAnime from "../components/animatedIcons/Registration";
 
 const SignupPage = () => {
+  const { setToken } = useContext(context);
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
   const [belowAgeLimit, setBelowAgeLimit] = useState(false);
@@ -166,6 +168,7 @@ const SignupPage = () => {
         MainButton.hideProgress();
         if (result.success) {
           navigate("/home");
+          setToken(result.token);
           MainButton.hide();
         }
       })
