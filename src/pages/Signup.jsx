@@ -98,7 +98,7 @@ const SignupPage = () => {
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify(formData);
+    var raw = JSON.stringify({ ...formData });
 
     var requestOptions = {
       method: "POST",
@@ -122,7 +122,7 @@ const SignupPage = () => {
         }
       })
       .catch((error) => {
-        alert(error);
+        MainButton.onClick(registerUser);
         MainButton.hideProgress();
         console.log("error", error);
       });
