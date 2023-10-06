@@ -227,7 +227,7 @@ const SignupPage = () => {
           </label>
         </div>
         <div className="flex flex-col w-full items-end space-y-1">
-          <div className="relative">
+          <div className="relative w-full">
             <input
               type="number"
               id="age"
@@ -268,10 +268,12 @@ const SignupPage = () => {
               Age
             </label>
           </div>
-          {belowAgeLimit && (
+          {belowAgeLimit ? (
             <span className="text-xs text-red-500 px-2">
               Can't be below 16.
             </span>
+          ) : (
+            <div className="w-2 h-2.5"></div>
           )}
         </div>
         <div className="flex flex-col space-y-2">
