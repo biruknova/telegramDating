@@ -55,11 +55,11 @@ const SignupPage = () => {
   });
 
   const getGenderId = (val) => {
-    console.log("gender_id", val);
     setFormData({
       ...formData,
       gender_id: val,
     });
+    console.log(formData);
   };
 
   const handleInputChange = (e) => {
@@ -68,6 +68,7 @@ const SignupPage = () => {
       ...formData,
       [name]: value,
     });
+    console.log(formData);
   };
 
   const areAllValuesFilled = () => {
@@ -88,7 +89,10 @@ const SignupPage = () => {
     }
   };
 
-  areAllValuesFilled();
+  useEffect(() => {
+    areAllValuesFilled();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData]);
 
   const navigate = useNavigate();
 
@@ -98,12 +102,7 @@ const SignupPage = () => {
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      name: formData.name,
-      gender_id: formData.gender_id,
-      age: formData.age,
-      tg_data: formData.tg_data,
-    });
+    var raw = JSON.stringify(formData);
 
     var requestOptions = {
       method: "POST",
