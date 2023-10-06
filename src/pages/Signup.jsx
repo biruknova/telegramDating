@@ -11,8 +11,6 @@ const SignupPage = () => {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
 
-  const [errMsg, setErrMsg] = useState("");
-
   const focusHandler = (lable) => {
     if (lable === "name") {
       setNameIsFocused(true);
@@ -147,7 +145,6 @@ const SignupPage = () => {
         }
       })
       .catch((error) => {
-        setErrMsg(error);
         MainButton.hideProgress();
         console.log("error", error);
       });
@@ -244,7 +241,6 @@ const SignupPage = () => {
 
           <RadioToggle onToggle={getGenderId} />
         </div>
-        <h1 className="text-red-500">{errMsg}</h1>
       </div>
     </div>
   );
