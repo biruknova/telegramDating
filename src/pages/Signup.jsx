@@ -66,10 +66,10 @@ const SignupPage = () => {
   };
 
   console.log(areAllValuesFilled());
-  const hello = window.Telegram.WebApp.initDataUnsafe;
-  const queryString = window.Telegram.WebApp.initDataUnsafe.user;
-  alert(JSON.parse(hello));
-  alert(JSON.parse(queryString));
+  // const hello = window.Telegram.WebApp.initDataUnsafe;
+  // const queryString = window.Telegram.WebApp.initDataUnsafe.user;
+  // alert((hello));
+  // alert(queryString);
 
   return (
     <div

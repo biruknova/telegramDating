@@ -12,6 +12,8 @@ const LoginPage = () => {
 
   const autoLogin = () => {
     const queryString = window.Telegram.WebApp.initData;
+    const unsafe = window.Telegram.WebApp.initDataUnsafe;
+    console.log("unsafe", unsafe);
 
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
