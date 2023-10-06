@@ -17,12 +17,15 @@ function App() {
       element: <Rootlayout />,
       // errorElement: <ErrorPage />,
       children: [
-        { index: true, element: <LoginPage /> },
         { path: "home", element: <HomePage /> },
-        { path: "signup", element: <SignupPage /> },
         { path: "profile", element: <ProfilePage /> },
         { path: "matches", element: <MatchesPage /> },
       ],
+    },
+    { index: true, element: <LoginPage /> },
+    {
+      path: "/signup",
+      element: <SignupPage />,
     },
   ]);
   return (
