@@ -24,8 +24,6 @@ const SignupPage = () => {
     }
   };
 
-  window.Telegram.WebApp.MainButton.show();
-
   const colors = window.Telegram.WebApp.themeParams;
 
   const {
@@ -67,12 +65,18 @@ const SignupPage = () => {
   };
 
   const areAllValuesFilled = () => {
-    console.log(Object.values(formData).every((value) => value.trim() !== ""));
+    const fieldsAreFilled = Object.values(formData).every(
+      (value) => value.trim() !== ""
+    );
 
-    return Object.values(formData).every((value) => value.trim() !== "");
+    if (fieldsAreFilled) {
+      window.Telegram.WebApp.MainButton.show();
+    } else {
+      window.Telegram.WebApp.MainButton.hide();
+    }
   };
 
-  console.log(areAllValuesFilled());
+  areAllValuesFilled();
 
   return (
     <div
