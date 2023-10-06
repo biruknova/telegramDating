@@ -4,7 +4,7 @@ const MatchCard = ({ name, age, img, style, id }) => {
   return (
     <Link
       to={`/match-profile/${id}`}
-      className="w-full flex items-center space-x-5 text-start"
+      className="w-full flex items-center space-x-5 text-start "
     >
       <div className="w-[55px] h-[55px] bg-black rounded-full ml-3 overflow-hidden">
         <img src={img} alt="matched person" />
