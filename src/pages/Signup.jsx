@@ -176,7 +176,9 @@ const SignupPage = () => {
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
             placeholder=" "
             style={{
-              border: `1px solid ${nameIsFocused ? btnColor : hintColor}`,
+              border: `1px solid ${
+                nameIsFocused || formData.name !== "" ? btnColor : hintColor
+              }`,
               color: txtColor,
             }}
             onChange={handleInputChange}
@@ -190,7 +192,8 @@ const SignupPage = () => {
           <label
             htmlFor="full_name"
             style={{
-              color: nameIsFocused ? btnColor : hintColor,
+              color:
+                nameIsFocused || formData.name !== "" ? btnColor : hintColor,
               backgroundColor: bgColor,
             }}
             className="absolute text-sm  duration-200 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
@@ -207,7 +210,9 @@ const SignupPage = () => {
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
             placeholder=" "
             style={{
-              border: `1px solid ${ageIsFocused ? btnColor : hintColor}`,
+              border: `1px solid ${
+                ageIsFocused || formData.age !== "" ? btnColor : hintColor
+              }`,
               color: txtColor,
             }}
             onChange={handleInputChange}
@@ -221,7 +226,7 @@ const SignupPage = () => {
           <label
             htmlFor="age"
             style={{
-              color: ageIsFocused ? btnColor : hintColor,
+              color: ageIsFocused || formData.age !== "" ? btnColor : hintColor,
               backgroundColor: bgColor,
             }}
             className="absolute text-sm  duration-200 transform -translate-y-4 scale-75 top-1.5 z-10 origin-[0] px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1.5 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
