@@ -24,7 +24,8 @@ const Rootlayout = () => {
 
   console.log(
     location.pathname.startsWith("/signup"),
-    location.pathname.startsWith("/login")
+    location.pathname.startsWith("/login"),
+    window.location.pathname
   );
 
   return (
