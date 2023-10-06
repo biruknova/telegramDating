@@ -40,7 +40,7 @@ const SignupPage = () => {
   const unsafeFirstName = unsafeUserData.first_name;
   const unsafeLastName = unsafeUserData.last_name;
 
-  const unsafeFullName = unsafeFirstName + unsafeLastName;
+  const unsafeFullName = unsafeFirstName + " " + unsafeLastName;
 
   const [formData, setFormData] = useState({
     fullName: unsafeFullName,
