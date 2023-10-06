@@ -53,6 +53,7 @@ const SignupPage = () => {
             type="text"
             style={{
               borderBottom: `1px solid ${nameIsFocused ? btnColor : hintColor}`,
+              color: txtColor,
             }}
             className={`outline-none py-1 bg-transparent transition-colors duration-200`}
             onFocus={() => {
@@ -71,6 +72,7 @@ const SignupPage = () => {
             type="number"
             style={{
               borderBottom: `1px solid ${ageIsFocused ? btnColor : hintColor}`,
+              color: txtColor,
             }}
             className={`outline-none py-1 b bg-transparent transition-colors duration-200`}
             onFocus={() => {
