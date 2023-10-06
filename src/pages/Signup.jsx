@@ -106,6 +106,7 @@ const SignupPage = () => {
     fetch(BASE_URL + "/api/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
+        MainButton.hide();
         MainButton.hideProgress();
         console.log("data to be sent", formData);
 
