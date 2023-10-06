@@ -19,14 +19,7 @@ const Rootlayout = () => {
 
   const location = useLocation();
   const hideBottomNav =
-    location.pathname.startsWith("/signup") ||
-    location.pathname.startsWith("/login");
-
-  alert(
-    location.pathname.startsWith("/signup"),
-    location.pathname.startsWith("/login"),
-    window.location.pathname
-  );
+    location.pathname === "/signup" || location.pathname === "/";
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
@@ -37,7 +30,7 @@ const Rootlayout = () => {
         <Outlet />
       </div>
 
-      {hideBottomNav && (
+      {!hideBottomNav && (
         <div
           style={{ backgroundColor: bgColor }}
           className={`w-full py-2 text-gray-500 dark:text-white text-xs bg-[${bgColor}] border-t dark:border-black/10 border-slate-100 w-full flex items-center sticky bottom-0 `}
