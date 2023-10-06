@@ -10,7 +10,8 @@ import RegistrationAnime from "../components/animatedIcons/Registration";
 const SignupPage = () => {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
-  const [errText, setErrText] = useState("");
+
+  const [errMsg, setErrMsg] = useState("");
 
   const focusHandler = (lable) => {
     if (lable === "name") {
@@ -140,14 +141,13 @@ const SignupPage = () => {
       .then((response) => response.json())
       .then((result) => {
         MainButton.hideProgress();
-
-        setErrText(result.message);
         if (result.success) {
           navigate("/home");
           MainButton.hide();
         }
       })
       .catch((error) => {
+        setErrMsg(error);
         MainButton.hideProgress();
         console.log("error", error);
       });
@@ -244,7 +244,7 @@ const SignupPage = () => {
 
           <RadioToggle onToggle={getGenderId} />
         </div>
-        <h1 className="text-red-500">{errText}</h1>
+        <h1 className="text-red-500">{errMsg}</h1>
       </div>
     </div>
   );
