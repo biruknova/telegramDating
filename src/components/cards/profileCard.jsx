@@ -31,7 +31,10 @@ const ProfileCard = ({ name, age, bio, img, onClick, badge }) => {
     <section className="w-full mx-auto flex flex-col items-center">
       <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-4">
         <div className="w-full flex flex-col space-y-5">
-          <div className="w-full relative">
+          <div
+            style={{ height: "100vw" }}
+            className="w-full relative max-h-[600px]"
+          >
             {array.length > 1 && (
               <div className="absolute top-0 left-0 h-[50px] bg-gradient-to-t from-transparent via-black/20 to-black/40 w-full"></div>
             )}
