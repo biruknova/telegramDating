@@ -33,9 +33,11 @@ const LoginPage = () => {
         setIsLoggingIn(false);
         if (result.success) {
           navigate("/home");
-          window.Telegram.WebApp.expand();
+        } else {
+          navigate("/signup");
         }
-        console.log(result);
+        window.Telegram.WebApp.expand();
+        // console.log(result);
       })
       .catch((error) => console.log("error", error));
   };
