@@ -7,6 +7,7 @@ const RadioToggle = ({ onToggle }) => {
   const [selectedOption, setSelectedOption] = useState(0);
 
   const handleOptionChange = (option) => {
+    window.Telegram.WebApp.HapticFeedback.selectionChanged();
     setSelectedOption(option);
     onToggle(option);
     console.log(`Selected option: ${option}`);
