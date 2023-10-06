@@ -22,7 +22,7 @@ const Rootlayout = () => {
     location.pathname.startsWith("/signup") ||
     location.pathname.startsWith("/login");
 
-  console.log(
+  alert(
     location.pathname.startsWith("/signup"),
     location.pathname.startsWith("/login"),
     window.location.pathname
