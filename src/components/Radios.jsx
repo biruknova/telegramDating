@@ -21,33 +21,33 @@ const RadioToggle = () => {
 
   return (
     <div className="flex  items-center w-full  space-x-4">
-      <div
+      <button
         onClick={() => handleOptionChange(1)}
         style={{
           backgroundColor: selectedOption === 1 ? btnColor : "transparent",
-          color: selectedOption === 1 ? btnTxtColor : btnColor,
+          color: selectedOption === 1 ? btnTxtColor : hintColor,
           border: `1px solid ${selectedOption === 1 ? btnColor : hintColor}`,
           fontWeight: selectedOption === 1 ? "500" : "normal",
         }}
-        className={`flex  items-center  w-1/2 rounded p-2 space-x-2`}
+        className={`flex  items-center  w-1/2 rounded p-2 space-x-2 rounded-lg`}
       >
         <MaleIcon styles="w-6 h-6" />
         <label className="">Male</label>
-      </div>
+      </button>
 
-      <div
+      <button
         onClick={() => handleOptionChange(2)}
         style={{
           backgroundColor: selectedOption === 2 ? btnColor : "transparent",
-          color: selectedOption === 2 ? btnTxtColor : btnColor,
+          color: selectedOption === 2 ? btnTxtColor : hintColor,
           border: `1px solid ${selectedOption === 2 ? btnColor : hintColor}`,
           fontWeight: selectedOption === 2 ? "500" : "normal",
         }}
-        className={`flex items-center  w-1/2 rounded p-2 space-x-2`}
+        className={`flex items-center  w-1/2 rounded p-2 space-x-2 rounded-lg`}
       >
         <FemaleIcon styles="w-6 h-6" />
         <label className="">Female</label>
-      </div>
+      </button>
     </div>
   );
 };
