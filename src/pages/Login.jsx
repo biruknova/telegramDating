@@ -38,7 +38,7 @@ const LoginPage = () => {
           navigate("/signup");
         }
         window.Telegram.WebApp.expand();
-        // console.log(result);
+        console.log(result);
       })
       .catch((error) => console.log("error", error));
   };
