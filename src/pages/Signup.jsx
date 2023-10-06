@@ -116,7 +116,11 @@ const SignupPage = () => {
           navigate("/home");
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        alert(error);
+        MainButton.hideProgress();
+        console.log("error", error);
+      });
   };
 
   window.Telegram.WebApp.onEvent("mainButtonClicked", () => {
