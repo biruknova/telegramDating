@@ -86,6 +86,7 @@ const SignupPage = () => {
   const navigate = useNavigate();
 
   const registerUser = () => {
+    window.Telegram.WebApp.offEvent("mainButtonClicked", registerUser);
     MainButton.showProgress();
     var newHeader = new Headers();
     newHeader.append("Content-Type", "application/json");
@@ -106,7 +107,6 @@ const SignupPage = () => {
     fetch(BASE_URL + "/api/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        alert(result);
         MainButton.hideProgress();
         MainButton.hide();
         console.log("data to be sent", formData);
@@ -123,9 +123,7 @@ const SignupPage = () => {
       });
   };
 
-  window.Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    registerUser();
-  });
+  window.Telegram.WebApp.onEvent("mainButtonClicked", registerUser);
 
   return (
     <div
