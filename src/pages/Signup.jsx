@@ -10,6 +10,7 @@ import RegistrationAnime from "../components/animatedIcons/Registration";
 const SignupPage = () => {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
+  const [errText, setErrText] = useState("");
 
   const focusHandler = (lable) => {
     if (lable === "name") {
@@ -70,26 +71,6 @@ const SignupPage = () => {
     });
     console.log(formData);
   };
-
-  // const areAllValuesFilled = () => {
-  //   const fieldsAreFilled = Object.values(formData).every((value) => {
-  //     if (typeof value === "string") {
-  //       return value.trim() !== "";
-  //     } else if (typeof value === "number") {
-  //       return !isNaN(value);
-  //     } else {
-  //       return false;
-  //     }
-  //   });
-
-  //   if (fieldsAreFilled) {
-  //     MainButton.show();
-  //     MainButton.onClick(registerUser);
-  //   } else {
-  //     MainButton.hide();
-  //     MainButton.offClick(registerUser);
-  //   }
-  // };
 
   // Initialize the initial state and previous state as false
   const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
@@ -158,12 +139,9 @@ const SignupPage = () => {
     fetch(BASE_URL + "/api/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        alert(result.success);
-        alert(result.message);
         MainButton.hideProgress();
-        console.log("data to be sent", formData);
-        console.log(result);
 
+        setErrText(result.message);
         if (result.success) {
           navigate("/home");
           MainButton.hide();
@@ -266,6 +244,7 @@ const SignupPage = () => {
 
           <RadioToggle onToggle={getGenderId} />
         </div>
+        <h1 className="text-red-500">{errText}</h1>
       </div>
     </div>
   );
