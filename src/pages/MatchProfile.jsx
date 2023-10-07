@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import HeartIcon from "../components/icons/Heart";
 
 const MatchProfile = () => {
-  const param = useParams();
   const navigate = useNavigate();
 
   const BackButton = window.Telegram.WebApp.BackButton;
@@ -23,6 +24,58 @@ const MatchProfile = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return <div>This is match profile page {param.matchId} </div>;
+  return (
+    <div className="fixed w-full min-h-screen top-0 left-0 bg-gray-800 flex flex-grow pt-[130px] z-50">
+      <div className="w-full flex flex-col flex-grow bg-gray-700  rounded-t-xl">
+        <div className="-mt-[50px] flex flex-col items-center space-y-6">
+          <div className="flex flex-col items-center space-y-2">
+            <div
+              // style={{ backgroundColor: secondaryBgColor }}
+              className="rounded-full w-[130px] h-[130px] rounded-full bg-blue-500 "
+            ></div>
+            <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
+              <h1 className="text-2xl font-semibold">Biruk K.</h1>
+            </div>
+          </div>
+          <div className="w-full flex">
+            <div className="flex flex-col items-center w-1/2">
+              <HeartIcon styles="w-7 h-7" />
+              <h1>Message</h1>
+            </div>
+            <div className="flex flex-col items-center w-1/2">
+              <HeartIcon styles="w-7 h-7" />
+              <h1>Message</h1>
+            </div>
+          </div>
+          <div className="w-full flex flex-col divide-y divide-gray-800 pl-5">
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p className="text-xs">Bio</p>
+            </div>
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p className="text-xs">Bio</p>
+            </div>
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p className="text-xs">Bio</p>
+            </div>
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p className="text-xs">Bio</p>
+            </div>
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p className="text-xs">Bio</p>
+            </div>
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p className="text-xs">Bio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 export default MatchProfile;
