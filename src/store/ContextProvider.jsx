@@ -88,6 +88,35 @@ const DatingContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenValue]);
 
+  const [profile, setProfile] = useState({});
+
+  const getProfile = () => {
+    var newHeader = new Headers();
+    newHeader.append("Accept", "application/json");
+    newHeader.append("Authorization", `Bearer ${tokenValue}`);
+
+    var requestOptions = {
+      method: "GET",
+      headers: newHeader,
+      redirect: "follow",
+    };
+
+    fetch(BASE_URL + "/api/profile/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setProfile(result.user);
+        console.log(result);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => {
+    if (tokenValue) {
+      getProfile();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tokenValue]);
+
   // // // // // // // // // // // // //
   const value = {
     tokenValue,
@@ -99,6 +128,8 @@ const DatingContextProvider = (props) => {
     matches,
     setMatches,
     getMatches,
+    profile,
+    setProfile,
   };
 
   return <context.Provider value={value}>{props.children}</context.Provider>;

@@ -1,30 +1,8 @@
-import { useEffect, useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useContext } from "react";
 
 import context from "../store/context";
 
 const ProfilePage = () => {
-  const navigate = useNavigate();
-
-  const BackButton = window.Telegram.WebApp.BackButton;
-
-  BackButton.show();
-
-  useEffect(() => {
-    const handleBack = () => {
-      navigate("/matches");
-    };
-
-    BackButton.onClick(handleBack);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      BackButton.offClick(handleBack);
-      BackButton.hide();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const colors = window.Telegram.WebApp.themeParams;
 
   const {
@@ -35,15 +13,7 @@ const ProfilePage = () => {
     secondary_bg_color: secondaryBgColor,
   } = colors;
 
-  const { matches } = useContext(context);
-
-  const params = useParams();
-  const matchId = params.matchId;
-
-  console.log(matchId);
-
-  const match = matches.find((match) => match.id === Number(matchId));
-  console.log(match);
+  const { profile } = useContext(context);
 
   return (
     <div
@@ -62,11 +32,11 @@ const ProfilePage = () => {
             >
               <img
                 src={
-                  match && match.photos
-                    ? match.photos[0]
+                  profile && profile.photos
+                    ? profile.photos[0]
                     : "https://picsum.photos/200"
                 }
-                alt="match profile"
+                alt="profile profile"
               />
             </div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
@@ -74,7 +44,7 @@ const ProfilePage = () => {
                 style={{ color: txtColor }}
                 className="text-xl font-semibold min-w-max"
               >
-                {match ? match.name : ""}
+                {profile ? profile.name : ""}
               </h1>
             </div>
           </div>
@@ -82,33 +52,33 @@ const ProfilePage = () => {
             style={{ color: txtColor }}
             className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-sm mt-3"
           >
-            {match && match.tg_username && (
+            {profile && profile.tg_username && (
               <div className="pr-5 py-3 space-y-1 text-start">
-                <h1>@{match.tg_username}</h1>
+                <h1>@{profile.tg_username}</h1>
                 <p style={{ color: hintColor }} className="text-xs">
                   Username
                 </p>
               </div>
             )}
-            {match && match.bio && (
+            {profile && profile.bio && (
               <div className="pr-5 py-3 space-y-1 text-start">
-                <h1>{match.bio}</h1>
+                <h1>{profile.bio}</h1>
                 <p style={{ color: hintColor }} className="text-xs">
                   Bio
                 </p>
               </div>
             )}
-            {match && match.age && (
+            {profile && profile.age && (
               <div className="pr-5 py-3 space-y-1 text-start">
-                <h1>{match.age}</h1>
+                <h1>{profile.age}</h1>
                 <p style={{ color: hintColor }} className="text-xs">
                   Age
                 </p>
               </div>
             )}
-            {match && match.gender && (
+            {profile && profile.gender && (
               <div className="pr-5 py-3 space-y-1 text-start">
-                <h1>{match.gender.name} </h1>
+                <h1>{profile.gender.name} </h1>
                 <p style={{ color: hintColor }} className="text-xs">
                   Gender
                 </p>
