@@ -162,7 +162,7 @@ const SignupPage = () => {
         MainButton.hideProgress();
         if (result.success) {
           navigate("/home");
-          localStorage.setItem("token", result.token);
+          localStorage.setItem("userDatingToken", result.token);
 
           MainButton.hide();
         }

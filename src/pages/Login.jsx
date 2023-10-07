@@ -33,13 +33,12 @@ const LoginPage = () => {
       .then((result) => {
         setIsLoggingIn(false);
         if (result.success) {
+          localStorage.setItem("userDatingToken", result.token);
           navigate("/home");
-          localStorage.setItem("token", result.token);
         } else {
           navigate("/signup");
         }
         window.Telegram.WebApp.expand();
-        console.log(result);
       })
       .catch((error) => console.log("error", error));
   };

@@ -4,7 +4,7 @@ import context from "./context";
 import BASE_URL from "../config";
 
 const DatingContextProvider = (props) => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userDatingToken");
 
   const [users, setUsers] = useState([]);
   const [isGettingUsers, setIsGettingUsers] = useState(true);
@@ -42,14 +42,14 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token !== 0) {
+    if (token) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   useEffect(() => {
-    if (token !== "" && users.length === 6 && hasNextPage) {
+    if (token && users.length === 6 && hasNextPage) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,7 +82,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token !== "") {
+    if (token) {
       getMatches();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

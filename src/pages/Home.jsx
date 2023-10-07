@@ -12,8 +12,10 @@ import BadgeIcon from "../components/animatedIcons/Badge";
 import SearchAnime from "../components/animatedIcons/SearchAnime";
 
 const HomePage = () => {
-  const { isGettingUsers, users, setUsers, token, matches, setMatches } =
+  const token = localStorage.getItem("userDatingToken");
+  const { isGettingUsers, users, setUsers, matches, setMatches } =
     useContext(context);
+
   const index = 0;
 
   const [isMatched, setIsMatched] = useState(false);
