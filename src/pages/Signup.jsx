@@ -106,7 +106,7 @@ const SignupPage = () => {
       if (typeof value === "string") {
         return value.trim() !== "";
       } else if (typeof value === "number") {
-        return !isNaN(value);
+        return !isNaN(value) && value >= 16;
       } else {
         return false;
       }
@@ -116,7 +116,7 @@ const SignupPage = () => {
     if (fieldsAreFilled !== prevFieldsAreFilled) {
       setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
 
-      if (fieldsAreFilled && !belowAgeLimit) {
+      if (fieldsAreFilled) {
         MainButton.show();
         MainButton.onClick(registerUser);
       } else {
