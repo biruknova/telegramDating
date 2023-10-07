@@ -141,18 +141,12 @@ const HomePage = () => {
         <div className="w-full flex flex-col items-center justify-center p-5">
           <div
             style={{ backgroundColor: secondaryBgColor }}
-            className="w-full max-w-[400px] mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-6 text-center shadow mt-16"
+            className="w-full max-w-[400px] mx-auto my-auto rounded-lg flex flex-col items-center space-y-8 p-6 text-center shadow mt-16"
           >
             <div className="flex flex-col text-center space-y-1.5">
               <h1 style={{ color: txtColor }} className="text-xl font-bold">
                 No One Is Avaliable
               </h1>
-              <p
-                style={{ color: hintColor }}
-                className=" dark:drop-shadow text-sm"
-              >
-                No one is avaliable at the moment. please try again later
-              </p>
             </div>
             <SearchAnime />
             <p
