@@ -17,7 +17,7 @@ const MatchesPage = () => {
   } = colors;
 
   useEffect(() => {
-    if (matches.length !== 0) {
+    if (matches.length === 0) {
       getMatches();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
