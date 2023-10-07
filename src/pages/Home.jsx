@@ -34,7 +34,7 @@ const HomePage = () => {
   } = colors;
 
   return (
-    <div className="w-full flex flex-col flex-grow">
+    <>
       <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers ? (
         <h1>getting users</h1>
@@ -49,20 +49,27 @@ const HomePage = () => {
           badge={<BadgeIcon />}
         />
       ) : (
-        <div
-          style={{ backgroundColor: secondaryBgColor }}
-          className="w-full mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-5 text-center"
-        >
-          <h1 style={{ color: txtColor }} className="text-xl font-bold">
-            No One Is Avaliable
-          </h1>
-          <SearchAnime />
-          <p style={{ color: hintColor }}>
-            No one is avaliable at the moment. please try again later
-          </p>
+        <div className="w-full h-full flex flex-col items-center justify-center p-5">
+          <div
+            style={{ backgroundColor: secondaryBgColor }}
+            className="w-full mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-5 text-center"
+          >
+            <div className="flex flex-col text-center space-y-3">
+              <h1 style={{ color: txtColor }} className="text-xl font-bold">
+                No One Is Avaliable
+              </h1>
+              <p style={{ color: hintColor }}>
+                No one is avaliable at the moment. please try again later
+              </p>
+            </div>
+            <SearchAnime />
+            <p style={{ color: txtColor }}>
+              No one is avaliable at the moment. please try again later
+            </p>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
