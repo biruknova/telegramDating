@@ -16,10 +16,10 @@ function generateUniqueId() {
   return Math.random().toString(36).substring(2);
 }
 
-const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
+const ProfileCard = ({ name, age, bio, imgs, onClick, badge, imgIndex }) => {
   const images = addIdsToElements(imgs);
 
-  const [indicatorPosition, setIndicatorPosition] = useState(0);
+  const [indicatorPosition, setIndicatorPosition] = useState(imgIndex);
 
   const leftClick = () => {
     setIndicatorPosition((prevPos) => {

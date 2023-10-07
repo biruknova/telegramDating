@@ -37,6 +37,7 @@ const HomePage = () => {
           bio={users[index].bio}
           imgs={users[index].photos}
           onClick={changePerson}
+          imgIndex={0}
           badge={<BadgeIcon />}
         />
       ) : (
