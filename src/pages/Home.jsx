@@ -12,7 +12,8 @@ import BadgeIcon from "../components/animatedIcons/Badge";
 import SearchAnime from "../components/animatedIcons/SearchAnime";
 
 const HomePage = () => {
-  const { isGettingUsers, users, setUsers, token } = useContext(context);
+  const { isGettingUsers, users, setUsers, token, matches, setMatches } =
+    useContext(context);
   const index = 0;
 
   const [isMatched, setIsMatched] = useState(false);
@@ -33,6 +34,8 @@ const HomePage = () => {
     likeUser(id);
 
     if (match) {
+      const matched = users.find((match) => match.id === id);
+      setMatches(matched, ...matches);
       setIsMatched(true);
     } else {
       showNext();
