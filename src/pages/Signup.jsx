@@ -106,14 +106,14 @@ const SignupPage = () => {
       if (typeof value === "string") {
         return value.trim() !== "";
       } else if (typeof value === "number") {
-        return !isNaN(value) && value >= 16;
+        return !isNaN(value);
       } else {
         return false;
       }
     });
 
     // Check if the current state is different from the previous state
-    if (fieldsAreFilled !== prevFieldsAreFilled) {
+    if (fieldsAreFilled !== prevFieldsAreFilled && !belowAgeLimit) {
       setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
 
       if (fieldsAreFilled) {
@@ -133,7 +133,7 @@ const SignupPage = () => {
         if (typeof value === "string") {
           return value.trim() !== "";
         } else if (typeof value === "number") {
-          return !isNaN(value) && value >= 16;
+          return !isNaN(value);
         } else {
           return false;
         }
