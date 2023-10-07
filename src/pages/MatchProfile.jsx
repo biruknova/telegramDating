@@ -49,11 +49,9 @@ const MatchProfile = () => {
   console.log(match);
 
   const toChat = () => {
-    if (match.tg_username) {
-      window.Telegram.WebApp.openLink(
-        `tg://resolve?domain=${match.tg_username}`
-      );
-    }
+    // if (match.tg_username) {
+    window.Telegram.WebApp.openLink(`tg://resolve?domain=tesfaX`);
+    // }
   };
   return (
     <div
