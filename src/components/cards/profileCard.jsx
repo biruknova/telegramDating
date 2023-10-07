@@ -118,7 +118,7 @@ const ProfileCard = ({
               <h2 className="drop-shadow font-semibold">Age: {age}</h2>
             </div>
           </div>
-          <div className="px-4 flex flex-col w-full space-y-1 text-sm min-h-[50px]">
+          <div className="px-4 flex flex-col w-full space-y-1 text-sm min-h-[100px]">
             {bio && (
               <>
                 <p className={`text-gray-700 dark:text-white`}>
