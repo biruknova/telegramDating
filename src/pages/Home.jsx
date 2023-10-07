@@ -12,8 +12,7 @@ import BadgeIcon from "../components/animatedIcons/Badge";
 import SearchAnime from "../components/animatedIcons/SearchAnime";
 
 const HomePage = () => {
-  const token = localStorage.getItem("userDatingToken");
-  const { isGettingUsers, users, setUsers, matches, setMatches } =
+  const { isGettingUsers, users, setUsers, tokenValue, matches, setMatches } =
     useContext(context);
 
   const index = 0;
@@ -66,7 +65,7 @@ const HomePage = () => {
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Authorization", `Bearer ${tokenValue}`);
 
     var raw = JSON.stringify({
       user_id: id,
@@ -89,7 +88,7 @@ const HomePage = () => {
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Authorization", `Bearer ${tokenValue}`);
 
     var raw = JSON.stringify({
       user_id: id,
