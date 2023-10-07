@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BASE_URL from "../config";
+import context from "../store/context";
 
 import HeartIcon from "../components/icons/Heart";
 
 const LoginPage = () => {
+  const { setTokenValue } = useContext(context);
   const [isLoggingIn, setIsLoggingIn] = useState(true);
   const navigate = useNavigate();
 
@@ -33,12 +35,14 @@ const LoginPage = () => {
       .then((result) => {
         setIsLoggingIn(false);
         if (result.success) {
-          localStorage.setItem("userDatingToken", result.token);
           navigate("/home");
+          setTokenValue(result.token);
+          localStorage.setItem("token", result.token);
         } else {
           navigate("/signup");
         }
         window.Telegram.WebApp.expand();
+        console.log(result);
       })
       .catch((error) => console.log("error", error));
   };
