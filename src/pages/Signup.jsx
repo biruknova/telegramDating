@@ -103,6 +103,7 @@ const SignupPage = () => {
 
   const areAllValuesFilled = () => {
     const fieldsAreFilled = Object.values(formData).every((value) => {
+      console.log("outer", formData);
       if (typeof value === "string") {
         return value.trim() !== "";
       } else if (typeof value === "number") {
