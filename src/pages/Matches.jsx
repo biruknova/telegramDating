@@ -14,6 +14,7 @@ const MatchesPage = () => {
     secondary_bg_color: secondaryBgColor,
     text_color: txtColor,
     hint_color: hintColor,
+    button_color: btnColor,
   } = colors;
 
   useEffect(() => {
@@ -48,7 +49,12 @@ const MatchesPage = () => {
       />
 
       {gettingMatches && matches.length === 0 ? (
-        <h1>getting matches</h1>
+        <div className="w-full flex justify-center mt-12">
+          <div
+            style={{ borderTop: `3px solid ${btnColor}` }}
+            className="w-[50px] h-[50px] rounded-full animate-spin"
+          ></div>
+        </div>
       ) : matches.length !== 0 ? (
         matches.map((match, index) => {
           return (
@@ -67,7 +73,12 @@ const MatchesPage = () => {
           );
         })
       ) : (
-        <h1>no matches</h1>
+        <div
+          style={{ color: hintColor }}
+          className="mt-12 w-full flex justify-center text-lg font-medium"
+        >
+          No Matches
+        </div>
       )}
     </div>
   );

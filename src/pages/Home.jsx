@@ -59,7 +59,7 @@ const HomePage = () => {
     secondary_bg_color: secondaryBgColor,
     text_color: txtColor,
     hint_color: hintColor,
-    // button_color: btnColor,
+    button_color: btnColor,
   } = colors;
 
   const likeUser = (id) => {
@@ -124,7 +124,12 @@ const HomePage = () => {
       )}
       <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers && users.length === 0 ? (
-        <h1>getting users</h1>
+        <div className="w-full flex justify-center mt-12">
+          <div
+            style={{ borderTop: `3px solid ${btnColor}` }}
+            className="w-[50px] h-[50px] rounded-full animate-spin"
+          ></div>
+        </div>
       ) : users.length !== 0 ? (
         <ProfileCard
           name={users[index].name}
