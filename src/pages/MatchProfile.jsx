@@ -1,5 +1,7 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import context from "../store/context";
 
 import ChatIcon from "../components/icons/Chat";
 import UnmatchIcon from "../components/icons/Unmatch";
@@ -33,9 +35,23 @@ const MatchProfile = () => {
     text_color: txtColor,
     hint_color: hintColor,
     button_color: btnColor,
-    // button_text_color: btnTxtColor,
     secondary_bg_color: secondaryBgColor,
   } = colors;
+
+  const { matches } = useContext(context);
+
+  const params = useParams();
+  const matchId = params.matchId;
+
+  const match = matches.find((match) => match.id === matchId);
+
+  const toChat = () => {
+    if (match.tg_username) {
+      window.Telegram.WebApp.openLink(
+        `tg://resolve?domain=${match.tg_username}`
+      );
+    }
+  };
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
@@ -49,19 +65,23 @@ const MatchProfile = () => {
           <div className="flex flex-col items-center space-y-2">
             <div
               style={{ border: `5px solid ${secondaryBgColor}` }}
-              className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200"
-            ></div>
+              className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200 overflow-hidden"
+            >
+              {" "}
+              <img src={match.photo[0]} alt="match profile" />
+            </div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
               <h1
                 style={{ color: txtColor }}
                 className="text-2xl font-semibold"
               >
-                Biruk K.
+                {match.name}
               </h1>
             </div>
           </div>
           <div className="w-full flex text-sm font-medium">
             <div
+              onClick={toChat}
               style={{ color: btnColor }}
               className="flex flex-col items-center w-1/2"
             >
@@ -80,54 +100,38 @@ const MatchProfile = () => {
             style={{ color: txtColor }}
             className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-sm mt-3"
           >
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
-            <div className="pr-5 py-3 space-y-1 text-start">
-              <h1>this is a test text for ui observation</h1>
-              <p style={{ color: hintColor }} className="text-xs">
-                Bio
-              </p>
-            </div>
+            {match.tg_username && (
+              <div className="pr-5 py-3 space-y-1 text-start">
+                <h1>@{match.tg_username}</h1>
+                <p style={{ color: hintColor }} className="text-xs">
+                  Username
+                </p>
+              </div>
+            )}
+            {match.bio && (
+              <div className="pr-5 py-3 space-y-1 text-start">
+                <h1>{match.bio}</h1>
+                <p style={{ color: hintColor }} className="text-xs">
+                  Bio
+                </p>
+              </div>
+            )}
+            {match.age && (
+              <div className="pr-5 py-3 space-y-1 text-start">
+                <h1>{match.age}</h1>
+                <p style={{ color: hintColor }} className="text-xs">
+                  Age
+                </p>
+              </div>
+            )}
+            {match.gender && (
+              <div className="pr-5 py-3 space-y-1 text-start">
+                <h1>{match.gender.name} </h1>
+                <p style={{ color: hintColor }} className="text-xs">
+                  Gender
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
