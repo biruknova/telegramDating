@@ -109,7 +109,7 @@ const SignupPage = () => {
         if (value === "") {
           return false;
         } else {
-          return !isNaN(value) && Number(value) >= 16;
+          return !isNaN(value);
         }
       } else {
         return false;
@@ -142,7 +142,7 @@ const SignupPage = () => {
           if (value === "") {
             return false;
           } else {
-            return !isNaN(value) && Number(value) >= 16;
+            return !isNaN(value);
           }
         } else {
           return false;
