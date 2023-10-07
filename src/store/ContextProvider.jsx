@@ -8,6 +8,7 @@ const DatingContextProvider = (props) => {
 
   const [users, setUsers] = useState([]);
   const [isGettingUsers, setIsGettingUsers] = useState(true);
+  const [hasNextPage, setHasNextPage] = useState(false);
 
   const getUsers = () => {
     setIsGettingUsers(true);
@@ -26,7 +27,10 @@ const DatingContextProvider = (props) => {
       .then((result) => {
         setIsGettingUsers(false);
         console.log(result);
-        setUsers(result.users);
+        setHasNextPage(result.has_next_page);
+        setUsers((prevUsers) => {
+          return [...prevUsers, ...result.users];
+        });
       })
       .catch((error) => console.log("error", error));
   };
@@ -37,6 +41,13 @@ const DatingContextProvider = (props) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
+
+  useEffect(() => {
+    if (users.length === 6 && hasNextPage) {
+      getUsers();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [users]);
 
   // // // // // // // // // // // // //
   const value = {
