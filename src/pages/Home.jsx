@@ -30,19 +30,13 @@ const HomePage = () => {
   const {
     secondary_bg_color: secondaryBgColor,
     text_color: txtColor,
-    // hint_color: hintColor,
+    hint_color: hintColor,
     button_color: btnColor,
   } = colors;
 
   return (
     <>
       <ImagePreloader imageUrls={allImageUrls} />
-      {/* 
-      {isGettingUsers && users.length === 0
-        ? "loading"
-        : users.length === 0
-        ? "no feed"
-        : "feed"} */}
       {isGettingUsers && users.length === 0 ? (
         <h1>getting users</h1>
       ) : users.length !== 0 ? (
@@ -65,12 +59,12 @@ const HomePage = () => {
               <h1 style={{ color: txtColor }} className="text-xl font-bold">
                 No One Is Avaliable
               </h1>
-              <p style={{ color: btnColor }}>
+              <p style={{ color: hintColor }}>
                 No one is avaliable at the moment. please try again later
               </p>
             </div>
             <SearchAnime />
-            <p style={{ color: txtColor }} className="font-medium">
+            <p style={{ color: btnColor }} className="font-medium">
               No one is avaliable at the moment. please try again later
             </p>
           </div>
