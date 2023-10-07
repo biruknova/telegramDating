@@ -55,8 +55,10 @@ const SignupPage = () => {
     } else {
       if (formData.age !== "" && formData.age < 16) {
         setBelowAgeLimit(true);
+        MainButton.hide();
       } else {
         setBelowAgeLimit(false);
+        MainButton.show();
       }
       setAgeIsFocused(false);
     }
@@ -76,8 +78,10 @@ const SignupPage = () => {
     if (name === "age") {
       if (value !== "" && value.substr(0, 2) < 16 && value.length > 1) {
         setBelowAgeLimit(true);
+        MainButton.hide();
       } else {
         setBelowAgeLimit(false);
+        MainButton.show();
       }
       if (value.length > 2) {
         setFormData({
@@ -113,7 +117,7 @@ const SignupPage = () => {
     });
 
     // Check if the current state is different from the previous state
-    if (fieldsAreFilled !== prevFieldsAreFilled && !belowAgeLimit) {
+    if (fieldsAreFilled !== prevFieldsAreFilled) {
       setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
 
       if (fieldsAreFilled) {
