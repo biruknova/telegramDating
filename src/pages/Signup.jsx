@@ -55,10 +55,8 @@ const SignupPage = () => {
     } else {
       if (formData.age !== "" && formData.age < 16) {
         setBelowAgeLimit(true);
-        MainButton.hide();
       } else {
         setBelowAgeLimit(false);
-        MainButton.show();
       }
       setAgeIsFocused(false);
     }
@@ -76,7 +74,7 @@ const SignupPage = () => {
     const { name, value } = e.target;
 
     if (name === "age") {
-      if (value !== "" && value.substr(0, 2) < 16 && value.length > 1) {
+      if (value !== "" && value.substr(0, 2) < 16 && value.length > 0) {
         setBelowAgeLimit(true);
         MainButton.hide();
       } else {
