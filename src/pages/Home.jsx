@@ -3,6 +3,7 @@ import { useContext } from "react";
 import context from "../store/context";
 
 import ProfileCard from "../components/cards/profileCard";
+import ImagePreloader from "../components/ImagePreloader";
 
 import BadgeIcon from "../components/animatedIcons/Badge";
 
@@ -13,16 +14,20 @@ const HomePage = () => {
   const changePerson = () => {
     if (users.length > 0) {
       setUsers((prevUsers) => {
-        // Create a new array without the first item
         const updatedUsers = prevUsers.slice(1);
-        // Update the users state with the new array
         return updatedUsers;
       });
     }
   };
 
+  const allImageUrls = users.reduce((imageUrls, user) => {
+    // Concatenate the user's photo URLs to the accumulator array
+    return imageUrls.concat(user.photos);
+  }, []);
+
   return (
     <>
+      <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers ? (
         <h1>getting users</h1>
       ) : users.length !== 0 ? (
