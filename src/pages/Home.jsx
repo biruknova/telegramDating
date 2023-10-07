@@ -120,7 +120,11 @@ const HomePage = () => {
           name={users[index].name}
           age={users[index].age}
           bio={users[index].bio}
-          imgs={users[index].photos}
+          imgs={
+            users[index].photos
+              ? users[index].photos
+              : ["https://picsum.photos/200"]
+          }
           id={users[index].id}
           likedYou={users[index].liked_you}
           onLike={like}
