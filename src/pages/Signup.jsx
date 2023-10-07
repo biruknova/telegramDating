@@ -116,7 +116,7 @@ const SignupPage = () => {
     if (fieldsAreFilled !== prevFieldsAreFilled) {
       setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
 
-      if (fieldsAreFilled) {
+      if (fieldsAreFilled && formData.age >= 16) {
         MainButton.show();
         MainButton.onClick(registerUser);
       } else {
