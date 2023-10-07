@@ -75,9 +75,9 @@ const MatchesPage = () => {
       ) : (
         <div
           style={{ color: hintColor }}
-          className="mt-12 w-full flex justify-center text-lg font-medium"
+          className="mt-12 w-full flex justify-center text-lg "
         >
-          No Matches
+          No Matches !
         </div>
       )}
     </div>

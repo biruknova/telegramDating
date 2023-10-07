@@ -133,7 +133,7 @@ const ProfileCard = ({
           <hr className="border-t border-slate-100 dark:border-black/20 w-full" />
         </div>
 
-        <div className="flex space-x-4 px-4 w-full">
+        <div className="flex space-x-4 px-4 w-full pb-5">
           <button
             onClick={() => {
               handleDislike(id);
