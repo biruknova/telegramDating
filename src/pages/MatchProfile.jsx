@@ -45,7 +45,7 @@ const MatchProfile = () => {
 
   console.log(matchId);
 
-  const match = matches.find((match) => match.id === Number(matchId));
+  const match = matches.find((match) => match.id === matchId);
   console.log(match);
 
   const toChat = () => {
@@ -70,16 +70,22 @@ const MatchProfile = () => {
               style={{ border: `5px solid ${secondaryBgColor}` }}
               className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200 overflow-hidden"
             >
-              {" "}
-              <img src={match.photos[0]} alt="match profile" />
+              <img
+                src={
+                  match && match.photos
+                    ? match.photos[0]
+                    : "https://picsum.photos/200"
+                }
+                alt="match profile"
+              />
             </div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
-              <h1
+              <span
                 style={{ color: txtColor }}
                 className="text-2xl font-semibold"
               >
-                {match.name}
-              </h1>
+                {match ? match.name : ""}
+              </span>
             </div>
           </div>
           <div className="w-full flex text-sm font-medium">
@@ -103,7 +109,7 @@ const MatchProfile = () => {
             style={{ color: txtColor }}
             className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-sm mt-3"
           >
-            {match.tg_username && (
+            {match && match.tg_username && (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>@{match.tg_username}</h1>
                 <p style={{ color: hintColor }} className="text-xs">
@@ -111,7 +117,7 @@ const MatchProfile = () => {
                 </p>
               </div>
             )}
-            {match.bio && (
+            {match && match.bio && (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>{match.bio}</h1>
                 <p style={{ color: hintColor }} className="text-xs">
@@ -119,7 +125,7 @@ const MatchProfile = () => {
                 </p>
               </div>
             )}
-            {match.age && (
+            {match && match.age && (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>{match.age}</h1>
                 <p style={{ color: hintColor }} className="text-xs">
@@ -127,7 +133,7 @@ const MatchProfile = () => {
                 </p>
               </div>
             )}
-            {match.gender && (
+            {match && match.gender && (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>{match.gender.name} </h1>
                 <p style={{ color: hintColor }} className="text-xs">

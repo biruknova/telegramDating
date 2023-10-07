@@ -56,7 +56,7 @@ const MatchesPage = () => {
               key={match.id}
               name={match.name}
               age={match.age}
-              img={match.photos[0]}
+              img={match.photos ? match.photos[0] : "https://picsum.photos/200"}
               id={match.id}
               style={
                 index === matches.length - 1
