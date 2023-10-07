@@ -73,12 +73,12 @@ const MatchProfile = () => {
               />
             </div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
-              <span
+              <h1
                 style={{ color: txtColor }}
                 className="text-2xl font-semibold"
               >
                 {match ? match.name : ""}
-              </span>
+              </h1>
             </div>
           </div>
           <div className="w-full flex text-sm font-medium">
