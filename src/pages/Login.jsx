@@ -53,8 +53,14 @@ const LoginPage = () => {
   return (
     <div
       style={{ height: viewPortHeight }}
-      className="text-white flex items-center justify-center"
+      className="text-white flex items-center justify-center relative"
     >
+      {/* <div className="absolute w-full min-h-screen top-0 left-0 bg-gray-600 flex p-5">
+        <div className="w-full mx-auto my-auto bg-gray-900  rounded-lg flex flex-col items-center space-y-6 p-5 text-center">
+          <h1 className="text-xl font-bold">No One Is Avaliable</h1>
+          <p>No one is avaliable at the moment. please try again later</p>
+        </div>
+      </div> */}
       {isLoggingIn && <HeartIcon styles="w-9 h-9 animate-ping text-red-600" />}
     </div>
   );

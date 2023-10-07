@@ -108,27 +108,6 @@ const SignupPage = () => {
 
     const fieldsAreFilled =
       nameIsValid && genderIsValid && ageIsValid && dataIsValid;
-    // const fieldsAreFilled = Object.values(formData).every((value) => {
-    //   console.log("outer", value);
-    //   if (typeof value === "string") {
-    //     return value.trim() !== "";
-    //   } else if (typeof value === "number") {
-    //     // if (value === "") {
-    //     //   return false;
-    //     // } else {
-    //     //   console.log(formData);
-    //     //   console.log("num value", value, "case", value >= 16);
-    //     //   return !isNaN(value) && value >= 16;
-    //     // }
-    //     if (isNaN(value) || value < 16) {
-    //       return false;
-    //     } else {
-    //       return true;
-    //     }
-    //   } else {
-    //     return false;
-    //   }
-    // });
 
     // Check if the current state is different from the previous state
     if (fieldsAreFilled !== prevFieldsAreFilled) {
@@ -146,7 +125,7 @@ const SignupPage = () => {
     }
   };
 
-  // Use useEffect to update the initial and previous state when formData changes
+  // useEffect to update the initial and previous state when formData changes
   useEffect(() => {
     const nameIsValid = formData.name !== "";
     const genderIsValid = formData.gender_id !== "";
