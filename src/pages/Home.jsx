@@ -59,12 +59,12 @@ const HomePage = () => {
               <h1 style={{ color: txtColor }} className="text-xl font-bold">
                 No One Is Avaliable
               </h1>
-              <p style={{ color: hintColor }} className="text-sm">
+              <p style={{ color: hintColor }} className=" drop-shadow text-sm">
                 No one is avaliable at the moment. please try again later
               </p>
             </div>
             <SearchAnime />
-            <p style={{ color: hintColor }} className="font-medium text-sm">
+            <p style={{ color: hintColor }} className="drop-shadow text-sm">
               No one is avaliable at the moment. please try again later
             </p>
           </div>
