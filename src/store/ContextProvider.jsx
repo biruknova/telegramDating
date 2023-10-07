@@ -42,18 +42,51 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token !== "") {
+    if (token) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   useEffect(() => {
-    if (users.length === 6 && hasNextPage) {
+    if (token && users.length === 6 && hasNextPage) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [users]);
+
+  const [matches, setMatches] = useState([]);
+  const [gettingMatches, setGettingMatches] = useState(false);
+
+  const getMatches = () => {
+    setGettingMatches(true);
+    var newHeader = new Headers();
+    newHeader.append("Accept", "application/json");
+    newHeader.append("Authorization", `Bearer ${token}`);
+
+    var requestOptions = {
+      method: "GET",
+      headers: newHeader,
+      redirect: "follow",
+    };
+
+    fetch(BASE_URL + "/api/matches", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setGettingMatches(false);
+        if (result.success) {
+          setMatches(result.matches);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => {
+    if (token) {
+      getMatches();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // // // // // // // // // // // // //
   const value = {
@@ -62,6 +95,10 @@ const DatingContextProvider = (props) => {
     isGettingUsers,
     users,
     setUsers,
+    gettingMatches,
+    matches,
+    setMatches,
+    getMatches,
   };
 
   return <context.Provider value={value}>{props.children}</context.Provider>;
