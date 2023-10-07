@@ -48,6 +48,11 @@ const MatchProfile = () => {
   const match = matches.find((match) => match.id === matchId);
   console.log(match);
 
+  const toChat = () => {
+    if (match.tg_username) {
+      window.Telegram.WebApp.openLink(`tg://resolve?domain=tesfaX`);
+    }
+  };
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
@@ -82,14 +87,14 @@ const MatchProfile = () => {
             </div>
           </div>
           <div className="w-full flex text-sm font-medium">
-            <a
-              href="tg://resolve?domain=tesfaX"
+            <div
+              onClick={toChat}
               style={{ color: btnColor }}
               className="flex flex-col items-center w-1/2"
             >
               <ChatIcon styles="w-6 h-6" />
               <h1>Message</h1>
-            </a>
+            </div>
             <div
               style={{ color: btnColor }}
               className="flex flex-col items-center w-1/2"
