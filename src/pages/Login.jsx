@@ -58,6 +58,7 @@ const LoginPage = () => {
       {/* <div className="absolute w-full min-h-screen top-0 left-0 bg-gray-600 flex p-5">
         <div className="w-full mx-auto my-auto bg-gray-900  rounded-lg flex flex-col items-center space-y-6 p-5 text-center">
           <h1 className="text-xl font-bold">No One Is Avaliable</h1>
+          
           <p>No one is avaliable at the moment. please try again later</p>
         </div>
       </div> */}

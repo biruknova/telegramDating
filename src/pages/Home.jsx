@@ -7,6 +7,8 @@ import ImagePreloader from "../components/ImagePreloader";
 
 import BadgeIcon from "../components/animatedIcons/Badge";
 
+import SearchAnime from "../components/animatedIcons/SearchAnime";
+
 const HomePage = () => {
   const { isGettingUsers, users, setUsers } = useContext(context);
   const index = 0;
@@ -23,8 +25,16 @@ const HomePage = () => {
     return imageUrls.concat(user.photos);
   }, []);
 
+  const colors = window.Telegram.WebApp.themeParams;
+
+  const {
+    secondary_bg_color: secondaryBgColor,
+    text_color: txtColor,
+    hint_color: hintColor,
+  } = colors;
+
   return (
-    <>
+    <div className="w-full flex flex-col flex-grow">
       <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers ? (
         <h1>getting users</h1>
@@ -39,12 +49,20 @@ const HomePage = () => {
           badge={<BadgeIcon />}
         />
       ) : (
-        <div className="w-full mx-auto my-auto bg-gray-900  rounded-lg flex flex-col items-center space-y-6 p-5 text-center">
-          <h1 className="text-xl font-bold">No One Is Avaliable</h1>
-          <p>No one is avaliable at the moment. please try again later</p>
+        <div
+          style={{ backgroundColor: secondaryBgColor }}
+          className="w-full mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-5 text-center"
+        >
+          <h1 style={{ color: txtColor }} className="text-xl font-bold">
+            No One Is Avaliable
+          </h1>
+          <SearchAnime />
+          <p style={{ color: hintColor }}>
+            No one is avaliable at the moment. please try again later
+          </p>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
