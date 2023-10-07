@@ -42,16 +42,21 @@ const MatchProfile = () => {
     >
       <div
         style={{ backgroundColor: bgColor }}
-        className="w-full flex flex-col flex-grow   rounded-t-xl"
+        className="w-full flex flex-col flex-grow rounded-t-xl"
       >
         <div className="-mt-[50px] flex flex-col items-center space-y-6">
           <div className="flex flex-col items-center space-y-2">
             <div
-              // style={{ backgroundColor: secondaryBgColor }}
-              className="rounded-full w-[130px] h-[130px] rounded-full bg-blue-500 "
+              style={{ border: `2px solid ${secondaryBgColor}` }}
+              className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200"
             ></div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
-              <h1 className="text-2xl font-semibold">Biruk K.</h1>
+              <h1
+                style={{ color: txtColor }}
+                className="text-2xl font-semibold"
+              >
+                Biruk K.
+              </h1>
             </div>
           </div>
           <div className="w-full flex">
@@ -72,7 +77,7 @@ const MatchProfile = () => {
           </div>
           <div
             style={{ color: txtColor }}
-            className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5"
+            className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-sm mt-3"
           >
             <div className="pr-5 py-3 space-y-1 text-start">
               <h1>this is a test text for ui observation</h1>
