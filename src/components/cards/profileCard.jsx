@@ -122,7 +122,7 @@ const ProfileCard = ({
         <div className="flex space-x-4 px-4 w-full">
           <button
             onClick={() => {
-              handleLike(id);
+              handleDislike(id);
             }}
             className="w-1/2 h-[45px] rounded bg-[#D70240] flex justify-center items-center"
           >
@@ -130,7 +130,7 @@ const ProfileCard = ({
           </button>
           <button
             onClick={() => {
-              handleDislike(id);
+              handleLike(id);
             }}
             className="w-1/2 h-[45px] rounded bg-[#02BF96] flex justify-center items-center"
           >
