@@ -109,7 +109,7 @@ const SignupPage = () => {
         if (value === "") {
           return false;
         } else {
-          return value >= 16;
+          return !isNaN(value) && value >= 16;
         }
       } else {
         return false;
@@ -119,6 +119,8 @@ const SignupPage = () => {
     // Check if the current state is different from the previous state
     if (fieldsAreFilled !== prevFieldsAreFilled) {
       setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
+
+      console.log("fields are filled", fieldsAreFilled);
 
       if (fieldsAreFilled) {
         MainButton.show();
@@ -140,7 +142,7 @@ const SignupPage = () => {
           if (value === "") {
             return false;
           } else {
-            return value >= 16;
+            return !isNaN(value) && value >= 16;
           }
         } else {
           return false;
