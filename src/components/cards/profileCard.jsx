@@ -40,6 +40,11 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge, imgIndex }) => {
       }
     });
   };
+
+  const handleChange = () => {
+    onClick();
+    setIndicatorPosition(0);
+  };
   return (
     <section className="w-full mx-auto flex flex-col items-center">
       <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-4 w-full">
@@ -100,13 +105,13 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge, imgIndex }) => {
 
         <div className="flex space-x-4 px-4 w-full">
           <button
-            onClick={onClick}
+            onClick={handleChange}
             className="w-1/2 h-[45px] rounded bg-[#D70240] flex justify-center items-center"
           >
             <CloseIcon styles="w-7 h-7 text-white" />
           </button>
           <button
-            onClick={onClick}
+            onClick={handleChange}
             className="w-1/2 h-[45px] rounded bg-[#02BF96] flex justify-center items-center"
           >
             <HeartIcon styles="w-7 h-7 text-white" />

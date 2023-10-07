@@ -12,12 +12,10 @@ const HomePage = () => {
   const index = 0;
 
   const changePerson = () => {
-    if (users.length > 0) {
-      setUsers((prevUsers) => {
-        const updatedUsers = prevUsers.slice(1);
-        return updatedUsers;
-      });
-    }
+    setUsers((prevUsers) => {
+      const updatedUsers = prevUsers.slice(1);
+      return updatedUsers;
+    });
   };
 
   const allImageUrls = users.reduce((imageUrls, user) => {
@@ -37,7 +35,7 @@ const HomePage = () => {
           bio={users[index].bio}
           imgs={users[index].photos}
           onClick={changePerson}
-          imgIndex={0}
+          imgIndex={index}
           badge={<BadgeIcon />}
         />
       ) : (
