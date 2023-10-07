@@ -107,12 +107,17 @@ const SignupPage = () => {
       if (typeof value === "string") {
         return value.trim() !== "";
       } else if (typeof value === "number") {
-        if (value === "") {
+        // if (value === "") {
+        //   return false;
+        // } else {
+        //   console.log(formData);
+        //   console.log("num value", value, "case", value >= 16);
+        //   return !isNaN(value) && value >= 16;
+        // }
+        if (isNaN(value) || value < 16) {
           return false;
         } else {
-          console.log(formData);
-          console.log("num value", value, "case", value >= 16);
-          return !isNaN(value) && value >= 16;
+          return true;
         }
       } else {
         return false;
@@ -142,10 +147,15 @@ const SignupPage = () => {
         if (typeof value === "string") {
           return value.trim() !== "";
         } else if (typeof value === "number") {
-          if (value === "") {
+          // if (value === "") {
+          //   return false;
+          // } else {
+          //   return !isNaN(value);
+          // }
+          if (isNaN(value) || value < 16) {
             return false;
           } else {
-            return !isNaN(value);
+            return true;
           }
         } else {
           return false;
