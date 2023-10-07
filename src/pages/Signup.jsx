@@ -67,7 +67,6 @@ const SignupPage = () => {
       ...formData,
       gender_id: val,
     });
-    console.log(formData);
   };
 
   const handleInputChange = (e) => {
@@ -102,27 +101,34 @@ const SignupPage = () => {
   const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
 
   const areAllValuesFilled = () => {
-    const fieldsAreFilled = Object.values(formData).every((value) => {
-      console.log("outer", value);
-      if (typeof value === "string") {
-        return value.trim() !== "";
-      } else if (typeof value === "number") {
-        // if (value === "") {
-        //   return false;
-        // } else {
-        //   console.log(formData);
-        //   console.log("num value", value, "case", value >= 16);
-        //   return !isNaN(value) && value >= 16;
-        // }
-        if (isNaN(value) || value < 16) {
-          return false;
-        } else {
-          return true;
-        }
-      } else {
-        return false;
-      }
-    });
+    const nameIsValid = formData.name !== "";
+    const genderIsValid = formData.gender_id !== "";
+    const ageIsValid = formData.age >= 16;
+    const dataIsValid = formData.tg_data !== "";
+
+    const fieldsAreFilled =
+      nameIsValid && genderIsValid && ageIsValid && dataIsValid;
+    // const fieldsAreFilled = Object.values(formData).every((value) => {
+    //   console.log("outer", value);
+    //   if (typeof value === "string") {
+    //     return value.trim() !== "";
+    //   } else if (typeof value === "number") {
+    //     // if (value === "") {
+    //     //   return false;
+    //     // } else {
+    //     //   console.log(formData);
+    //     //   console.log("num value", value, "case", value >= 16);
+    //     //   return !isNaN(value) && value >= 16;
+    //     // }
+    //     if (isNaN(value) || value < 16) {
+    //       return false;
+    //     } else {
+    //       return true;
+    //     }
+    //   } else {
+    //     return false;
+    //   }
+    // });
 
     // Check if the current state is different from the previous state
     if (fieldsAreFilled !== prevFieldsAreFilled) {
@@ -142,25 +148,13 @@ const SignupPage = () => {
 
   // Use useEffect to update the initial and previous state when formData changes
   useEffect(() => {
+    const nameIsValid = formData.name !== "";
+    const genderIsValid = formData.gender_id !== "";
+    const ageIsValid = formData.age >= 16;
+    const dataIsValid = formData.tg_data !== "";
+
     setPrevFieldsAreFilled(
-      Object.values(formData).every((value) => {
-        if (typeof value === "string") {
-          return value.trim() !== "";
-        } else if (typeof value === "number") {
-          // if (value === "") {
-          //   return false;
-          // } else {
-          //   return !isNaN(value);
-          // }
-          if (isNaN(value) || value < 16) {
-            return false;
-          } else {
-            return true;
-          }
-        } else {
-          return false;
-        }
-      })
+      nameIsValid && genderIsValid && ageIsValid && dataIsValid
     );
   }, [formData]);
 
