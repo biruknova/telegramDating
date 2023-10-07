@@ -2,6 +2,8 @@ import { useContext } from "react";
 
 import context from "../store/context";
 
+import BadgeIcon from "../components/animatedIcons/Badge";
+
 const ProfilePage = () => {
   const colors = window.Telegram.WebApp.themeParams;
 
@@ -41,12 +43,15 @@ const ProfilePage = () => {
                 />
               </div>
               <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
-                <h1
-                  style={{ color: txtColor }}
-                  className="text-xl font-semibold min-w-max"
-                >
-                  {profile ? profile.name : ""}
-                </h1>
+                <div className="flex items-center space-x-2">
+                  <h1
+                    style={{ color: txtColor }}
+                    className="text-xl font-semibold min-w-max"
+                  >
+                    {profile ? profile.name : ""}
+                  </h1>{" "}
+                  {profile.has_telegram_premium && <BadgeIcon />}
+                </div>
               </div>
             </div>
             <div
