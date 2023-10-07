@@ -34,8 +34,6 @@ const HomePage = () => {
     // button_color: btnColor,
   } = colors;
 
-  const viewPortHeight = window.Telegram.WebApp.viewportHeight;
-
   return (
     <>
       <ImagePreloader imageUrls={allImageUrls} />
@@ -52,10 +50,7 @@ const HomePage = () => {
           badge={<BadgeIcon />}
         />
       ) : (
-        <div
-          style={{ height: viewPortHeight }}
-          className="w-full h-full flex flex-col items-center justify-center p-5"
-        >
+        <div className="w-full pb-16 flex flex-col items-center justify-center p-5">
           <div
             style={{ backgroundColor: secondaryBgColor }}
             className="w-full max-w-[400px] mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-6 text-center shadow"
