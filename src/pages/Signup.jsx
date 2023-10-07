@@ -109,7 +109,8 @@ const SignupPage = () => {
         if (value === "") {
           return false;
         } else {
-          return !isNaN(value);
+          console.log("num value", value, "case", value >= 16);
+          return !isNaN(value) && value >= 16;
         }
       } else {
         return false;
