@@ -3,8 +3,9 @@ import { useContext, useState } from "react";
 import context from "../store/context";
 import BASE_URL from "../config";
 
-import ProfileCard from "../components/cards/profileCard";
 import ImagePreloader from "../components/ImagePreloader";
+import ProfileCard from "../components/cards/profileCard";
+import MatchPopUp from "../components/MatchPopUp";
 
 import BadgeIcon from "../components/animatedIcons/Badge";
 
@@ -105,12 +106,16 @@ const HomePage = () => {
   return (
     <>
       {isMatched && (
-        <div className="fixed top-0 left-0 bg-black z-50 min-h-screen w-full">
-          <button onClick={closeMatchPopUp} className="bg-white text-black p-5">
-            close
-          </button>
-          <button> view profile</button>
-        </div>
+        <MatchPopUp
+          onShowProfile={closeMatchPopUp}
+          onClose={closeMatchPopUp}
+          matchImg={
+            users[index].photos
+              ? users[index].photos[index]
+              : "https://picsum.photos/100"
+          }
+          matchName={users[index].name}
+        />
       )}
       <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers && users.length === 0 ? (
