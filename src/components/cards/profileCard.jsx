@@ -21,8 +21,6 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
 
   const [indicatorPosition, setIndicatorPosition] = useState(0);
 
-  // const array = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
-
   const leftClick = () => {
     setIndicatorPosition((prevPos) => {
       if (prevPos === 0) {
@@ -79,7 +77,7 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
               </div>
             )}
             <img
-              src={imgs[indicatorPosition]}
+              src={images[indicatorPosition].value}
               alt="profile"
               className="w-full"
             />
