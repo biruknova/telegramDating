@@ -37,7 +37,7 @@ const HomePage = () => {
 
     if (match) {
       const matched = users.find((match) => match.id === id);
-      setMatches(matched, ...matches);
+      setMatches([matched, ...matches]);
       setIsMatched(true);
     } else {
       showNext();
