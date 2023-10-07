@@ -57,8 +57,8 @@ const MatchProfile = () => {
         style={{ backgroundColor: bgColor }}
         className="w-full flex flex-col flex-grow rounded-t-xl"
       >
-        <div className="-mt-[50px] flex flex-col items-center space-y-6">
-          <div className="flex flex-col items-center space-y-2">
+        <div className="-mt-[50px] flex flex-col items-center space-y-6 w-full">
+          <div className="flex flex-col items-center space-y-2 w-full">
             <div
               style={{ border: `5px solid ${secondaryBgColor}` }}
               className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200 overflow-hidden"
@@ -75,7 +75,7 @@ const MatchProfile = () => {
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
               <h1
                 style={{ color: txtColor }}
-                className="text-2xl font-semibold"
+                className="text-xl font-semibold min-w-max"
               >
                 {match ? match.name : ""}
               </h1>
