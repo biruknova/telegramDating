@@ -1,13 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BASE_URL from "../config";
-import context from "../store/context";
 
 import HeartIcon from "../components/icons/Heart";
 
 const LoginPage = () => {
-  const { setToken } = useContext(context);
   const [isLoggingIn, setIsLoggingIn] = useState(true);
   const navigate = useNavigate();
 
@@ -37,7 +35,6 @@ const LoginPage = () => {
         if (result.success) {
           navigate("/home");
           localStorage.setItem("token", result.token);
-          setToken(result.token);
         } else {
           navigate("/signup");
         }
