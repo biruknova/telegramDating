@@ -124,10 +124,10 @@ const HomePage = () => {
       )}
       <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers && users.length === 0 ? (
-        <div className="w-full flex justify-center mt-12">
+        <div className="w-full flex justify-center mt-16">
           <div
-            style={{ borderTop: `3px solid ${btnColor}` }}
-            className="w-[50px] h-[50px] rounded-full animate-spin"
+            style={{ borderTop: `2px solid ${btnColor}` }}
+            className="w-[40px] h-[40px] rounded-full animate-spin"
           ></div>
         </div>
       ) : users.length !== 0 ? (
