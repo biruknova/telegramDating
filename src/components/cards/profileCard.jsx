@@ -92,7 +92,7 @@ const ProfileCard = ({
                 })}
             </div>
             {images.length > 1 && (
-              <div className="w-full h-full absolute top-0 left-0 grid grid-cols-2">
+              <div className="w-full h-full absolute top-0 left-0 grid grid-cols-2 z-40">
                 <div onClick={leftClick} className="bg-transparent"></div>
                 <div onClick={rightClick} className="bg-transparent"></div>
               </div>
@@ -102,10 +102,10 @@ const ProfileCard = ({
               alt="profile"
               className="w-full"
             />
-            <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 bg-gradient-to-b from-transparent via-black/40 to-black/60 w-full">
+            <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 bg-gradient-to-b from-transparent via-black/20 to-black/40 w-full">
               <div className="flex items-center space-x-2">
                 <h1 className="text-2xl font-medium drop-shadow">{name}</h1>
-                {badge}
+                <span className="z-50">{badge}</span>
               </div>
               <h2 className="drop-shadow font-semibold">Age: {age}</h2>
             </div>
