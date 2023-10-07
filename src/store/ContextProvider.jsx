@@ -45,14 +45,14 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token) {
+    if (token !== 0) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   useEffect(() => {
-    if (token && users.length === 6 && hasNextPage) {
+    if (token !== "" && users.length === 6 && hasNextPage) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -85,7 +85,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token) {
+    if (token !== "") {
       getMatches();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
