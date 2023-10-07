@@ -43,7 +43,9 @@ const MatchProfile = () => {
   const params = useParams();
   const matchId = params.matchId;
 
-  const match = matches.find((match) => match.id === matchId);
+  console.log(matchId);
+
+  const match = matches.find((match) => match.id === Number(matchId));
   console.log(match);
 
   const toChat = () => {
@@ -69,7 +71,7 @@ const MatchProfile = () => {
               className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200 overflow-hidden"
             >
               {" "}
-              {/* <img src={match.photos[0]} alt="match profile" /> */}
+              <img src={match.photos[0]} alt="match profile" />
             </div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
               <h1
