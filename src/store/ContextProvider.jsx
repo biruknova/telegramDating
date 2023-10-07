@@ -7,7 +7,7 @@ const DatingContextProvider = (props) => {
   const [token, setToken] = useState("");
 
   const [users, setUsers] = useState([]);
-  const [isGettingUsers, setIsGettingUsers] = useState(false);
+  const [isGettingUsers, setIsGettingUsers] = useState(true);
 
   const getUsers = () => {
     setIsGettingUsers(true);

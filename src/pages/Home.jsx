@@ -30,13 +30,20 @@ const HomePage = () => {
   const {
     secondary_bg_color: secondaryBgColor,
     text_color: txtColor,
-    hint_color: hintColor,
+    // hint_color: hintColor,
+    button_color: btnColor,
   } = colors;
 
   return (
     <>
       <ImagePreloader imageUrls={allImageUrls} />
-      {isGettingUsers ? (
+      {/* 
+      {isGettingUsers && users.length === 0
+        ? "loading"
+        : users.length === 0
+        ? "no feed"
+        : "feed"} */}
+      {isGettingUsers && users.length === 0 ? (
         <h1>getting users</h1>
       ) : users.length !== 0 ? (
         <ProfileCard
@@ -54,16 +61,16 @@ const HomePage = () => {
             style={{ backgroundColor: secondaryBgColor }}
             className="w-full mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-5 text-center"
           >
-            <div className="flex flex-col text-center space-y-3">
+            <div className="flex flex-col text-center space-y-1.5">
               <h1 style={{ color: txtColor }} className="text-xl font-bold">
                 No One Is Avaliable
               </h1>
-              <p style={{ color: hintColor }}>
+              <p style={{ color: btnColor }}>
                 No one is avaliable at the moment. please try again later
               </p>
             </div>
             <SearchAnime />
-            <p style={{ color: txtColor }}>
+            <p style={{ color: txtColor }} className="font-medium">
               No one is avaliable at the moment. please try again later
             </p>
           </div>
