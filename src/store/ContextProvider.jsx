@@ -89,8 +89,10 @@ const DatingContextProvider = (props) => {
   }, [tokenValue]);
 
   const [profile, setProfile] = useState({});
+  const [isGettingProfile, setIsGettingProfile] = useState(false);
 
   const getProfile = () => {
+    setIsGettingProfile(true);
     var newHeader = new Headers();
     newHeader.append("Accept", "application/json");
     newHeader.append("Authorization", `Bearer ${tokenValue}`);
@@ -101,9 +103,10 @@ const DatingContextProvider = (props) => {
       redirect: "follow",
     };
 
-    fetch(BASE_URL + "/api/profile/", requestOptions)
+    fetch(BASE_URL + "/api/profile", requestOptions)
       .then((response) => response.json())
       .then((result) => {
+        setIsGettingProfile(false);
         setProfile(result.user);
         console.log(result);
       })
@@ -128,6 +131,7 @@ const DatingContextProvider = (props) => {
     matches,
     setMatches,
     getMatches,
+    isGettingProfile,
     profile,
     setProfile,
   };
