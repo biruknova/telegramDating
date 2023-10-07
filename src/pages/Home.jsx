@@ -31,7 +31,7 @@ const HomePage = () => {
     secondary_bg_color: secondaryBgColor,
     text_color: txtColor,
     hint_color: hintColor,
-    button_color: btnColor,
+    // button_color: btnColor,
   } = colors;
 
   return (
@@ -53,18 +53,18 @@ const HomePage = () => {
         <div className="w-full h-full flex flex-col items-center justify-center p-5">
           <div
             style={{ backgroundColor: secondaryBgColor }}
-            className="w-full mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-5 text-center"
+            className="w-full mx-auto my-auto rounded-lg flex flex-col items-center space-y-6 p-6 text-center shadow"
           >
             <div className="flex flex-col text-center space-y-1.5">
               <h1 style={{ color: txtColor }} className="text-xl font-bold">
                 No One Is Avaliable
               </h1>
-              <p style={{ color: hintColor }}>
+              <p style={{ color: hintColor }} className="text-sm">
                 No one is avaliable at the moment. please try again later
               </p>
             </div>
             <SearchAnime />
-            <p style={{ color: btnColor }} className="font-medium">
+            <p style={{ color: hintColor }} className="font-medium text-sm">
               No one is avaliable at the moment. please try again later
             </p>
           </div>
