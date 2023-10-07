@@ -37,11 +37,11 @@ const MatchProfile = () => {
   } = colors;
   return (
     <div
-      style={{ backgroundColor: bgColor }}
-      className="fixed w-full min-h-screen top-0 left-0  flex flex-grow pt-[130px] z-50"
+      style={{ backgroundColor: secondaryBgColor }}
+      className=" w-full min-h-screen flex flex-grow pt-[130px] z-50"
     >
       <div
-        style={{ backgroundColor: secondaryBgColor }}
+        style={{ backgroundColor: bgColor }}
         className="w-full flex flex-col flex-grow   rounded-t-xl"
       >
         <div className="-mt-[50px] flex flex-col items-center space-y-6">
@@ -70,11 +70,11 @@ const MatchProfile = () => {
               <h1>Message</h1>
             </div>
           </div>
-          <div className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5">
-            <div
-              style={{ color: txtColor }}
-              className="pr-5 py-3 space-y-1 text-start"
-            >
+          <div
+            style={{ color: txtColor }}
+            className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5"
+          >
+            <div className="pr-5 py-3 space-y-1 text-start">
               <h1>this is a test text for ui observation</h1>
               <p style={{ color: hintColor }} className="text-xs">
                 Bio
