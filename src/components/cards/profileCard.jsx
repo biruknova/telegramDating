@@ -3,6 +3,14 @@ import { useState } from "react";
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
+function limitStringWithEllipsis(str, maxLength) {
+  if (str.length <= maxLength) {
+    return str;
+  } else {
+    return str.slice(0, maxLength) + "...";
+  }
+}
+
 // Function to add IDs to elements
 function addIdsToElements(elements) {
   return elements.map((element) => ({
@@ -110,9 +118,15 @@ const ProfileCard = ({
               <h2 className="drop-shadow font-semibold">Age: {age}</h2>
             </div>
           </div>
-          <div className="px-4 flex flex-col w-full space-y-1 text-sm">
-            <p className={`text-gray-700 dark:text-white`}>{bio}</p>
-            <h1 className={`text-gray-400 text-xs`}>Bio</h1>
+          <div className="px-4 flex flex-col w-full space-y-1 text-sm min-h-[50px]">
+            {bio && (
+              <>
+                <p className={`text-gray-700 dark:text-white`}>
+                  {limitStringWithEllipsis(bio, 120)}
+                </p>
+                <h1 className={`text-gray-400 text-xs`}>Bio</h1>
+              </>
+            )}
           </div>
         </div>
         <div className="px-4 w-full">

@@ -38,6 +38,7 @@ const HomePage = () => {
       const matched = users.find((match) => match.id === id);
       setMatches([matched, ...matches]);
       setIsMatched(true);
+      window.Telegram.WebApp.HapticFeedback.impactOccurred("medium");
     } else {
       showNext();
     }
@@ -139,7 +140,7 @@ const HomePage = () => {
           onLike={like}
           onDislike={dislike}
           imgIndex={index}
-          badge={<BadgeIcon />}
+          badge={users[index].has_telegram_premium ? <BadgeIcon /> : ""}
         />
       ) : (
         <div className="w-full flex flex-col items-center justify-center p-5">
