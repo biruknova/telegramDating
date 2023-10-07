@@ -5,6 +5,7 @@ import BASE_URL from "../config";
 
 const DatingContextProvider = (props) => {
   const token = localStorage.getItem("userDatingToken");
+  const [tokenValue, setTokenValue] = useState(token);
 
   const [users, setUsers] = useState([]);
   const [isGettingUsers, setIsGettingUsers] = useState(true);
@@ -15,7 +16,7 @@ const DatingContextProvider = (props) => {
     setIsGettingUsers(true);
     var newHeader = new Headers();
     newHeader.append("Accept", "application/json");
-    newHeader.append("Authorization", `Bearer ${token}`);
+    newHeader.append("Authorization", `Bearer ${tokenValue}`);
 
     var requestOptions = {
       method: "GET",
@@ -42,14 +43,14 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token) {
+    if (tokenValue) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, [tokenValue]);
 
   useEffect(() => {
-    if (token && users.length === 6 && hasNextPage) {
+    if (tokenValue && users.length === 6 && hasNextPage) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -62,7 +63,7 @@ const DatingContextProvider = (props) => {
     setGettingMatches(true);
     var newHeader = new Headers();
     newHeader.append("Accept", "application/json");
-    newHeader.append("Authorization", `Bearer ${token}`);
+    newHeader.append("Authorization", `Bearer ${tokenValue}`);
 
     var requestOptions = {
       method: "GET",
@@ -82,15 +83,16 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (token) {
+    if (tokenValue) {
       getMatches();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, [tokenValue]);
 
   // // // // // // // // // // // // //
   const value = {
-    token,
+    tokenValue,
+    setTokenValue,
     isGettingUsers,
     users,
     setUsers,
