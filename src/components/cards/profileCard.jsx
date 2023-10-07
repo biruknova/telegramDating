@@ -79,7 +79,7 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
               </div>
             )}
             <img
-              src={images[indicatorPosition].value}
+              src={imgs[indicatorPosition]}
               alt="profile"
               className="w-full"
             />
