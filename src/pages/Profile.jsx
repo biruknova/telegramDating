@@ -20,7 +20,7 @@ const ProfilePage = () => {
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
-      className=" w-full min-h-screen flex flex-grow pt-[130px] z-50"
+      className="w-full flex flex-grow  pt-[130px] z-50"
     >
       <div
         style={{ backgroundColor: bgColor }}
@@ -31,7 +31,7 @@ const ProfilePage = () => {
             <div className="flex flex-col items-center space-y-2 w-full">
               <div
                 style={{ border: `5px solid ${secondaryBgColor}` }}
-                className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200 overflow-hidden"
+                className=" relative rounded-full w-[150px] h-[150px] rounded-full bg-slate-100"
               >
                 <img
                   src={
@@ -40,8 +40,11 @@ const ProfilePage = () => {
                       : "https://picsum.photos/200"
                   }
                   alt="profile profile"
+                  className="rounded-full"
                 />
+                <div className="w-[40px] h-[40px] rounded-full bg-black absolute z-[999] top-1 right-1 border border-white"></div>
               </div>
+
               <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
                 <div className="flex items-center space-x-2">
                   <h1
