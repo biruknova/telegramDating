@@ -24,28 +24,36 @@ const MatchPopUp = ({ matchImg, matchName, onShowProfile, onClose }) => {
           <h1 style={{ color: txtColor }} className="text-2xl font-medium ">
             It's a Match !
           </h1>
-          <p style={{ color: hintColor }} className="text-sm">
-            You and {matchName} are a match. Click on 'profile' to chat .
+          <p className="text-sm">
+            <span style={{ color: btnColor }}>You</span> and
+            <span style={{ color: btnColor }}>{matchName}</span> are a match.
+            Click on 'profile' to chat .
           </p>
         </div>
         <div className="flex ">
-          <div className="w-[100px] h-[100px] rounded-full border-2 border-gray-900 overflow-hidden shadow-md">
+          <div
+            style={{ border: `5px solid ${secondaryBgColor}` }}
+            className="w-[90px] h-[90px] rounded-full overflow-hidden shadow-md"
+          >
             <img src="https://picsum.photos/200" alt="user" />
           </div>
-          <div className="w-[100px] h-[100px] rounded-full -ml-[20px] border-2 border-gray-900 overflow-hidden shadow-md">
+          <div
+            style={{ border: `5px solid ${secondaryBgColor}` }}
+            className="w-[90px] h-[90px] rounded-full -ml-[20px] overflow-hidden shadow-md"
+          >
             <img src={matchImg} alt="match" />
           </div>
         </div>
         <div className="w-full flex space-x-4">
           <button
-            style={{ backgroundColor: btnColor, color: txtColor }}
+            style={{ backgroundColor: btnColor, color: btnTxtColor }}
             onClick={onShowProfile}
             className=" w-1/2 p-2 rounded shadow"
           >
-            Profle
+            Profile
           </button>
           <button
-            style={{ backgroundColor: bgColor, color: btnTxtColor }}
+            style={{ backgroundColor: bgColor, color: txtColor }}
             onClick={onClose}
             className=" w-1/2 rounded shadow"
           >
