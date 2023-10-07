@@ -164,6 +164,7 @@ const SignupPage = () => {
         MainButton.hideProgress();
         if (result.success) {
           navigate("/home");
+          localStorage.setItem("token", result.token);
           setToken(result.token);
           MainButton.hide();
         }

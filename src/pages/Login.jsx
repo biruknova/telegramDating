@@ -36,6 +36,7 @@ const LoginPage = () => {
         setIsLoggingIn(false);
         if (result.success) {
           navigate("/home");
+          localStorage.setItem("token", result.token);
           setToken(result.token);
         } else {
           navigate("/signup");
