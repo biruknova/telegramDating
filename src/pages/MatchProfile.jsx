@@ -24,9 +24,26 @@ const MatchProfile = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const colors = window.Telegram.WebApp.themeParams;
+
+  const {
+    bg_color: bgColor,
+    text_color: txtColor,
+    hint_color: hintColor,
+    button_color: btnColor,
+    // button_text_color: btnTxtColor,
+    secondary_bg_color: secondaryBgColor,
+  } = colors;
   return (
-    <div className="fixed w-full min-h-screen top-0 left-0 bg-gray-800 flex flex-grow pt-[130px] z-50">
-      <div className="w-full flex flex-col flex-grow bg-gray-700  rounded-t-xl">
+    <div
+      style={{ backgroundColor: bgColor }}
+      className="fixed w-full min-h-screen top-0 left-0  flex flex-grow pt-[130px] z-50"
+    >
+      <div
+        style={{ backgroundColor: secondaryBgColor }}
+        className="w-full flex flex-col flex-grow   rounded-t-xl"
+      >
         <div className="-mt-[50px] flex flex-col items-center space-y-6">
           <div className="flex flex-col items-center space-y-2">
             <div
@@ -38,39 +55,72 @@ const MatchProfile = () => {
             </div>
           </div>
           <div className="w-full flex">
-            <div className="flex flex-col items-center w-1/2">
+            <div
+              style={{ color: btnColor }}
+              className="flex flex-col items-center w-1/2"
+            >
               <HeartIcon styles="w-7 h-7" />
               <h1>Message</h1>
             </div>
-            <div className="flex flex-col items-center w-1/2">
+            <div
+              style={{ color: btnColor }}
+              className="flex flex-col items-center w-1/2"
+            >
               <HeartIcon styles="w-7 h-7" />
               <h1>Message</h1>
             </div>
           </div>
-          <div className="w-full flex flex-col divide-y divide-gray-800 pl-5">
-            <div className="pr-5 py-3 space-y-1 text-start">
+          <div className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5">
+            <div
+              style={{ color: txtColor }}
+              className="pr-5 py-3 space-y-1 text-start"
+            >
               <h1>this is a test text for ui observation</h1>
-              <p className="text-xs">Bio</p>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
             </div>
             <div className="pr-5 py-3 space-y-1 text-start">
               <h1>this is a test text for ui observation</h1>
-              <p className="text-xs">Bio</p>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
             </div>
             <div className="pr-5 py-3 space-y-1 text-start">
               <h1>this is a test text for ui observation</h1>
-              <p className="text-xs">Bio</p>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
             </div>
             <div className="pr-5 py-3 space-y-1 text-start">
               <h1>this is a test text for ui observation</h1>
-              <p className="text-xs">Bio</p>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
             </div>
             <div className="pr-5 py-3 space-y-1 text-start">
               <h1>this is a test text for ui observation</h1>
-              <p className="text-xs">Bio</p>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
             </div>
             <div className="pr-5 py-3 space-y-1 text-start">
               <h1>this is a test text for ui observation</h1>
-              <p className="text-xs">Bio</p>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
+            </div>
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
+            </div>
+            <div className="pr-5 py-3 space-y-1 text-start">
+              <h1>this is a test text for ui observation</h1>
+              <p style={{ color: hintColor }} className="text-xs">
+                Bio
+              </p>
             </div>
           </div>
         </div>
