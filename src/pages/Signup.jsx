@@ -106,7 +106,11 @@ const SignupPage = () => {
       if (typeof value === "string") {
         return value.trim() !== "";
       } else if (typeof value === "number") {
-        return !isNaN(value);
+        if (value === "") {
+          return false;
+        } else {
+          return value >= 16;
+        }
       } else {
         return false;
       }
@@ -133,7 +137,11 @@ const SignupPage = () => {
         if (typeof value === "string") {
           return value.trim() !== "";
         } else if (typeof value === "number") {
-          return !isNaN(value);
+          if (value === "") {
+            return false;
+          } else {
+            return value >= 16;
+          }
         } else {
           return false;
         }
