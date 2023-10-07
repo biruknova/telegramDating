@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const ImagePreloader = ({ imageUrls }) => {
   const [loadedCount, setLoadedCount] = useState(0);
+  console.log(loadedCount);
 
   useEffect(() => {
     let loadedImages = 0;
@@ -31,12 +32,7 @@ const ImagePreloader = ({ imageUrls }) => {
     });
   }, [imageUrls]);
 
-  return (
-    <div>
-      {/* Optionally display the loadedCount if needed */}
-      Images Loaded: {loadedCount}
-    </div>
-  );
+  return null;
 };
 
 export default ImagePreloader;
