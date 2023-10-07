@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import context from "../store/context";
+import BASE_URL from "../config";
 
 import ProfileCard from "../components/cards/profileCard";
 import ImagePreloader from "../components/ImagePreloader";
@@ -10,14 +11,35 @@ import BadgeIcon from "../components/animatedIcons/Badge";
 import SearchAnime from "../components/animatedIcons/SearchAnime";
 
 const HomePage = () => {
-  const { isGettingUsers, users, setUsers } = useContext(context);
+  const { isGettingUsers, users, setUsers, token } = useContext(context);
   const index = 0;
 
-  const changePerson = () => {
+  const [isMatched, setIsMatched] = useState(false);
+
+  const showNext = () => {
     setUsers((prevUsers) => {
       const updatedUsers = prevUsers.slice(1);
       return updatedUsers;
     });
+  };
+
+  const closeMatchPopUp = () => {
+    setIsMatched(false);
+    showNext();
+  };
+
+  const like = (id, match) => {
+    likeUser(id);
+
+    if (match) {
+      setIsMatched(true);
+    } else {
+      showNext();
+    }
+  };
+  const dislike = (id) => {
+    dislikeUser(id);
+    showNext();
   };
 
   const allImageUrls = users.reduce((imageUrls, user) => {
@@ -34,8 +56,62 @@ const HomePage = () => {
     // button_color: btnColor,
   } = colors;
 
+  const likeUser = (id) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    var raw = JSON.stringify({
+      user_id: id,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(BASE_URL + "/api/like", requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  const dislikeUser = (id) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    var raw = JSON.stringify({
+      user_id: id,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(BASE_URL + "/api/dislike", requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
   return (
     <>
+      {isMatched && (
+        <div className="fixed top-0 left-0 bg-black z-50 min-h-screen w-full">
+          <button onClick={closeMatchPopUp} className="bg-white text-black p-5">
+            close
+          </button>
+          <button> view profile</button>
+        </div>
+      )}
       <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers && users.length === 0 ? (
         <h1>getting users</h1>
@@ -45,7 +121,10 @@ const HomePage = () => {
           age={users[index].age}
           bio={users[index].bio}
           imgs={users[index].photos}
-          onClick={changePerson}
+          id={users[index].id}
+          likedYou={users[index].liked_you}
+          onLike={like}
+          onDislike={dislike}
           imgIndex={index}
           badge={<BadgeIcon />}
         />

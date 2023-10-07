@@ -16,7 +16,18 @@ function generateUniqueId() {
   return Math.random().toString(36).substring(2);
 }
 
-const ProfileCard = ({ name, age, bio, imgs, onClick, badge, imgIndex }) => {
+const ProfileCard = ({
+  name,
+  age,
+  bio,
+  imgs,
+  onLike,
+  onDislike,
+  badge,
+  imgIndex,
+  id,
+  likedYou,
+}) => {
   const images = addIdsToElements(imgs);
 
   const [indicatorPosition, setIndicatorPosition] = useState(imgIndex);
@@ -41,8 +52,13 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge, imgIndex }) => {
     });
   };
 
-  const handleChange = () => {
-    onClick();
+  const handleLike = (id) => {
+    onLike(id, likedYou);
+    setIndicatorPosition(0);
+  };
+
+  const handleDislike = (id) => {
+    onDislike(id);
     setIndicatorPosition(0);
   };
   return (
@@ -105,13 +121,17 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge, imgIndex }) => {
 
         <div className="flex space-x-4 px-4 w-full">
           <button
-            onClick={handleChange}
+            onClick={() => {
+              handleLike(id);
+            }}
             className="w-1/2 h-[45px] rounded bg-[#D70240] flex justify-center items-center"
           >
             <CloseIcon styles="w-7 h-7 text-white" />
           </button>
           <button
-            onClick={handleChange}
+            onClick={() => {
+              handleDislike(id);
+            }}
             className="w-1/2 h-[45px] rounded bg-[#02BF96] flex justify-center items-center"
           >
             <HeartIcon styles="w-7 h-7 text-white" />
