@@ -237,6 +237,7 @@ const SignupPage = () => {
               type="number"
               id="age"
               name="age"
+              min="0"
               value={formData.age}
               className="block px-2.5 pb-2.5 pt-4 w-full text-sm  bg-transparent rounded-lg  appearance-none  outline-none ring-0  peer"
               placeholder=" "
