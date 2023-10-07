@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import HeartIcon from "../components/icons/Heart";
+import ChatIcon from "../components/icons/Chat";
+import UnmatchIcon from "../components/icons/Unmatch";
 
 const MatchProfile = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const MatchProfile = () => {
         <div className="-mt-[50px] flex flex-col items-center space-y-6">
           <div className="flex flex-col items-center space-y-2">
             <div
-              style={{ border: `2px solid ${secondaryBgColor}` }}
+              style={{ border: `5px solid ${secondaryBgColor}` }}
               className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200"
             ></div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
@@ -59,20 +60,20 @@ const MatchProfile = () => {
               </h1>
             </div>
           </div>
-          <div className="w-full flex">
+          <div className="w-full flex text-sm font-medium">
             <div
               style={{ color: btnColor }}
               className="flex flex-col items-center w-1/2"
             >
-              <HeartIcon styles="w-7 h-7" />
+              <ChatIcon styles="w-6 h-6" />
               <h1>Message</h1>
             </div>
             <div
               style={{ color: btnColor }}
               className="flex flex-col items-center w-1/2"
             >
-              <HeartIcon styles="w-7 h-7" />
-              <h1>Message</h1>
+              <UnmatchIcon styles="w-6 h-6" />
+              <h1>Unmatch</h1>
             </div>
           </div>
           <div
