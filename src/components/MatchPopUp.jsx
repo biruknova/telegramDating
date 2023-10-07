@@ -24,7 +24,7 @@ const MatchPopUp = ({ matchImg, matchName, onShowProfile, onClose }) => {
           <h1 style={{ color: txtColor }} className="text-2xl font-medium ">
             It's a Match !
           </h1>
-          <p className="text-sm">
+          <p style={{ color: hintColor }} className="text-sm">
             <span style={{ color: btnColor }}>You</span> and
             <span style={{ color: btnColor }}>{matchName}</span> are a match.
             Click on 'profile' to chat .
