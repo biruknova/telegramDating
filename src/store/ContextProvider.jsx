@@ -4,8 +4,7 @@ import context from "./context";
 import BASE_URL from "../config";
 
 const DatingContextProvider = (props) => {
-  const token = localStorage.getItem("userDatingToken");
-  const [tokenValue, setTokenValue] = useState(token);
+  const [tokenValue, setTokenValue] = useState("");
 
   const [users, setUsers] = useState([]);
   const [isGettingUsers, setIsGettingUsers] = useState(true);
