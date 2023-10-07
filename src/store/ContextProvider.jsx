@@ -9,6 +9,7 @@ const DatingContextProvider = (props) => {
   const [users, setUsers] = useState([]);
   const [isGettingUsers, setIsGettingUsers] = useState(true);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const [pageCount, setPageCount] = useState(1);
 
   const getUsers = () => {
     setIsGettingUsers(true);
@@ -22,12 +23,17 @@ const DatingContextProvider = (props) => {
       redirect: "follow",
     };
 
-    fetch(BASE_URL + "/api/fetch-users?page=1", requestOptions)
+    fetch(BASE_URL + "/api/fetch-users?page=" + pageCount, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setIsGettingUsers(false);
         console.log(result);
         setHasNextPage(result.has_next_page);
+        if (result.has_next_page) {
+          setPageCount((prevCount) => {
+            return prevCount + 1;
+          });
+        }
         setUsers((prevUsers) => {
           return [...prevUsers, ...result.users];
         });
