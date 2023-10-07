@@ -3,15 +3,30 @@ import { useState } from "react";
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
 
+// Function to add IDs to elements
+function addIdsToElements(elements) {
+  return elements.map((element) => ({
+    id: generateUniqueId(),
+    value: element,
+  }));
+}
+
+// Function to generate a unique ID (You can use any method you prefer)
+function generateUniqueId() {
+  return Math.random().toString(36).substring(2);
+}
+
 const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
+  const images = addIdsToElements(imgs);
+
   const [indicatorPosition, setIndicatorPosition] = useState(0);
 
-  const array = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+  // const array = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 
   const leftClick = () => {
     setIndicatorPosition((prevPos) => {
       if (prevPos === 0) {
-        return array.length - 1;
+        return images.length - 1;
       } else {
         return prevPos - 1;
       }
@@ -20,7 +35,7 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
 
   const rightClick = () => {
     setIndicatorPosition((prevPos) => {
-      if (prevPos === array.length - 1) {
+      if (prevPos === images.length - 1) {
         return 0;
       } else {
         return prevPos + 1;
@@ -35,20 +50,20 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
             style={{ height: "100vw" }}
             className="w-full relative max-h-[600px]"
           >
-            {array.length > 1 && (
+            {images.length > 1 && (
               <div className="absolute top-0 left-0 h-[50px] bg-gradient-to-t from-transparent via-black/20 to-black/40 w-full"></div>
             )}
             <div className="absolute top-3 w-full flex space-x-1 px-2">
-              {array.length > 1 &&
-                array.map((item) => {
+              {images.length > 1 &&
+                images.map((item) => {
                   return (
                     <div
                       key={item.id}
                       id={item.id}
                       style={{
-                        width: `${100 / array.length}%`,
+                        width: `${100 / images.length}%`,
                         backgroundColor:
-                          array[indicatorPosition].id === item.id
+                          images[indicatorPosition].id === item.id
                             ? "#ffffff"
                             : "#ffffff61",
                       }}
@@ -57,13 +72,17 @@ const ProfileCard = ({ name, age, bio, imgs, onClick, badge }) => {
                   );
                 })}
             </div>
-            {array.length > 1 && (
+            {images.length > 1 && (
               <div className="w-full h-full absolute top-0 left-0 grid grid-cols-2">
                 <div onClick={leftClick} className="bg-transparent"></div>
                 <div onClick={rightClick} className="bg-transparent"></div>
               </div>
             )}
-            <img src={imgs[0]} alt="profile" className="w-full" />
+            <img
+              src={imgs[indicatorPosition]}
+              alt="profile"
+              className="w-full"
+            />
             <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 bg-gradient-to-b from-transparent via-black/40 to-black/60 w-full">
               <div className="flex items-center space-x-2">
                 <h1 className="text-2xl font-medium drop-shadow">{name}</h1>
