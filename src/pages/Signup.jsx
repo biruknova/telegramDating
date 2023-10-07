@@ -74,7 +74,7 @@ const SignupPage = () => {
     const { name, value } = e.target;
 
     if (name === "age") {
-      if (value !== "" && value.substr(0, 2) < 16 && value.length > 0) {
+      if (value !== "" && value.substr(0, 2) < 16) {
         setBelowAgeLimit(true);
         MainButton.hide();
       } else {
