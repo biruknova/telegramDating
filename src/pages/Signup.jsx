@@ -74,7 +74,7 @@ const SignupPage = () => {
     const { name, value } = e.target;
 
     if (name === "age") {
-      if (value !== "" && value.substr(0, 2) < 16) {
+      if (value !== "" && value.substr(0, 2) < 16 && value.length < 1) {
         setBelowAgeLimit(true);
         MainButton.hide();
       } else {
@@ -108,14 +108,14 @@ const SignupPage = () => {
       if (typeof value === "string") {
         return value.trim() !== "";
       } else if (typeof value === "number") {
-        return value !== "" && !isNaN(value) && value >= 16;
+        return !isNaN(value) && value >= 16;
       } else {
         return false;
       }
     });
 
     // Check if the current state is different from the previous state
-    if (fieldsAreFilled !== prevFieldsAreFilled && !belowAgeLimit) {
+    if (fieldsAreFilled !== prevFieldsAreFilled) {
       setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
 
       if (fieldsAreFilled) {
@@ -135,7 +135,7 @@ const SignupPage = () => {
         if (typeof value === "string") {
           return value.trim() !== "";
         } else if (typeof value === "number") {
-          return value !== "" && !isNaN(value) && value >= 16;
+          return !isNaN(value) && value >= 16;
         } else {
           return false;
         }
