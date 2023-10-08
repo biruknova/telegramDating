@@ -203,9 +203,7 @@ const EditProfile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
   useEffect(() => {
-    MainButton.onClick(() => {
-      updateUserInfo();
-    });
+    MainButton.onClick(updateUserInfo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
