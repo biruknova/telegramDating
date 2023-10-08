@@ -26,7 +26,7 @@ const BadgeIcon = () => {
         loop={playAnime}
         animationData={badgeJson}
         play
-        style={{ width: 25, height: 25 }}
+        style={{ width: 20, height: 20 }}
       />
     </div>
   );
