@@ -170,6 +170,7 @@ const EditProfile = () => {
         </div>
         <div className="flex flex-col w-full space-y-1">
           <textarea
+            rows={3}
             type="text"
             name="bio"
             maxLength="120"
