@@ -41,7 +41,7 @@ const HomePage = () => {
   };
 
   const showMatchProfile = () => {
-    navigate(`/match-profile/${users[index].name}`);
+    navigate(`/match-profile/${users[index].id}`);
   };
 
   const like = (id, match) => {
