@@ -12,6 +12,8 @@ import MatchesPage from "./pages/Matches";
 
 import MatchProfile from "./pages/MatchProfile";
 
+import EditProfile from "./pages/EditProfile";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -32,6 +34,10 @@ function App() {
     {
       path: "/match-profile/:matchId",
       element: <MatchProfile />,
+    },
+    {
+      path: "/edit-profile",
+      element: <EditProfile />,
     },
   ]);
   return (
