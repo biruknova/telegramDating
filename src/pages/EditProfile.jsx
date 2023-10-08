@@ -180,6 +180,8 @@ const EditProfile = () => {
             style={{
               borderBottom: `1px solid ${bioisFocused ? btnColor : hintColor}`,
               color: txtColor,
+              resize: "none",
+              overflowY: "hidden",
             }}
             onChange={handleInputChange}
             onFocus={() => {
