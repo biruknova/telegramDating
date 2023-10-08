@@ -42,6 +42,8 @@ const EditProfile = () => {
 
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
+  const [bioisFocused, setBioIsFocused] = useState(false);
+
   const [belowAgeLimit, setBelowAgeLimit] = useState(false);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -74,27 +76,31 @@ const EditProfile = () => {
   const focusHandler = (lable) => {
     if (lable === "name") {
       setNameIsFocused(true);
-    } else {
+    } else if (lable === "age") {
       setAgeIsFocused(true);
+    } else {
+      setBioIsFocused(true);
     }
   };
 
   const blurHandler = (lable) => {
     if (lable === "name") {
       setNameIsFocused(false);
-    } else {
+    } else if (lable === "age") {
       if (formData.age !== "" && formData.age < 16) {
         setBelowAgeLimit(true);
       } else {
         setBelowAgeLimit(false);
       }
       setAgeIsFocused(false);
+    } else {
+      setBioIsFocused(false);
     }
   };
 
   return (
     <div
-      style={{ colors: txtColor, backgroundColor: bgColor }}
+      style={{ color: txtColor, backgroundColor: bgColor }}
       className="w-full min-h-screen flex flex-col w-full z-40"
     >
       <div className="w-full text-center px-10 py-16 space-y-4">
@@ -112,17 +118,10 @@ const EditProfile = () => {
       />
       <div className="w-full flex flex-col flex-grow p-5 space-y-5">
         <div className="flex flex-col w-full">
-          <lable style={{ colors: hintColor }}>Full Name</lable>
+          <lable style={{ color: hintColor }}>Full Name</lable>
           <input
             type="text"
-            className=" outline-none ring-0 pt-2.5 pb-1 transition-colors duration-100"
-          />
-        </div>
-        <div className="flex flex-col w-full">
-          <lable style={{ colors: hintColor }}>Bio</lable>
-          <input
-            type="text"
-            className=" outline-none ring-0 pt-2.5 pb-1  transition-colors duration-100"
+            className="bg-transparent  outline-none ring-0 pt-2 pb-1 transition-colors duration-100"
             style={{
               borderBottom: `3px solid ${
                 nameIsFocused || formData.name !== "" ? btnColor : hintColor
@@ -139,10 +138,30 @@ const EditProfile = () => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <lable style={{ colors: hintColor }}>Age</lable>
+          <lable style={{ color: hintColor }}>Bio</lable>
+          <input
+            type="text"
+            className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
+            style={{
+              borderBottom: `3px solid ${
+                bioisFocused || formData.bio !== "" ? btnColor : hintColor
+              }`,
+              color: txtColor,
+            }}
+            onChange={handleInputChange}
+            onFocus={() => {
+              focusHandler("bio");
+            }}
+            onBlur={() => {
+              blurHandler("bio");
+            }}
+          />
+        </div>
+        <div className="flex flex-col w-full">
+          <lable style={{ color: hintColor }}>Age</lable>
           <input
             type="number"
-            className="bg-transparent  outline-none ring-0 pt-2.5 pb-1  transition-colors duration-100"
+            className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
             style={{
               borderBottom: `3px solid ${
                 belowAgeLimit
