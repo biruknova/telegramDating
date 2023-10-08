@@ -54,7 +54,9 @@ const MatchProfile = () => {
       "Unmatch with " + match.name,
       (confirmation) => {
         if (confirmation) {
-          const updatedMatches = matches.filter((m) => m.id !== match.id);
+          const updatedMatches = matches.filter(
+            (m) => m.id !== Number(match.id)
+          );
           setMatches(updatedMatches);
           navigate("/matches");
         }
@@ -107,7 +109,6 @@ const MatchProfile = () => {
               class="text-entity-link"
               dir="auto"
               data-entity-type="MessageEntityUrl"
-              //   onClick={toChat}
               style={{ color: btnColor }}
               className="flex flex-col items-center w-1/2"
             >
