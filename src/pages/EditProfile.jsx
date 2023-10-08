@@ -181,40 +181,33 @@ const EditProfile = () => {
       });
   };
 
-  // const areAllValuesFilled = () => {
-  //   const nameIsValid = formData.name !== "";
-  //   const ageIsValid = formData.age >= 16;
-  //   const fieldsAreFilled = nameIsValid && ageIsValid;
+  const areAllValuesFilled = () => {
+    const nameIsValid = formData.name !== "";
+    const ageIsValid = formData.age >= 16;
+    const fieldsAreFilled = nameIsValid && ageIsValid;
 
-  //   // Check if the current state is different from the previous state
-  //   console.log("fields are filled", fieldsAreFilled);
+    // Check if the current state is different from the previous state
+    console.log("fields are filled", fieldsAreFilled);
 
-  //   if (fieldsAreFilled) {
-  //     MainButton.offClick(()=>{updateUserInfo()});
-  //     MainButton.hide();
+    if (fieldsAreFilled) {
+      MainButton.show();
+      // MainButton.onClick(()=>{updateUserInfo()});
+    } else {
+      MainButton.hide();
+      // MainButton.offClick(updateUserInfo);
+    }
+  };
 
-  //     // Debounce the onClick event attachment
-  //     clearTimeout(debounceTimer);
-  //     debounceTimer = setTimeout(() => {
-  //       MainButton.onClick(updateUserInfo);
-  //       MainButton.show();
-  //     }, debounceDelay);
-  //   } else {
-  //     MainButton.hide();
-  //     MainButton.offClick(updateUserInfo);
-  //   }
-  // };
-
-  // let debounceTimer = null;
-  // const debounceDelay = 300; // Adjust the debounce delay as needed
-
+  useEffect(() => {
+    areAllValuesFilled();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData]);
   useEffect(() => {
     MainButton.onClick(() => {
       updateUserInfo();
     });
-    // areAllValuesFilled();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formData]);
+  }, []);
 
   return (
     <div
