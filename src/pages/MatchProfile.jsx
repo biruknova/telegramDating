@@ -39,7 +39,7 @@ const MatchProfile = () => {
     secondary_bg_color: secondaryBgColor,
   } = colors;
 
-  const { matches, unmatchUser } = useContext(context);
+  const { matches, setMatches, unmatchUser } = useContext(context);
 
   const params = useParams();
   const matchId = params.matchId;
@@ -50,9 +50,17 @@ const MatchProfile = () => {
   console.log(match);
 
   const ShowConfirmation = () => {
-    window.Telegram.WebApp.showConfirm("Unmatch with ", (confirmation) => {
-      unmatchUser(confirmation, match.match_id);
-    });
+    window.Telegram.WebApp.showConfirm(
+      "Unmatch with " + match.name,
+      (confirmation) => {
+        if (confirmation) {
+          const updatedMatches = matches.filter((m) => m.id !== match.id);
+          setMatches(updatedMatches);
+          navigate("/matches");
+        }
+        unmatchUser(confirmation, match.match_id);
+      }
+    );
   };
 
   return (
