@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Lottie from "react-lottie-player";
 
-import badgeJson from "../../assets/starBadge.json";
+import isPremiumJson from "../../assets/isPremium.json";
 
 const BadgeIcon = () => {
   const [playAnime, setPlayAnime] = useState(false);
@@ -24,7 +24,7 @@ const BadgeIcon = () => {
     <div onClick={handleAnime}>
       <Lottie
         loop={playAnime}
-        animationData={badgeJson}
+        animationData={isPremiumJson}
         play
         style={{ width: 20, height: 20 }}
       />
