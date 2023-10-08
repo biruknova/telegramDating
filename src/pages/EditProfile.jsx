@@ -57,7 +57,7 @@ const EditProfile = () => {
   const [belowAgeLimit, setBelowAgeLimit] = useState(false);
 
   const [characters, setCharacters] = useState(
-    formData.bio ? formData.bio.length : 0
+    formData.bio ? 120 - formData.bio.length : 120
   );
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -81,7 +81,7 @@ const EditProfile = () => {
       }
     } else {
       if (name === "bio") {
-        setCharacters(value.length);
+        setCharacters(120 - value.length);
       }
       setFormData({
         ...formData,
@@ -169,7 +169,7 @@ const EditProfile = () => {
           </lable>
         </div>
         <div className="flex flex-col w-full space-y-1">
-          <input
+          <textarea
             type="text"
             name="bio"
             maxLength="120"
