@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import context from "../store/context";
 import BASE_URL from "../config";
@@ -25,6 +26,7 @@ const HomePage = () => {
   const index = 0;
 
   const [isMatched, setIsMatched] = useState(false);
+  const navigate = useNavigate();
 
   const showNext = () => {
     setUsers((prevUsers) => {
@@ -36,6 +38,10 @@ const HomePage = () => {
   const closeMatchPopUp = () => {
     setIsMatched(false);
     showNext();
+  };
+
+  const showMatchProfile = () => {
+    navigate(`/match-profile/${users[index].name}`);
   };
 
   const like = (id, match) => {
@@ -119,7 +125,7 @@ const HomePage = () => {
     <>
       {isMatched && (
         <MatchPopUp
-          onShowProfile={closeMatchPopUp}
+          onShowProfile={showMatchProfile}
           onClose={closeMatchPopUp}
           selfImg={
             profile.photos ? profile.photos[0] : "https://picsum.photos/200"
