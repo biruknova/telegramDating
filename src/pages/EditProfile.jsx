@@ -26,10 +26,11 @@ const EditProfile = () => {
   const colors = window.Telegram.WebApp.themeParams;
 
   const {
-    // bg_color: bgColor,
+    bg_color: bgColor,
     text_color: txtColor,
     hint_color: hintColor,
     button_color: btnColor,
+    secondary_bg_color: secondaryBgColor,
     // button_text_color: btnTxtColor,
   } = colors;
 
@@ -92,33 +93,38 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col w-full bg-gray-700 z-40">
-      <div className="w-full text-center px-10 py-16 bg-red-500 space-y-4">
-        <h1 className="text-2xl font-bold">Edit Profile</h1>
-        <p className="text-sm">
+    <div
+      style={{ colors: txtColor, backgroundColor: bgColor }}
+      className="w-full min-h-screen flex flex-col w-full z-40"
+    >
+      <div className="w-full text-center px-10 py-16 space-y-4">
+        <h1 style={{ color: txtColor }} className="text-2xl font-bold">
+          Edit Profile
+        </h1>
+        <p style={{ color: hintColor }} className="text-sm">
           You Can edit your profile information below. Click the save changes
           button to save the changes.
         </p>
       </div>
       <div
-        // style={{ backgroundColor: secondaryBgColor }}
-        className="h-[15px] w-full bg-white"
+        style={{ backgroundColor: secondaryBgColor }}
+        className="h-[15px] w-full"
       />
       <div className="w-full flex flex-col flex-grow p-5 space-y-5">
         <div className="flex flex-col w-full">
-          <lable>Full Name</lable>
+          <lable style={{ colors: hintColor }}>Full Name</lable>
           <input
             type="text"
-            className="bg-transparent outline-none ring-0 pt-2.5 pb-1 transition-colors duration-100"
+            className=" outline-none ring-0 pt-2.5 pb-1 transition-colors duration-100"
           />
         </div>
         <div className="flex flex-col w-full">
-          <lable>Bio</lable>
+          <lable style={{ colors: hintColor }}>Bio</lable>
           <input
             type="text"
-            className="bg-transparent  outline-none ring-0 pt-2.5 pb-1  transition-colors duration-100"
+            className=" outline-none ring-0 pt-2.5 pb-1  transition-colors duration-100"
             style={{
-              borderBottom: `5px solid ${
+              borderBottom: `3px solid ${
                 nameIsFocused || formData.name !== "" ? btnColor : hintColor
               }`,
               color: txtColor,
@@ -133,12 +139,12 @@ const EditProfile = () => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <lable>Age</lable>
+          <lable style={{ colors: hintColor }}>Age</lable>
           <input
             type="number"
             className="bg-transparent  outline-none ring-0 pt-2.5 pb-1  transition-colors duration-100"
             style={{
-              borderBottom: `5px solid ${
+              borderBottom: `3px solid ${
                 belowAgeLimit
                   ? "#ef4444"
                   : ageIsFocused || formData.age !== ""
