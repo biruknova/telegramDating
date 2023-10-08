@@ -123,6 +123,7 @@ const EditProfile = () => {
           </lable>
           <input
             type="text"
+            name="name"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1 transition-colors duration-100"
             value={formData.name}
             style={{
@@ -146,6 +147,7 @@ const EditProfile = () => {
           </lable>
           <input
             type="text"
+            name="bio"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
             value={formData.bio}
             style={{
@@ -169,6 +171,7 @@ const EditProfile = () => {
           </lable>
           <input
             type="number"
+            name="age"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
             value={formData.age}
             style={{
