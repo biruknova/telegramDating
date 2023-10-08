@@ -6,7 +6,7 @@ import BASE_URL from "../config";
 const EditProfile = () => {
   const navigate = useNavigate();
 
-  const { profile, setProfile } = useContext(context);
+  const { tokenValue, profile, setProfile } = useContext(context);
 
   // Create a ref to store a reference to the input element
   const inputRef = useRef(null);
@@ -18,6 +18,7 @@ const EditProfile = () => {
     }
   };
 
+  const MainButton = window.Telegram.WebApp.MainButton;
   const BackButton = window.Telegram.WebApp.BackButton;
 
   BackButton.show();
@@ -143,13 +144,11 @@ const EditProfile = () => {
   }, []);
 
   const updateUserInfo = () => {
+    MainButton.showProgress();
     var newHeader = new Headers();
     newHeader.append("Accept", "application/json");
     newHeader.append("Content-Type", "application/json");
-    newHeader.append(
-      "Authorization",
-      "Bearer 22|mGpK7FdUOTnwLE6ce6SrHS1CpqQlXngzEqTwZSos34415c97"
-    );
+    newHeader.append("Authorization", `Bearer ${tokenValue}`);
 
     var raw = JSON.stringify({ ...formData, age: Number(formData.age) });
 
@@ -163,19 +162,25 @@ const EditProfile = () => {
     fetch(BASE_URL + "/api/profile", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setProfile({
-          ...profile,
-          age: formData.age,
-          name: formData.name,
-          bio: formData.bio,
-        });
-        navigate("/profile");
-        console.log(result);
+        MainButton.hideProgress();
+
+        if (result.success) {
+          MainButton.hide();
+          setProfile({
+            ...profile,
+            age: formData.age,
+            name: formData.name,
+            bio: formData.bio,
+          });
+          navigate("/profile");
+        }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        MainButton.hideProgress();
+        console.log("error", error);
+      });
   };
 
-  const MainButton = window.Telegram.WebApp.MainButton;
   // Initialize the initial state and previous state as false
   const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
 
