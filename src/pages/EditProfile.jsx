@@ -35,8 +35,8 @@ const EditProfile = () => {
   } = colors;
 
   const [formData, setFormData] = useState({
-    name: "",
-    age: "",
+    name: "Hello",
+    age: "23",
     bio: "",
   });
 
@@ -118,12 +118,15 @@ const EditProfile = () => {
       />
       <div className="w-full flex flex-col flex-grow p-5 space-y-5">
         <div className="flex flex-col w-full">
-          <lable style={{ color: hintColor }}>Full Name</lable>
+          <lable className="text-sm" style={{ color: hintColor }}>
+            Full Name
+          </lable>
           <input
             type="text"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1 transition-colors duration-100"
+            value={formData.name}
             style={{
-              borderBottom: `3px solid ${
+              borderBottom: `2px solid ${
                 nameIsFocused || formData.name !== "" ? btnColor : hintColor
               }`,
               color: txtColor,
@@ -138,12 +141,15 @@ const EditProfile = () => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <lable style={{ color: hintColor }}>Bio</lable>
+          <lable className="text-sm" style={{ color: hintColor }}>
+            Bio
+          </lable>
           <input
             type="text"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
+            value={formData.bio}
             style={{
-              borderBottom: `3px solid ${
+              borderBottom: `2px solid ${
                 bioisFocused || formData.bio !== "" ? btnColor : hintColor
               }`,
               color: txtColor,
@@ -158,12 +164,15 @@ const EditProfile = () => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <lable style={{ color: hintColor }}>Age</lable>
+          <lable className="text-sm" style={{ color: hintColor }}>
+            Age
+          </lable>
           <input
             type="number"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
+            value={formData.age}
             style={{
-              borderBottom: `3px solid ${
+              borderBottom: `2px solid ${
                 belowAgeLimit
                   ? "#ef4444"
                   : ageIsFocused || formData.age !== ""
