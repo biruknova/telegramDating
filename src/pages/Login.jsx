@@ -9,6 +9,7 @@ import HeartIcon from "../components/icons/Heart";
 const LoginPage = () => {
   const { setTokenValue } = useContext(context);
   const [isLoggingIn, setIsLoggingIn] = useState(true);
+
   const navigate = useNavigate();
 
   const viewPortHeight = window.Telegram.WebApp.viewportHeight;
@@ -37,7 +38,8 @@ const LoginPage = () => {
         if (result.success) {
           navigate("/home");
           setTokenValue(result.token);
-          localStorage.setItem("token", result.token);
+
+          sessionStorage.setItem("dateUserToken", result.token);
         } else {
           navigate("/signup");
         }

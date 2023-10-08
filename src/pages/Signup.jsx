@@ -113,7 +113,6 @@ const SignupPage = () => {
     }
   };
 
-  // Create a ref to the button element
   const buttonRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -156,7 +155,7 @@ const SignupPage = () => {
         MainButton.hideProgress();
         if (result.success) {
           navigate("/home");
-          localStorage.setItem("token", result.token);
+          sessionStorage.setItem("dateUserToken", result.token);
           setTokenValue(result.token);
           MainButton.hide();
         }
