@@ -82,6 +82,8 @@ const EditProfile = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
+    console.log(e, "event");
+
     if (name === "age") {
       if (value !== "" && value.substr(0, 2) < 16) {
         setBelowAgeLimit(true);
