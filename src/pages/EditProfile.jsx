@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import context from "../store/context";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../config";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -140,6 +141,77 @@ const EditProfile = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const updateUserInfo = () => {
+    var newHeader = new Headers();
+    newHeader.append("Accept", "application/json");
+    newHeader.append("Content-Type", "application/json");
+    newHeader.append(
+      "Authorization",
+      "Bearer 22|mGpK7FdUOTnwLE6ce6SrHS1CpqQlXngzEqTwZSos34415c97"
+    );
+
+    var raw = JSON.stringify({
+      name: "Dango GG.",
+      bio: "No biooloo",
+      age: 40,
+      gender_id: 1,
+      interests: [2, 1],
+    });
+
+    var requestOptions = {
+      method: "PATCH",
+      headers: newHeader,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(BASE_URL + "/api/profile", requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  const MainButton = window.Telegram.WebApp.MainButton;
+  // Initialize the initial state and previous state as false
+  const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
+
+  const areAllValuesFilled = () => {
+    const nameIsValid = formData.name !== "";
+    const genderIsValid = formData.gender_id !== "";
+    const ageIsValid = formData.age >= 16;
+
+    const fieldsAreFilled = nameIsValid && genderIsValid && ageIsValid;
+
+    // Check if the current state is different from the previous state
+    if (fieldsAreFilled !== prevFieldsAreFilled) {
+      setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
+
+      console.log("fields are filled", fieldsAreFilled);
+
+      if (fieldsAreFilled) {
+        MainButton.show();
+        MainButton.onClick(updateUserInfo);
+      } else {
+        MainButton.hide();
+        MainButton.offClick(updateUserInfo);
+      }
+    }
+  };
+
+  // useEffect to update the initial and previous state when formData changes
+  useEffect(() => {
+    const nameIsValid = formData.name !== "";
+    const genderIsValid = formData.gender_id !== "";
+    const ageIsValid = formData.age >= 16;
+
+    setPrevFieldsAreFilled(nameIsValid && genderIsValid && ageIsValid);
+  }, [formData]);
+
+  useEffect(() => {
+    areAllValuesFilled();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData]);
 
   return (
     <div
