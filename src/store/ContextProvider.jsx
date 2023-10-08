@@ -120,6 +120,34 @@ const DatingContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenValue]);
 
+  const unmatchUser = (confirmation, id) => {
+    console.log(confirmation, "confirmed");
+    if (confirmation) {
+      var newHeader = new Headers();
+      newHeader.append("Accept", "application/json");
+      newHeader.append("Content-Type", "application/json");
+      newHeader.append("Authorization", `Bearer ${tokenValue}`);
+
+      var raw = JSON.stringify({
+        match_id: id,
+      });
+
+      var requestOptions = {
+        method: "POST",
+        headers: newHeader,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch(BASE_URL + "/api/unmatch", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => console.log("error", error));
+    }
+  };
+
   // // // // // // // // // // // // //
   const value = {
     tokenValue,
@@ -134,6 +162,7 @@ const DatingContextProvider = (props) => {
     isGettingProfile,
     profile,
     setProfile,
+    unmatchUser,
   };
 
   return <context.Provider value={value}>{props.children}</context.Provider>;

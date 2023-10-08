@@ -39,7 +39,7 @@ const MatchProfile = () => {
     secondary_bg_color: secondaryBgColor,
   } = colors;
 
-  const { matches } = useContext(context);
+  const { matches, unmatchUser } = useContext(context);
 
   const params = useParams();
   const matchId = params.matchId;
@@ -48,6 +48,12 @@ const MatchProfile = () => {
 
   const match = matches.find((match) => match.id === Number(matchId));
   console.log(match);
+
+  const ShowConfirmation = () => {
+    window.Telegram.WebApp.showConfirm("Unmatch with ", (confirmation) => {
+      unmatchUser(confirmation, match.match_id);
+    });
+  };
 
   return (
     <div
@@ -101,6 +107,7 @@ const MatchProfile = () => {
               <h1>Message</h1>
             </a>
             <div
+              onClick={ShowConfirmation}
               style={{ color: btnColor }}
               className="flex flex-col items-center w-1/2"
             >
