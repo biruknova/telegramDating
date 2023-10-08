@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import context from "../store/context";
 
 import BadgeIcon from "../components/animatedIcons/Badge";
+import PenIcon from "../components/icons/Pen";
 
 const ProfilePage = () => {
   const colors = window.Telegram.WebApp.themeParams;
@@ -31,7 +33,7 @@ const ProfilePage = () => {
             <div className="flex flex-col items-center space-y-2 w-full">
               <div
                 style={{ border: `5px solid ${secondaryBgColor}` }}
-                className=" relative rounded-full w-[150px] h-[150px] rounded-full bg-slate-100"
+                className=" relative rounded-full w-[130px] h-[130px] rounded-full bg-slate-100"
               >
                 <img
                   src={
@@ -42,7 +44,17 @@ const ProfilePage = () => {
                   alt="profile profile"
                   className="rounded-full"
                 />
-                <div className="w-[40px] h-[40px] rounded-full bg-black absolute z-[999] top-1 right-1 border border-white"></div>
+
+                <Link
+                  to="/edit-profile"
+                  style={{
+                    border: `3px solid ${secondaryBgColor}`,
+                    backgroundColor: bgColor,
+                  }}
+                  className="w-[30px] h-[30px] rounded-full bg-black absolute z-[999] top-1 right-1  flex items-center justify-center"
+                >
+                  <PenIcon styles="w-4 h-4" />
+                </Link>
               </div>
 
               <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
