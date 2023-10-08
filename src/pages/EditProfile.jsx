@@ -150,6 +150,8 @@ const EditProfile = () => {
     newHeader.append("Content-Type", "application/json");
     newHeader.append("Authorization", `Bearer ${tokenValue}`);
 
+    console.log("data to be sent", formData);
+
     var raw = JSON.stringify({ ...formData, age: Number(formData.age) });
 
     var requestOptions = {
@@ -202,6 +204,7 @@ const EditProfile = () => {
     areAllValuesFilled();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
+
   useEffect(() => {
     MainButton.onClick(updateUserInfo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
