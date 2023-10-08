@@ -10,7 +10,7 @@ const EditProfile = () => {
 
   useEffect(() => {
     const handleBack = () => {
-      navigate("/matches");
+      navigate("/edit-profile");
     };
 
     BackButton.onClick(handleBack);
