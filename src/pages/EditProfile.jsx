@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext, useCallback } from "react";
 import context from "../store/context";
 import { useNavigate } from "react-router-dom";
 import BASE_URL from "../config";
@@ -49,7 +49,7 @@ const EditProfile = () => {
     // button_text_color: btnTxtColor,
   } = colors;
 
-  let [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: profile.name,
     age: profile.age,
     bio: profile.bio ? profile.bio : "",
@@ -209,6 +209,18 @@ const EditProfile = () => {
     MainButton.onClick(updateUserInfo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const updateUser = useCallback(() => {
+    updateUserInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    window.Telegram.WebApp.onEvent("mainButtonClicked", updateUser);
+    return () => {
+      window.Telegram.WebApp.offEvent("mainButtonClicked", updateUser);
+    };
+  }, [updateUser]);
 
   return (
     <div
