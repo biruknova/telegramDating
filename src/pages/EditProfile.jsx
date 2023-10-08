@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext, useCallback } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import context from "../store/context";
 import { useNavigate } from "react-router-dom";
 import BASE_URL from "../config";
@@ -200,33 +200,31 @@ const EditProfile = () => {
     }
   };
 
+  // Create a ref to the button element
+  const buttonRef = useRef(null);
+
+  // Programmatically trigger a click event on the button
+  const handleButtonClick = () => {
+    buttonRef.current.click();
+  };
+
   useEffect(() => {
     areAllValuesFilled();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
 
   useEffect(() => {
-    MainButton.onClick(updateUserInfo);
+    MainButton.onClick(handleButtonClick);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const updateUser = useCallback(() => {
-    updateUserInfo();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    window.Telegram.WebApp.onEvent("mainButtonClicked", updateUser);
-    return () => {
-      window.Telegram.WebApp.offEvent("mainButtonClicked", updateUser);
-    };
-  }, [updateUser]);
 
   return (
     <div
       style={{ color: txtColor, backgroundColor: bgColor }}
       className="w-full min-h-screen flex flex-col w-full z-40"
     >
+      {" "}
+      <div ref={buttonRef} onClick={updateUserInfo}></div>
       <div className="w-full text-center px-10 py-16 space-y-4">
         <h1 style={{ color: txtColor }} className="text-2xl font-bold">
           Edit Profile
