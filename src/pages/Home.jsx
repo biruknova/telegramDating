@@ -150,7 +150,7 @@ const HomePage = () => {
       {isGettingUsers && users.length === 0 ? (
         <div className="w-full flex justify-center mt-16">
           <div
-            style={{ borderTop: `2px solid ${btnColor}` }}
+            style={{ borderTop: `2px  solid ${btnColor}` }}
             className="w-[40px] h-[40px] rounded-full animate-spin"
           ></div>
         </div>
