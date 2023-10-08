@@ -13,7 +13,7 @@ const ProfilePage = () => {
     bg_color: bgColor,
     text_color: txtColor,
     hint_color: hintColor,
-    // button_color: btnColor,
+    button_color: btnColor,
     secondary_bg_color: secondaryBgColor,
   } = colors;
 
@@ -50,6 +50,7 @@ const ProfilePage = () => {
                   style={{
                     border: `3px solid ${secondaryBgColor}`,
                     backgroundColor: bgColor,
+                    color: btnColor,
                   }}
                   className="w-[30px] h-[30px] rounded-full bg-black absolute z-[999] top-1 right-1  flex items-center justify-center"
                 >
