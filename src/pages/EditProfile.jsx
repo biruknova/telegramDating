@@ -1,8 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import context from "../store/context";
 import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
   const navigate = useNavigate();
+
+  const { profile } = useContext(context);
 
   // Create a ref to store a reference to the input element
   const inputRef = useRef(null);
@@ -45,9 +48,9 @@ const EditProfile = () => {
   } = colors;
 
   const [formData, setFormData] = useState({
-    name: "Hello",
-    age: "23",
-    bio: "",
+    name: profile.name,
+    age: profile.age,
+    bio: profile.bio ? profile.bio : "",
   });
 
   const [nameIsFocused, setNameIsFocused] = useState(false);
