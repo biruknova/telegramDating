@@ -72,7 +72,7 @@ const ProfilePage = () => {
             </div>
             <div
               style={{ color: txtColor }}
-              className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-sm mt-3"
+              className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-base mt-3"
             >
               {profile && profile.tg_username && (
                 <div className="pr-5 py-3 space-y-1 text-start">
