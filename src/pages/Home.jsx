@@ -12,8 +12,15 @@ import BadgeIcon from "../components/animatedIcons/Badge";
 import SearchAnime from "../components/animatedIcons/SearchAnime";
 
 const HomePage = () => {
-  const { isGettingUsers, users, setUsers, tokenValue, matches, setMatches } =
-    useContext(context);
+  const {
+    isGettingUsers,
+    users,
+    setUsers,
+    tokenValue,
+    matches,
+    setMatches,
+    profile,
+  } = useContext(context);
 
   const index = 0;
 
@@ -114,6 +121,9 @@ const HomePage = () => {
         <MatchPopUp
           onShowProfile={closeMatchPopUp}
           onClose={closeMatchPopUp}
+          selfImg={
+            profile.photos ? profile.photos[0] : "https://picsum.photos/200"
+          }
           matchImg={
             users[index].photos
               ? users[index].photos[index]

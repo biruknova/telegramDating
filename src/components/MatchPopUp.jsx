@@ -1,4 +1,10 @@
-const MatchPopUp = ({ matchImg, matchName, onShowProfile, onClose }) => {
+const MatchPopUp = ({
+  matchImg,
+  matchName,
+  onShowProfile,
+  onClose,
+  selfImg,
+}) => {
   const colors = window.Telegram.WebApp.themeParams;
 
   const {
@@ -35,7 +41,7 @@ const MatchPopUp = ({ matchImg, matchName, onShowProfile, onClose }) => {
             style={{ border: `5px solid ${secondaryBgColor}` }}
             className="w-[90px] h-[90px] rounded-full overflow-hidden shadow-md"
           >
-            <img src="https://picsum.photos/200" alt="user" />
+            <img src={selfImg} alt="user" />
           </div>
           <div
             style={{ border: `5px solid ${secondaryBgColor}` }}
