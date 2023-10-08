@@ -55,6 +55,10 @@ const EditProfile = () => {
   const [bioisFocused, setBioIsFocused] = useState(false);
 
   const [belowAgeLimit, setBelowAgeLimit] = useState(false);
+
+  const [characters, setCharacters] = useState(
+    formData.bio ? formData.bio.length : 0
+  );
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -76,6 +80,9 @@ const EditProfile = () => {
         });
       }
     } else {
+      if (name === "bio") {
+        setCharacters(value.length);
+      }
       setFormData({
         ...formData,
         [name]: value,
@@ -141,7 +148,7 @@ const EditProfile = () => {
             className="bg-transparent  outline-none ring-0 pt-2 pb-1 transition-colors duration-100"
             value={formData.name}
             style={{
-              borderBottom: `2px solid ${nameIsFocused ? btnColor : hintColor}`,
+              borderBottom: `1px solid ${nameIsFocused ? btnColor : hintColor}`,
               color: txtColor,
             }}
             onChange={handleInputChange}
@@ -170,7 +177,7 @@ const EditProfile = () => {
             ref={inputRef}
             value={formData.bio}
             style={{
-              borderBottom: `2px solid ${bioisFocused ? btnColor : hintColor}`,
+              borderBottom: `1px solid ${bioisFocused ? btnColor : hintColor}`,
               color: txtColor,
             }}
             onChange={handleInputChange}
@@ -181,14 +188,19 @@ const EditProfile = () => {
               blurHandler("bio");
             }}
           />
-          <lable
-            className="text-xs"
-            style={{
-              color: bioisFocused ? btnColor : hintColor,
-            }}
-          >
-            Bio
-          </lable>
+          <div className="flex items-center w-full justify-between">
+            <lable
+              className="text-xs"
+              style={{
+                color: bioisFocused ? btnColor : hintColor,
+              }}
+            >
+              Bio
+            </lable>
+            <span style={{ color: hintColor }} className="text-xs">
+              {characters}
+            </span>
+          </div>
         </div>
         <div className="flex flex-col w-full space-y-1">
           <input
@@ -197,7 +209,7 @@ const EditProfile = () => {
             className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
             value={formData.age}
             style={{
-              borderBottom: `2px solid ${
+              borderBottom: `1px solid ${
                 belowAgeLimit ? "#ef4444" : ageIsFocused ? btnColor : hintColor
               }`,
               color: txtColor,

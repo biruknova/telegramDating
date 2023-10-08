@@ -52,7 +52,7 @@ const ProfilePage = () => {
                     backgroundColor: bgColor,
                     color: btnColor,
                   }}
-                  className="w-[30px] h-[30px] rounded-full shadow absolute z-[999] top-1 right-1  flex items-center justify-center"
+                  className="w-[30px] h-[30px] rounded-full absolute z-[999] top-1 right-1  flex items-center justify-center"
                 >
                   <PenIcon styles="w-4 h-4" />
                 </Link>
