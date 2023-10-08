@@ -49,7 +49,7 @@ const EditProfile = () => {
     // button_text_color: btnTxtColor,
   } = colors;
 
-  const [formData, setFormData] = useState({
+  let [formData, setFormData] = useState({
     name: profile.name,
     age: profile.age,
     bio: profile.bio ? profile.bio : "",
