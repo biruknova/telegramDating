@@ -117,16 +117,14 @@ const EditProfile = () => {
         className="h-[15px] w-full"
       />
       <div className="w-full flex flex-col flex-grow p-5 space-y-5">
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full space-y-1">
           <input
             type="text"
             name="name"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1 transition-colors duration-100"
             value={formData.name}
             style={{
-              borderBottom: `2px solid ${
-                nameIsFocused || formData.name !== "" ? btnColor : hintColor
-              }`,
+              borderBottom: `2px solid ${nameIsFocused ? btnColor : hintColor}`,
               color: txtColor,
             }}
             onChange={handleInputChange}
@@ -140,23 +138,20 @@ const EditProfile = () => {
           <lable
             className="text-xs"
             style={{
-              color:
-                nameIsFocused || formData.name !== "" ? btnColor : hintColor,
+              color: nameIsFocused ? btnColor : hintColor,
             }}
           >
             Full Name
           </lable>
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full space-y-1">
           <input
             type="text"
             name="bio"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
             value={formData.bio}
             style={{
-              borderBottom: `2px solid ${
-                bioisFocused || formData.bio !== "" ? btnColor : hintColor
-              }`,
+              borderBottom: `2px solid ${bioisFocused ? btnColor : hintColor}`,
               color: txtColor,
             }}
             onChange={handleInputChange}
@@ -170,13 +165,13 @@ const EditProfile = () => {
           <lable
             className="text-xs"
             style={{
-              color: bioisFocused || formData.bio !== "" ? btnColor : hintColor,
+              color: bioisFocused ? btnColor : hintColor,
             }}
           >
             Bio
           </lable>
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full space-y-1">
           <input
             type="number"
             name="age"
@@ -184,11 +179,7 @@ const EditProfile = () => {
             value={formData.age}
             style={{
               borderBottom: `2px solid ${
-                belowAgeLimit
-                  ? "#ef4444"
-                  : ageIsFocused || formData.age !== ""
-                  ? btnColor
-                  : hintColor
+                belowAgeLimit ? "#ef4444" : ageIsFocused ? btnColor : hintColor
               }`,
               color: txtColor,
             }}
@@ -205,7 +196,7 @@ const EditProfile = () => {
             style={{
               color: belowAgeLimit
                 ? "#ef4444"
-                : ageIsFocused || formData.age !== ""
+                : ageIsFocused
                 ? btnColor
                 : hintColor,
             }}
