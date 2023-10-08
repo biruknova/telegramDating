@@ -244,18 +244,25 @@ const EditProfile = () => {
               blurHandler("age");
             }}
           />
-          <lable
-            className="text-xs"
-            style={{
-              color: belowAgeLimit
-                ? "#ef4444"
-                : ageIsFocused
-                ? btnColor
-                : hintColor,
-            }}
-          >
-            Age
-          </lable>
+          <div className="w-full flex justify-between">
+            <lable
+              className="text-xs"
+              style={{
+                color: belowAgeLimit
+                  ? "#ef4444"
+                  : ageIsFocused
+                  ? btnColor
+                  : hintColor,
+              }}
+            >
+              Age
+            </lable>
+            {belowAgeLimit && (
+              <span className="text-xs text-red-500">
+                Can't be less that 16.
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </div>
