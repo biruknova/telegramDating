@@ -64,6 +64,7 @@ const MatchesPage = () => {
               age={match.age}
               img={match.photos ? match.photos[0] : "https://picsum.photos/200"}
               id={match.id}
+              isPremium={match.has_telegram_premium}
               style={
                 index === matches.length - 1
                   ? ""

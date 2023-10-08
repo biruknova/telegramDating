@@ -5,6 +5,7 @@ import context from "../store/context";
 
 import ChatIcon from "../components/icons/Chat";
 import UnmatchIcon from "../components/icons/Unmatch";
+import BadgeIcon from "../components/animatedIcons/Badge";
 
 const MatchProfile = () => {
   const navigate = useNavigate();
@@ -73,12 +74,15 @@ const MatchProfile = () => {
               />
             </div>
             <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
-              <h1
-                style={{ color: txtColor }}
-                className="text-xl font-semibold min-w-max"
-              >
-                {match ? match.name : ""}
-              </h1>
+              <div className="flex items-center space-x-2">
+                <h1
+                  style={{ color: txtColor }}
+                  className="text-xl font-semibold min-w-max"
+                >
+                  {match ? match.name : ""}
+                </h1>{" "}
+                {match.has_telegram_premium && <BadgeIcon />}
+              </div>
             </div>
           </div>
           <div className="w-full flex text-sm font-medium">
