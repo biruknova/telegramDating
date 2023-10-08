@@ -137,7 +137,13 @@ const EditProfile = () => {
               blurHandler("name");
             }}
           />
-          <lable className="text-sm" style={{ color: hintColor }}>
+          <lable
+            className="text-xs"
+            style={{
+              color:
+                nameIsFocused || formData.name !== "" ? btnColor : hintColor,
+            }}
+          >
             Full Name
           </lable>
         </div>
@@ -161,7 +167,12 @@ const EditProfile = () => {
               blurHandler("bio");
             }}
           />
-          <lable className="text-sm" style={{ color: hintColor }}>
+          <lable
+            className="text-xs"
+            style={{
+              color: bioisFocused || formData.bio !== "" ? btnColor : hintColor,
+            }}
+          >
             Bio
           </lable>
         </div>
@@ -189,7 +200,16 @@ const EditProfile = () => {
               blurHandler("age");
             }}
           />
-          <lable className="text-sm" style={{ color: hintColor }}>
+          <lable
+            className="text-xs"
+            style={{
+              color: belowAgeLimit
+                ? "#ef4444"
+                : ageIsFocused || formData.age !== ""
+                ? btnColor
+                : hintColor,
+            }}
+          >
             Age
           </lable>
         </div>
