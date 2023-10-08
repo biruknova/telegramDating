@@ -183,7 +183,46 @@ const EditProfile = () => {
       });
   };
 
-  // Initialize the initial state and previous state as false
+  // // Initialize the initial state and previous state as false
+  // const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
+
+  // const areAllValuesFilled = () => {
+  //   const nameIsValid = formData.name !== "";
+
+  //   const ageIsValid = formData.age >= 16;
+
+  //   const fieldsAreFilled = nameIsValid && ageIsValid;
+
+  //   // Check if the current state is different from the previous state
+  //   if (fieldsAreFilled !== prevFieldsAreFilled) {
+  //     setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
+
+  //     console.log("fields are filled", fieldsAreFilled);
+
+  //     if (fieldsAreFilled) {
+  //       MainButton.show();
+  //       MainButton.onClick(updateUserInfo);
+  //     } else {
+  //       MainButton.hide();
+  //       MainButton.offClick(updateUserInfo);
+  //     }
+  //   }
+  // };
+
+  // // useEffect to update the initial and previous state when formData changes
+  // useEffect(() => {
+  //   const nameIsValid = formData.name !== "";
+
+  //   const ageIsValid = formData.age >= 16;
+
+  //   setPrevFieldsAreFilled(nameIsValid && ageIsValid);
+  // }, [formData]);
+
+  // useEffect(() => {
+  //   areAllValuesFilled();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [formData]);
+
   const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
 
   const areAllValuesFilled = () => {
@@ -193,11 +232,8 @@ const EditProfile = () => {
 
     const fieldsAreFilled = nameIsValid && ageIsValid;
 
-    // Check if the current state is different from the previous state
     if (fieldsAreFilled !== prevFieldsAreFilled) {
-      setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
-
-      console.log("fields are filled", fieldsAreFilled);
+      setPrevFieldsAreFilled(fieldsAreFilled);
 
       if (fieldsAreFilled) {
         MainButton.show();
@@ -209,17 +245,39 @@ const EditProfile = () => {
     }
   };
 
-  // useEffect to update the initial and previous state when formData changes
-  useEffect(() => {
-    const nameIsValid = formData.name !== "";
-
-    const ageIsValid = formData.age >= 16;
-
-    setPrevFieldsAreFilled(nameIsValid && ageIsValid);
-  }, [formData]);
-
   useEffect(() => {
     areAllValuesFilled();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData, prevFieldsAreFilled]);
+
+  // Initialize prevFieldsAreFilled when component mounts
+  useEffect(() => {
+    setPrevFieldsAreFilled(false);
+  }, []);
+
+  // Cleanup when component unmounts
+  useEffect(() => {
+    return () => {
+      MainButton.offClick(updateUserInfo);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Attach event handlers when component mounts
+  useEffect(() => {
+    if (prevFieldsAreFilled) {
+      MainButton.show();
+      MainButton.onClick(updateUserInfo);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prevFieldsAreFilled]);
+
+  // Remove event handlers when fields change
+  useEffect(() => {
+    if (!prevFieldsAreFilled) {
+      MainButton.hide();
+      MainButton.offClick(updateUserInfo);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
 
