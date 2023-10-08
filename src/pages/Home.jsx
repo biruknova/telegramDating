@@ -123,21 +123,25 @@ const HomePage = () => {
       .catch((error) => console.log("error", error));
   };
 
-  const placeHolderImg = profile
-    ? profile.gender.id === 1
-      ? manPlaceHolderImg
-      : womanPlaceHolderImg
-    : "";
-
   return (
     <>
       {isMatched && (
         <MatchPopUp
           onShowProfile={showMatchProfile}
           onClose={closeMatchPopUp}
-          selfImg={profile.photos ? profile.photos[0] : placeHolderImg}
+          selfImg={
+            profile.photos
+              ? profile.photos[0]
+              : profile.gender.id === 1
+              ? manPlaceHolderImg
+              : womanPlaceHolderImg
+          }
           matchImg={
-            users[index].photos ? users[index].photos[index] : placeHolderImg
+            users[index].photos
+              ? users[index].photos[index]
+              : users[index].gender.id === 1
+              ? manPlaceHolderImg
+              : womanPlaceHolderImg
           }
           matchName={users[index].name}
         />
@@ -155,7 +159,15 @@ const HomePage = () => {
           name={users[index].name}
           age={users[index].age}
           bio={users[index].bio}
-          imgs={users[index].photos ? users[index].photos : [placeHolderImg]}
+          imgs={
+            users[index].photos
+              ? users[index].photos
+              : [
+                  users[index].gender.id === 1
+                    ? manPlaceHolderImg
+                    : womanPlaceHolderImg,
+                ]
+          }
           id={users[index].id}
           likedYou={users[index].liked_you}
           onLike={like}
