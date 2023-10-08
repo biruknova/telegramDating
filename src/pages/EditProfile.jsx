@@ -203,7 +203,6 @@ const EditProfile = () => {
   // Create a ref to the button element
   const buttonRef = useRef(null);
 
-  // Programmatically trigger a click event on the button
   const handleButtonClick = () => {
     buttonRef.current.click();
   };
@@ -215,6 +214,10 @@ const EditProfile = () => {
 
   useEffect(() => {
     MainButton.onClick(handleButtonClick);
+
+    return () => {
+      MainButton.offClick(handleButtonClick);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
