@@ -59,6 +59,21 @@ const EditProfile = () => {
   const [characters, setCharacters] = useState(
     formData.bio ? 120 - formData.bio.length : 120
   );
+
+  // Function to resize the textarea to fit its content
+  const resizeTextarea = () => {
+    const textarea = inputRef.current;
+
+    if (textarea) {
+      textarea.style.height = "auto"; // Reset the height to auto
+      textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to the scrollHeight
+    }
+  };
+
+  // Attach an event listener to resize the textarea when content changes
+  useEffect(() => {
+    resizeTextarea();
+  }, []);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -82,6 +97,7 @@ const EditProfile = () => {
     } else {
       if (name === "bio") {
         setCharacters(120 - value.length);
+        resizeTextarea();
       }
       setFormData({
         ...formData,
@@ -170,6 +186,7 @@ const EditProfile = () => {
         </div>
         <div className="flex flex-col w-full space-y-1">
           <textarea
+            rows={1}
             type="text"
             name="bio"
             maxLength="120"
