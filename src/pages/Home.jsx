@@ -123,8 +123,11 @@ const HomePage = () => {
       .catch((error) => console.log("error", error));
   };
 
-  const placeHolderImg =
-    profile.gender.id === 1 ? manPlaceHolderImg : womanPlaceHolderImg;
+  const placeHolderImg = profile
+    ? profile.gender.id === 1
+      ? manPlaceHolderImg
+      : womanPlaceHolderImg
+    : "";
 
   return (
     <>
