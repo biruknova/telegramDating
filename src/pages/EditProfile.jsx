@@ -6,7 +6,7 @@ import BASE_URL from "../config";
 const EditProfile = () => {
   const navigate = useNavigate();
 
-  const { profile } = useContext(context);
+  const { profile, setProfile } = useContext(context);
 
   // Create a ref to store a reference to the input element
   const inputRef = useRef(null);
@@ -151,13 +151,7 @@ const EditProfile = () => {
       "Bearer 22|mGpK7FdUOTnwLE6ce6SrHS1CpqQlXngzEqTwZSos34415c97"
     );
 
-    var raw = JSON.stringify({
-      name: "Dango GG.",
-      bio: "No biooloo",
-      age: 40,
-      gender_id: 1,
-      interests: [2, 1],
-    });
+    var raw = JSON.stringify({ ...formData, age: Number(formData.age) });
 
     var requestOptions = {
       method: "PATCH",
@@ -168,7 +162,16 @@ const EditProfile = () => {
 
     fetch(BASE_URL + "/api/profile", requestOptions)
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((result) => {
+        setProfile({
+          ...profile,
+          age: formData.age,
+          name: formData.name,
+          bio: formData.bio,
+        });
+        navigate("/profile");
+        console.log(result);
+      })
       .catch((error) => console.log("error", error));
   };
 
@@ -178,10 +181,10 @@ const EditProfile = () => {
 
   const areAllValuesFilled = () => {
     const nameIsValid = formData.name !== "";
-    const genderIsValid = formData.gender_id !== "";
+
     const ageIsValid = formData.age >= 16;
 
-    const fieldsAreFilled = nameIsValid && genderIsValid && ageIsValid;
+    const fieldsAreFilled = nameIsValid && ageIsValid;
 
     // Check if the current state is different from the previous state
     if (fieldsAreFilled !== prevFieldsAreFilled) {
@@ -202,10 +205,10 @@ const EditProfile = () => {
   // useEffect to update the initial and previous state when formData changes
   useEffect(() => {
     const nameIsValid = formData.name !== "";
-    const genderIsValid = formData.gender_id !== "";
+
     const ageIsValid = formData.age >= 16;
 
-    setPrevFieldsAreFilled(nameIsValid && genderIsValid && ageIsValid);
+    setPrevFieldsAreFilled(nameIsValid && ageIsValid);
   }, [formData]);
 
   useEffect(() => {
