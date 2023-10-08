@@ -84,13 +84,11 @@ const ProfilePage = () => {
               )}
 
               <div className="pr-5 py-3 space-y-1 text-start">
-                <h1>
+                <h1>Bio</h1>
+                <p style={{ color: hintColor }} className="text-xs">
                   {profile.bio
                     ? profile.bio
                     : "Add a few words about yourself."}
-                </h1>
-                <p style={{ color: hintColor }} className="text-xs">
-                  Bio
                 </p>
               </div>
 
