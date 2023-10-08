@@ -143,7 +143,7 @@ const EditProfile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateUserInfo = () => {
+  function updateUserInfo() {
     MainButton.showProgress();
     var newHeader = new Headers();
     newHeader.append("Accept", "application/json");
@@ -179,7 +179,7 @@ const EditProfile = () => {
         MainButton.hideProgress();
         console.log("error", error);
       });
-  };
+  }
 
   const areAllValuesFilled = () => {
     const nameIsValid = formData.name !== "";
