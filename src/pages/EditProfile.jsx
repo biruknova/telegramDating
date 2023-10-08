@@ -118,9 +118,6 @@ const EditProfile = () => {
       />
       <div className="w-full flex flex-col flex-grow p-5 space-y-5">
         <div className="flex flex-col w-full">
-          <lable className="text-sm" style={{ color: hintColor }}>
-            Full Name
-          </lable>
           <input
             type="text"
             name="name"
@@ -140,11 +137,11 @@ const EditProfile = () => {
               blurHandler("name");
             }}
           />
+          <lable className="text-sm" style={{ color: hintColor }}>
+            Full Name
+          </lable>
         </div>
         <div className="flex flex-col w-full">
-          <lable className="text-sm" style={{ color: hintColor }}>
-            Bio
-          </lable>
           <input
             type="text"
             name="bio"
@@ -164,11 +161,11 @@ const EditProfile = () => {
               blurHandler("bio");
             }}
           />
+          <lable className="text-sm" style={{ color: hintColor }}>
+            Bio
+          </lable>
         </div>
         <div className="flex flex-col w-full">
-          <lable className="text-sm" style={{ color: hintColor }}>
-            Age
-          </lable>
           <input
             type="number"
             name="age"
@@ -192,6 +189,9 @@ const EditProfile = () => {
               blurHandler("age");
             }}
           />
+          <lable className="text-sm" style={{ color: hintColor }}>
+            Age
+          </lable>
         </div>
       </div>
     </div>
