@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BASE_URL from "../config";
@@ -97,9 +97,6 @@ const SignupPage = () => {
     }
   };
 
-  // Initialize the initial state and previous state as false
-  const [prevFieldsAreFilled, setPrevFieldsAreFilled] = useState(false);
-
   const areAllValuesFilled = () => {
     const nameIsValid = formData.name !== "";
     const genderIsValid = formData.gender_id !== "";
@@ -109,38 +106,33 @@ const SignupPage = () => {
     const fieldsAreFilled =
       nameIsValid && genderIsValid && ageIsValid && dataIsValid;
 
-    // Check if the current state is different from the previous state
-    if (fieldsAreFilled !== prevFieldsAreFilled) {
-      setPrevFieldsAreFilled(fieldsAreFilled); // Update the previous state
-
-      console.log("fields are filled", fieldsAreFilled);
-
-      if (fieldsAreFilled) {
-        MainButton.show();
-        MainButton.onClick(registerUser);
-      } else {
-        MainButton.hide();
-        MainButton.offClick(registerUser);
-      }
+    if (fieldsAreFilled) {
+      MainButton.show();
+    } else {
+      MainButton.hide();
     }
   };
 
-  // useEffect to update the initial and previous state when formData changes
-  useEffect(() => {
-    const nameIsValid = formData.name !== "";
-    const genderIsValid = formData.gender_id !== "";
-    const ageIsValid = formData.age >= 16;
-    const dataIsValid = formData.tg_data !== "";
+  // Create a ref to the button element
+  const buttonRef = useRef(null);
 
-    setPrevFieldsAreFilled(
-      nameIsValid && genderIsValid && ageIsValid && dataIsValid
-    );
-  }, [formData]);
+  const handleButtonClick = () => {
+    buttonRef.current.click();
+  };
 
   useEffect(() => {
     areAllValuesFilled();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
+
+  useEffect(() => {
+    MainButton.onClick(handleButtonClick);
+
+    return () => {
+      MainButton.offClick(handleButtonClick);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const navigate = useNavigate();
 
@@ -180,6 +172,7 @@ const SignupPage = () => {
       style={{ backgroundColor: bgColor }}
       className="bg-slate-700 flex flex-col  min-h-screen p-5"
     >
+      <div onClick={registerUser} ref={buttonRef}></div>
       <div className="flex flex-col items-center py-8 space-y-3">
         <RegistrationAnime />
         <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
