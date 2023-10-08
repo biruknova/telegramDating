@@ -82,14 +82,18 @@ const ProfilePage = () => {
                   </p>
                 </div>
               )}
-              {profile && profile.bio && (
-                <div className="pr-5 py-3 space-y-1 text-start">
-                  <h1>{profile.bio}</h1>
-                  <p style={{ color: hintColor }} className="text-xs">
-                    Bio
-                  </p>
-                </div>
-              )}
+
+              <div className="pr-5 py-3 space-y-1 text-start">
+                <h1>
+                  {profile.bio
+                    ? profile.bio
+                    : "Add a few words about yourself."}
+                </h1>
+                <p style={{ color: hintColor }} className="text-xs">
+                  Bio
+                </p>
+              </div>
+
               {profile && profile.age && (
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>{profile.age}</h1>
