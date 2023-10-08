@@ -1,8 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
   const navigate = useNavigate();
+
+  // Create a ref to store a reference to the input element
+  const inputRef = useRef(null);
+
+  // Function to focus the input element
+  const focusInput = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
 
   const BackButton = window.Telegram.WebApp.BackButton;
 
@@ -98,6 +108,13 @@ const EditProfile = () => {
     }
   };
 
+  useEffect(() => {
+    if (formData.bio === "") {
+      focusInput();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div
       style={{ color: txtColor, backgroundColor: bgColor }}
@@ -148,7 +165,9 @@ const EditProfile = () => {
           <input
             type="text"
             name="bio"
+            maxLength="120"
             className="bg-transparent  outline-none ring-0 pt-2 pb-1  transition-colors duration-100"
+            ref={inputRef}
             value={formData.bio}
             style={{
               borderBottom: `2px solid ${bioisFocused ? btnColor : hintColor}`,

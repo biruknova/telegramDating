@@ -52,7 +52,7 @@ const ProfilePage = () => {
                     backgroundColor: bgColor,
                     color: btnColor,
                   }}
-                  className="w-[30px] h-[30px] rounded-full bg-black absolute z-[999] top-1 right-1  flex items-center justify-center"
+                  className="w-[30px] h-[30px] rounded-full shadow absolute z-[999] top-1 right-1  flex items-center justify-center"
                 >
                   <PenIcon styles="w-4 h-4" />
                 </Link>
@@ -83,14 +83,26 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              <div className="pr-5 py-3 space-y-1 text-start">
-                <h1>Bio</h1>
-                <p style={{ color: hintColor }} className="text-xs">
-                  {profile.bio
-                    ? profile.bio
-                    : "Add a few words about yourself."}
-                </p>
-              </div>
+              {profile.bio ? (
+                <div className="pr-5 py-3 space-y-1 text-start">
+                  <h1>Bio</h1>
+                  <p style={{ color: hintColor }} className="text-xs">
+                    {profile.bio}
+                  </p>
+                </div>
+              ) : (
+                <Link
+                  to="/edit-profile"
+                  className="pr-5 py-3 space-y-1 text-start"
+                >
+                  <h1>Bio</h1>
+                  <p style={{ color: hintColor }} className="text-xs">
+                    {profile.bio
+                      ? profile.bio
+                      : "Add a few words about yourself."}
+                  </p>
+                </Link>
+              )}
 
               {profile && profile.age && (
                 <div className="pr-5 py-3 space-y-1 text-start">
