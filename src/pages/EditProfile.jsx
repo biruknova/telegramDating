@@ -81,6 +81,7 @@ const EditProfile = () => {
   }, []);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    areAllValuesFilled();
 
     console.log(e, "event");
 
@@ -183,6 +184,9 @@ const EditProfile = () => {
       });
   };
 
+  let debounceTimer = null;
+  const debounceDelay = 300; // Adjust the debounce delay as needed
+
   const areAllValuesFilled = () => {
     const nameIsValid = formData.name !== "";
     const ageIsValid = formData.age >= 16;
@@ -206,13 +210,10 @@ const EditProfile = () => {
     }
   };
 
-  let debounceTimer = null;
-  const debounceDelay = 300; // Adjust the debounce delay as needed
-
   useEffect(() => {
     areAllValuesFilled();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formData]);
+  }, []);
 
   return (
     <div
