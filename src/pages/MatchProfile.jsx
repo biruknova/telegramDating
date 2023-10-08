@@ -7,7 +7,8 @@ import ChatIcon from "../components/icons/Chat";
 import UnmatchIcon from "../components/icons/Unmatch";
 import BadgeIcon from "../components/animatedIcons/Badge";
 
-import onImg from "../assets/noImg.png";
+import manPlaceHolderImg from "../assets/man_placeholder.jpg";
+import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
 
 const MatchProfile = () => {
   const navigate = useNavigate();
@@ -46,10 +47,7 @@ const MatchProfile = () => {
   const params = useParams();
   const matchId = params.matchId;
 
-  console.log(matchId);
-
   const match = matches.find((match) => match.id === Number(matchId));
-  console.log(match);
 
   const ShowConfirmation = () => {
     window.Telegram.WebApp.showConfirm(
@@ -67,6 +65,9 @@ const MatchProfile = () => {
     );
   };
 
+  const placeHolderImg =
+    match.gender.id === 1 ? manPlaceHolderImg : womanPlaceHolderImg;
+
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
@@ -83,7 +84,7 @@ const MatchProfile = () => {
               className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200 overflow-hidden"
             >
               <img
-                src={match && match.photos ? match.photos[0] : onImg}
+                src={match && match.photos ? match.photos[0] : placeHolderImg}
                 alt="match profile"
               />
             </div>

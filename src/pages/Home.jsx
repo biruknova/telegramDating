@@ -9,10 +9,10 @@ import ProfileCard from "../components/cards/profileCard";
 import MatchPopUp from "../components/MatchPopUp";
 
 import BadgeIcon from "../components/animatedIcons/Badge";
-
 import SearchAnime from "../components/animatedIcons/SearchAnime";
 
-import onImg from "../assets/noImg.png";
+import manPlaceHolderImg from "../assets/man_placeholder.jpg";
+import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
 
 const HomePage = () => {
   const {
@@ -123,14 +123,19 @@ const HomePage = () => {
       .catch((error) => console.log("error", error));
   };
 
+  const placeHolderImg =
+    profile.gender.id === 1 ? manPlaceHolderImg : womanPlaceHolderImg;
+
   return (
     <>
       {isMatched && (
         <MatchPopUp
           onShowProfile={showMatchProfile}
           onClose={closeMatchPopUp}
-          selfImg={profile.photos ? profile.photos[0] : onImg}
-          matchImg={users[index].photos ? users[index].photos[index] : onImg}
+          selfImg={profile.photos ? profile.photos[0] : placeHolderImg}
+          matchImg={
+            users[index].photos ? users[index].photos[index] : placeHolderImg
+          }
           matchName={users[index].name}
         />
       )}
@@ -147,7 +152,7 @@ const HomePage = () => {
           name={users[index].name}
           age={users[index].age}
           bio={users[index].bio}
-          imgs={users[index].photos ? users[index].photos : [onImg]}
+          imgs={users[index].photos ? users[index].photos : [placeHolderImg]}
           id={users[index].id}
           likedYou={users[index].liked_you}
           onLike={like}

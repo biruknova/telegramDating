@@ -6,7 +6,8 @@ import context from "../store/context";
 import BadgeIcon from "../components/animatedIcons/Badge";
 import PenIcon from "../components/icons/Pen";
 
-import onImg from "../assets/noImg.png";
+import manPlaceHolderImg from "../assets/man_placeholder.jpg";
+import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
 
 const ProfilePage = () => {
   const colors = window.Telegram.WebApp.themeParams;
@@ -20,6 +21,9 @@ const ProfilePage = () => {
   } = colors;
 
   const { isGettingProfile, profile } = useContext(context);
+
+  const placeHolderImg =
+    profile.gender.id === 1 ? manPlaceHolderImg : womanPlaceHolderImg;
 
   return (
     <div
@@ -38,7 +42,11 @@ const ProfilePage = () => {
                 className=" relative rounded-full w-[130px] h-[130px] rounded-full bg-slate-100"
               >
                 <img
-                  src={profile && profile.photos ? profile.photos[0] : onImg}
+                  src={
+                    profile && profile.photos
+                      ? profile.photos[0]
+                      : placeHolderImg
+                  }
                   alt="profile profile"
                   className="rounded-full"
                 />
@@ -63,7 +71,7 @@ const ProfilePage = () => {
                     className="text-xl font-semibold min-w-max"
                   >
                     {profile ? profile.name : ""}
-                  </h1>{" "}
+                  </h1>
                   {profile.has_telegram_premium && <BadgeIcon />}
                 </div>
               </div>

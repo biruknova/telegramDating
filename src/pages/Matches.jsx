@@ -5,7 +5,8 @@ import MatchCard from "../components/cards/MatchCard";
 
 import HeartAnime from "../components/animatedIcons/HeartAnime";
 
-import onImg from "../assets/noImg.png";
+import manPlaceHolderImg from "../assets/man_placeholder.jpg";
+import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
 
 const MatchesPage = () => {
   const { gettingMatches, matches } = useContext(context);
@@ -58,7 +59,13 @@ const MatchesPage = () => {
               key={match.id}
               name={match.name}
               age={match.age}
-              img={match.photos ? match.photos[0] : onImg}
+              img={
+                match.photos
+                  ? match.photos[0]
+                  : match.gender.id === 1
+                  ? manPlaceHolderImg
+                  : womanPlaceHolderImg
+              }
               id={match.id}
               isPremium={match.has_telegram_premium}
               style={
