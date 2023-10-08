@@ -5,6 +5,8 @@ import MatchCard from "../components/cards/MatchCard";
 
 import HeartAnime from "../components/animatedIcons/HeartAnime";
 
+import onImg from "../assets/noImg.png";
+
 const MatchesPage = () => {
   const { gettingMatches, matches } = useContext(context);
 
@@ -17,12 +19,6 @@ const MatchesPage = () => {
     button_color: btnColor,
   } = colors;
 
-  // useEffect(() => {
-  //   if (matches.length === 0) {
-  //     getMatches();
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
   return (
     <div className="flex flex-col w-full pb-3">
       <div className="w-full flex flex-col justify-center items-center pt-10 pb-5 space-y-6">
@@ -62,7 +58,7 @@ const MatchesPage = () => {
               key={match.id}
               name={match.name}
               age={match.age}
-              img={match.photos ? match.photos[0] : "https://picsum.photos/200"}
+              img={match.photos ? match.photos[0] : onImg}
               id={match.id}
               isPremium={match.has_telegram_premium}
               style={

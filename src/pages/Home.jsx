@@ -12,6 +12,8 @@ import BadgeIcon from "../components/animatedIcons/Badge";
 
 import SearchAnime from "../components/animatedIcons/SearchAnime";
 
+import onImg from "../assets/noImg.png";
+
 const HomePage = () => {
   const {
     isGettingUsers,
@@ -127,14 +129,8 @@ const HomePage = () => {
         <MatchPopUp
           onShowProfile={showMatchProfile}
           onClose={closeMatchPopUp}
-          selfImg={
-            profile.photos ? profile.photos[0] : "https://picsum.photos/200"
-          }
-          matchImg={
-            users[index].photos
-              ? users[index].photos[index]
-              : "https://picsum.photos/100"
-          }
+          selfImg={profile.photos ? profile.photos[0] : onImg}
+          matchImg={users[index].photos ? users[index].photos[index] : onImg}
           matchName={users[index].name}
         />
       )}
@@ -151,11 +147,7 @@ const HomePage = () => {
           name={users[index].name}
           age={users[index].age}
           bio={users[index].bio}
-          imgs={
-            users[index].photos
-              ? users[index].photos
-              : ["https://picsum.photos/200"]
-          }
+          imgs={users[index].photos ? users[index].photos : [onImg]}
           id={users[index].id}
           likedYou={users[index].liked_you}
           onLike={like}

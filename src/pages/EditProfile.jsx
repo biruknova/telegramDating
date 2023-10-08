@@ -188,19 +188,13 @@ const EditProfile = () => {
     const ageIsValid = formData.age >= 16;
     const fieldsAreFilled = nameIsValid && ageIsValid;
 
-    // Check if the current state is different from the previous state
-    console.log("fields are filled", fieldsAreFilled);
-
     if (fieldsAreFilled) {
       MainButton.show();
-      // MainButton.onClick(()=>{updateUserInfo()});
     } else {
       MainButton.hide();
-      // MainButton.offClick(updateUserInfo);
     }
   };
 
-  // Create a ref to the button element
   const buttonRef = useRef(null);
 
   const handleButtonClick = () => {

@@ -7,6 +7,8 @@ import ChatIcon from "../components/icons/Chat";
 import UnmatchIcon from "../components/icons/Unmatch";
 import BadgeIcon from "../components/animatedIcons/Badge";
 
+import onImg from "../assets/noImg.png";
+
 const MatchProfile = () => {
   const navigate = useNavigate();
 
@@ -81,11 +83,7 @@ const MatchProfile = () => {
               className="rounded-full w-[130px] h-[130px] rounded-full bg-red-200 overflow-hidden"
             >
               <img
-                src={
-                  match && match.photos
-                    ? match.photos[0]
-                    : "https://picsum.photos/200"
-                }
+                src={match && match.photos ? match.photos[0] : onImg}
                 alt="match profile"
               />
             </div>

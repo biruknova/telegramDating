@@ -6,6 +6,8 @@ import context from "../store/context";
 import BadgeIcon from "../components/animatedIcons/Badge";
 import PenIcon from "../components/icons/Pen";
 
+import onImg from "../assets/noImg.png";
+
 const ProfilePage = () => {
   const colors = window.Telegram.WebApp.themeParams;
 
@@ -36,11 +38,7 @@ const ProfilePage = () => {
                 className=" relative rounded-full w-[130px] h-[130px] rounded-full bg-slate-100"
               >
                 <img
-                  src={
-                    profile && profile.photos
-                      ? profile.photos[0]
-                      : "https://picsum.photos/200"
-                  }
+                  src={profile && profile.photos ? profile.photos[0] : onImg}
                   alt="profile profile"
                   className="rounded-full"
                 />
