@@ -74,7 +74,7 @@ const MatchProfile = () => {
     setShowSnackBar(true);
     setTimeout(() => {
       setShowSnackBar(false);
-    }, 1000);
+    }, 2000);
   };
 
   return (
@@ -182,7 +182,7 @@ const MatchProfile = () => {
         </div>
       </div>
       {showSnackBar && (
-        <div className="w-full px-1.5 absolute bottom-1.5">
+        <div className="w-full px-1.5 absolute bottom-1.5 transition-all duration-200">
           <div
             style={{ backgroundColor: btnColor }}
             className="w-full p-3 text-sm rounded text-white"
