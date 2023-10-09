@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import context from "../store/context";
 import BASE_URL from "../config";
 
+import "../shimmer.css";
+
 import BadgeIcon from "../components/animatedIcons/Badge";
 import PenIcon from "../components/icons/Pen";
 
@@ -175,18 +177,25 @@ const ProfilePage = () => {
                   </p>
                 </div>
               )}
+              {!profile.is_pro_user && (
+                <div className="w-full flex flex-col pr-5">
+                  <div className="space-y-2">
+                    <h1 style={{ color: btnColor }}>Account</h1>
+                    <p style={{ color: hintColor }} className="text-sm">
+                      Upgrade to pro and see who liked you while going through
+                      your feed.
+                    </p>
+                  </div>
+                  <button
+                    onClick={UpgradeToPro}
+                    disabled={isFetching}
+                    className="animate-button text-black p-2 w-full font-medium"
+                  >
+                    {isFetching ? "wait ..." : "Upgrade"}
+                  </button>
+                </div>
+              )}
             </div>
-            {!profile.is_pro_user && (
-              <div className="w-full px-5">
-                <button
-                  onClick={UpgradeToPro}
-                  disabled={isFetching}
-                  className="bg-blue-500 text-white p-2 w-full"
-                >
-                  {isFetching ? "wait ..." : "Upgrade"}
-                </button>
-              </div>
-            )}
           </div>
         )}
       </div>
