@@ -141,8 +141,8 @@ const ProfilePage = () => {
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>Username</h1>
                   <p style={{ color: hintColor }} className="text-xs">
-                    Set your username by going to your telegram's setting and
-                    let your matchs chat with you.
+                    Set your username by going to your Telegram settings and
+                    allow your matches to chat with you.
                   </p>
                 </div>
               )}
@@ -189,8 +189,8 @@ const ProfilePage = () => {
                   <div className="space-y-0.5">
                     <h1 style={{ color: btnColor }}>Account</h1>
                     <p style={{ color: hintColor }} className="text-sm">
-                      Upgrade to pro with just $10 and see who liked you while
-                      going through your feed.
+                      Upgrade to Pro for just $10 and see who has liked you
+                      while browsing through your feed.
                     </p>
                   </div>
                   <button
