@@ -9,8 +9,7 @@ import RadioToggle from "../components/Radios";
 import RegistrationAnime from "../components/animatedIcons/Registration";
 
 const SignupPage = () => {
-  const { setTokenValue, getUsers, getMatches, getProfile } =
-    useContext(context);
+  const { setTokenValue } = useContext(context);
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [ageIsFocused, setAgeIsFocused] = useState(false);
   const [belowAgeLimit, setBelowAgeLimit] = useState(false);
@@ -159,9 +158,6 @@ const SignupPage = () => {
           sessionStorage.setItem("dateUserToken", result.token);
           setTokenValue(result.token);
           MainButton.hide();
-          getUsers();
-          getMatches();
-          getProfile();
         }
       })
       .catch((error) => {

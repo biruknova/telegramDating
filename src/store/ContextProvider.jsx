@@ -42,12 +42,12 @@ const DatingContextProvider = (props) => {
       .catch((error) => console.log("error", error));
   };
 
-  // useEffect(() => {
-  //   if (tokenValue) {
-  //     getUsers();
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [tokenValue]);
+  useEffect(() => {
+    if (tokenValue) {
+      getUsers();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tokenValue]);
 
   useEffect(() => {
     if (tokenValue && users.length === 6 && hasNextPage) {
@@ -82,12 +82,12 @@ const DatingContextProvider = (props) => {
       .catch((error) => console.log("error", error));
   };
 
-  // useEffect(() => {
-  //   if (tokenValue) {
-  //     getMatches();
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [tokenValue]);
+  useEffect(() => {
+    if (tokenValue) {
+      getMatches();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tokenValue]);
 
   const [profile, setProfile] = useState({});
   const [isGettingProfile, setIsGettingProfile] = useState(false);
@@ -114,12 +114,12 @@ const DatingContextProvider = (props) => {
       .catch((error) => console.log("error", error));
   };
 
-  // useEffect(() => {
-  //   if (tokenValue) {
-  //     getProfile();
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [tokenValue]);
+  useEffect(() => {
+    if (tokenValue) {
+      getProfile();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tokenValue]);
 
   const unmatchUser = (confirmation, id) => {
     console.log(confirmation, "confirmed");
@@ -155,7 +155,6 @@ const DatingContextProvider = (props) => {
     isGettingUsers,
     users,
     setUsers,
-    getUsers,
     gettingMatches,
     matches,
     setMatches,
