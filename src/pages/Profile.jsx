@@ -178,8 +178,8 @@ const ProfilePage = () => {
                 </div>
               )}
               {!profile.is_pro_user && (
-                <div className="w-full flex flex-col pr-5">
-                  <div className="space-y-2">
+                <div className="w-full flex flex-col pr-5 py-3 space-y-3">
+                  <div className="space-y-1">
                     <h1 style={{ color: btnColor }}>Account</h1>
                     <p style={{ color: hintColor }} className="text-sm">
                       Upgrade to pro and see who liked you while going through
