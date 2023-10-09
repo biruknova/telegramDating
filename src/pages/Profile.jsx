@@ -46,15 +46,13 @@ const ProfilePage = () => {
         setIsFetching(false);
         if (result.success) {
           window.Telegram.WebApp.openInvoice(result.payment_url, (res) => {
-            console.log(res);
-
             if (res === "paid") {
               setProfile({ ...profile, is_pro_user: true });
               window.location.reload();
               window.Telegram.WebApp.showPopup({
                 title: "Welcome to Pro",
                 message:
-                  "You have upgraded to dating pro. Your payment has been successful",
+                  "You have upgraded to Dating Pro. Your payment was successful.",
                 buttons: [{ type: "close", text: "Close" }],
               });
             } else if (res === "cancelled") {

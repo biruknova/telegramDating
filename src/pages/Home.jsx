@@ -198,7 +198,9 @@ const HomePage = () => {
                 style={{ color: hintColor }}
                 className="dark:drop-shadow text-sm"
               >
-                No one is avaliable at the moment. please try again later
+                Don't worry! New potential connections are joining our dating
+                community all the time. No one is avaliable at the moment.
+                please try again later
               </p>
             </div>
             <SearchAnime />
@@ -206,7 +208,7 @@ const HomePage = () => {
               style={{ color: hintColor }}
               className="dark:drop-shadow text-sm"
             >
-              No one is avaliable at the moment. please try again later
+              Keep checking back!
             </p>
           </div>
         </div>
