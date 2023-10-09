@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import context from "../../store/context";
 
 import CloseIcon from "../icons/Close";
 import HeartIcon from "../icons/Heart";
@@ -36,6 +37,7 @@ const ProfileCard = ({
   id,
   likedYou,
 }) => {
+  const { profile } = useContext(context);
   const images = addIdsToElements(imgs);
 
   const [indicatorPosition, setIndicatorPosition] = useState(imgIndex);
@@ -77,6 +79,18 @@ const ProfileCard = ({
             style={{ height: "100vw" }}
             className="w-full relative max-h-[600px]"
           >
+            {" "}
+            {profile ? (
+              profile.is_pro_user ? (
+                <div className="absolute top-5 right-0 bg-red-500 text-white p-2 ">
+                  likes you
+                </div>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
             {images.length > 1 && (
               <div className="absolute top-0 left-0 h-[50px] bg-gradient-to-t from-transparent via-black/20 to-black/40 w-full"></div>
             )}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import context from "../store/context";
@@ -21,8 +21,7 @@ const ProfilePage = () => {
     secondary_bg_color: secondaryBgColor,
   } = colors;
 
-  const { isGettingProfile, profile, getProfile, tokenValue } =
-    useContext(context);
+  const { isGettingProfile, profile, tokenValue } = useContext(context);
 
   const [isFetching, setIsFetching] = useState(false);
 
@@ -66,13 +65,6 @@ const ProfilePage = () => {
       .catch((error) => console.log("error", error));
   };
 
-  useEffect(() => {
-    if (!profile) {
-      getProfile();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
@@ -91,11 +83,13 @@ const ProfilePage = () => {
               >
                 <img
                   src={
-                    profile && profile.photos
-                      ? profile.photos[0]
-                      : profile.gender.id === 1
-                      ? manPlaceHolderImg
-                      : womanPlaceHolderImg
+                    profile
+                      ? profile.photos
+                        ? profile.photos[0]
+                        : profile.gender.id === 1
+                        ? manPlaceHolderImg
+                        : womanPlaceHolderImg
+                      : ""
                   }
                   alt="profile profile"
                   className="rounded-full"
