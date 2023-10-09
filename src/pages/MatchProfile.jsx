@@ -182,10 +182,10 @@ const MatchProfile = () => {
         </div>
       </div>
       {showSnackBar && (
-        <div className="w-full px-5 absolute bottom-0">
+        <div className="w-full px-1.5 absolute bottom-1.5">
           <div
             style={{ backgroundColor: btnColor }}
-            className="w-full p-3 text-center text-white"
+            className="w-full p-3 text-sm rounded text-white"
           >
             This account doesn't have a username
           </div>
