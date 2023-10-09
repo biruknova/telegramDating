@@ -47,7 +47,7 @@ const DatingContextProvider = (props) => {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenValue]);
+  }, []);
 
   useEffect(() => {
     if (tokenValue && users.length === 6 && hasNextPage) {
@@ -87,7 +87,7 @@ const DatingContextProvider = (props) => {
       getMatches();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenValue]);
+  }, []);
 
   const [profile, setProfile] = useState({});
   const [isGettingProfile, setIsGettingProfile] = useState(false);
@@ -119,7 +119,7 @@ const DatingContextProvider = (props) => {
       getProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenValue]);
+  }, []);
 
   const unmatchUser = (confirmation, id) => {
     console.log(confirmation, "confirmed");
