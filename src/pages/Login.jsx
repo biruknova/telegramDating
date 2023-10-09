@@ -7,7 +7,7 @@ import context from "../store/context";
 import HeartIcon from "../components/icons/Heart";
 
 const LoginPage = () => {
-  const { setTokenValue } = useContext(context);
+  const { setTokenValue, setTokenIsSet } = useContext(context);
   const [isLoggingIn, setIsLoggingIn] = useState(true);
 
   const navigate = useNavigate();
@@ -38,6 +38,7 @@ const LoginPage = () => {
         if (result.success) {
           navigate("/home");
           setTokenValue(result.token);
+          setTokenIsSet(true);
 
           sessionStorage.setItem("dateUserToken", result.token);
         } else {

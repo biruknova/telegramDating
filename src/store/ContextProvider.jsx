@@ -6,6 +6,7 @@ import BASE_URL from "../config";
 const DatingContextProvider = (props) => {
   const token = sessionStorage.getItem("dateUserToken");
   const [tokenValue, setTokenValue] = useState(token || "");
+  const [tokenIsSet, setTokenIsSet] = useState(false);
 
   const [users, setUsers] = useState([]);
   const [isGettingUsers, setIsGettingUsers] = useState(true);
@@ -43,7 +44,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenValue) {
+    if (tokenValue && tokenIsSet) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -83,7 +84,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenValue) {
+    if (tokenValue && tokenIsSet) {
       getMatches();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,7 +116,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenValue) {
+    if (tokenValue && tokenIsSet) {
       getProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -151,6 +152,7 @@ const DatingContextProvider = (props) => {
 
   const value = {
     tokenValue,
+    setTokenIsSet,
     setTokenValue,
     isGettingUsers,
     users,
