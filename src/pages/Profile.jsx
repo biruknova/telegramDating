@@ -10,7 +10,7 @@ import BadgeIcon from "../components/animatedIcons/Badge";
 import PenIcon from "../components/icons/Pen";
 
 import manPlaceHolderImg from "../assets/man_placeholder.jpg";
-// import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
+import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
 
 const ProfilePage = () => {
   const colors = window.Telegram.WebApp.themeParams;
@@ -50,6 +50,7 @@ const ProfilePage = () => {
 
             if (res === "paid") {
               setProfile({ ...profile, is_pro_user: true });
+              window.location.reload();
               window.Telegram.WebApp.showPopup({
                 title: "Welcome to Pro",
                 message:
@@ -86,7 +87,13 @@ const ProfilePage = () => {
                 className=" relative rounded-full w-[130px] h-[130px] rounded-full bg-slate-100"
               >
                 <img
-                  src={profile.photos ? profile.photos[0] : manPlaceHolderImg}
+                  src={
+                    profile.photos
+                      ? profile.photos[0]
+                      : profile.gender.id === 1
+                      ? manPlaceHolderImg
+                      : womanPlaceHolderImg
+                  }
                   alt="profile profile"
                   className="rounded-full"
                 />

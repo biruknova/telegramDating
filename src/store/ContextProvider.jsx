@@ -90,7 +90,8 @@ const DatingContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenValue]);
 
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState({ gender: { id: 1 } });
+
   const [isGettingProfile, setIsGettingProfile] = useState(false);
 
   const getProfile = () => {
