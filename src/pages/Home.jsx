@@ -198,7 +198,7 @@ const HomePage = () => {
                 style={{ color: hintColor }}
                 className="dark:drop-shadow text-sm"
               >
-                Don't worry! New potential connections are joining our dating
+                Don't worry! New potential Matches are joining our dating
                 community all the time.
               </p>
             </div>
