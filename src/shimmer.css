@@ -1,7 +1,7 @@
 .animate-button {
-  background: linear-gradient(to right, #c7a407 0%, #f3c90d 50%, #c7a407 100%);
+  background: linear-gradient(to right, #aa8b00 0%, #f3c90d 50%, #aa8b00 100%);
   background-size: 200% auto;
-  animation: pulse-gradient 3.5s ease-in-out infinite;
+  animation: pulse-gradient 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse-gradient {

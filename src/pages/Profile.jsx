@@ -179,7 +179,7 @@ const ProfilePage = () => {
               )}
               {!profile.is_pro_user && (
                 <div className="w-full flex flex-col pr-5 py-3 space-y-3">
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     <h1 style={{ color: btnColor }}>Account</h1>
                     <p style={{ color: hintColor }} className="text-sm">
                       Upgrade to pro and see who liked you while going through
@@ -189,7 +189,7 @@ const ProfilePage = () => {
                   <button
                     onClick={UpgradeToPro}
                     disabled={isFetching}
-                    className="animate-button text-black p-2 w-full font-medium"
+                    className="animate-button text-black p-2 w-full font-medium rounded"
                   >
                     {isFetching ? "wait ..." : "Upgrade"}
                   </button>
