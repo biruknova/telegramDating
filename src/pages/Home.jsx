@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import context from "../store/context";
@@ -122,6 +122,15 @@ const HomePage = () => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
+
+  useEffect(() => {
+    return () => {
+      if (users.length !== 0) {
+        closeMatchPopUp();
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

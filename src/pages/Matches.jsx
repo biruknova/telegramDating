@@ -31,10 +31,10 @@ const MatchesPage = () => {
         </div>
         <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
           <h1 style={{ color: txtColor }} className="text-2xl font-semibold">
-            People You've Matched
+            People You've Matched.
           </h1>
           <p style={{ color: hintColor }} className="text-sm">
-            This are people that you have matched with. Reach out and connect
+            These are people that you have matched with. Reach out and connect
             with them.
           </p>
         </div>
