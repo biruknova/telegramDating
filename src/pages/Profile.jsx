@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import context from "../store/context";
+import BASE_URL from "../config";
 
 import BadgeIcon from "../components/animatedIcons/Badge";
 import PenIcon from "../components/icons/Pen";
@@ -20,7 +21,42 @@ const ProfilePage = () => {
     secondary_bg_color: secondaryBgColor,
   } = colors;
 
-  const { isGettingProfile, profile } = useContext(context);
+  const { isGettingProfile, profile, getProfile, tokenValue } =
+    useContext(context);
+
+  const [isFetching, setIsFetching] = useState(false);
+
+  const UpgradeToPro = () => {
+    setIsFetching(true);
+    var newHeader = new Headers();
+    newHeader.append("Accept", "application/json");
+    newHeader.append("Authorization", `Bearer ${tokenValue}`);
+
+    var requestOptions = {
+      method: "POST",
+      headers: newHeader,
+      redirect: "follow",
+    };
+
+    fetch(BASE_URL + "/api/generate-invoice", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setIsFetching(false);
+        if (result.success) {
+          window.Telegram.WebApp.openInvoice(result.payment_url, (res) => {
+            console.log(res);
+          });
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => {
+    if (!profile) {
+      getProfile();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
@@ -126,6 +162,12 @@ const ProfilePage = () => {
                 </div>
               )}
             </div>
+            <button
+              onClick={UpgradeToPro}
+              className="bg-blue-500 text-white p-2"
+            >
+              {isFetching ? "wait ..." : "Upgrade"}
+            </button>
           </div>
         )}
       </div>

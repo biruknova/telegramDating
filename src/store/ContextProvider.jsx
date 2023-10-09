@@ -162,6 +162,7 @@ const DatingContextProvider = (props) => {
     isGettingProfile,
     profile,
     setProfile,
+    getProfile,
     unmatchUser,
   };
 
