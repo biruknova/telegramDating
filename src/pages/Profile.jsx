@@ -182,8 +182,8 @@ const ProfilePage = () => {
                   <div className="space-y-0.5">
                     <h1 style={{ color: btnColor }}>Account</h1>
                     <p style={{ color: hintColor }} className="text-sm">
-                      Upgrade to pro and see who liked you while going through
-                      your feed.
+                      Upgrade to pro with just $10 and see who liked you while
+                      going through your feed.
                     </p>
                   </div>
                   <button
