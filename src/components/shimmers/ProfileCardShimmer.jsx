@@ -12,7 +12,7 @@ const ProfileCardShimmer = () => {
           <div
             style={{ height: "100vw" }}
             className={`w-full relative ${
-              mode ? "bg-black/10" : "bg-slate-100"
+              mode ? "bg-black/20" : "bg-slate-100"
             } `}
           >
             <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 w-full">
@@ -50,9 +50,9 @@ const ProfileCardShimmer = () => {
         </div>
         <div className="px-4 w-full">
           <hr
-            className={`order-t ${
+            className={`border-t ${
               mode ? "border-black/20" : "border-[#2c2c2c]"
-            }   w-full`}
+            } w-full`}
           />
         </div>
 
