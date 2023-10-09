@@ -72,9 +72,10 @@ const MatchProfile = () => {
 
   const showNoUsername = () => {
     setShowSnackBar(true);
+    window.Telegram.WebApp.HapticFeedback.notificationOccurred("error");
     setTimeout(() => {
       setShowSnackBar(false);
-    }, 2000);
+    }, 1500);
   };
 
   return (
@@ -146,11 +147,18 @@ const MatchProfile = () => {
             style={{ color: txtColor }}
             className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-base mt-3"
           >
-            {match && match.tg_username && (
+            {match && match.tg_username ? (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>@{match.tg_username}</h1>
                 <p style={{ color: hintColor }} className="text-xs">
                   Username
+                </p>
+              </div>
+            ) : (
+              <div className="pr-5 py-3 space-y-1 text-start">
+                <h1>Username</h1>
+                <p style={{ color: hintColor }} className="text-xs">
+                  This account does not have a username.
                 </p>
               </div>
             )}
