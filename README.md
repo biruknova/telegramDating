@@ -16,13 +16,13 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/biruknova/telegramDating.git
    ```
 
 2. Change to the project's directory:
 
    ```sh
-   cd your-repo
+   cd telegramDating
    ```
 
 3. Install dependencies using npm:
