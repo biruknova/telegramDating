@@ -51,7 +51,7 @@ const ProfilePage = () => {
               window.Telegram.WebApp.showPopup({
                 title: "Welcome to Pro",
                 message:
-                  "You have upgraded to dating pro. your payment has been received",
+                  "You have upgraded to dating pro. Your payment has been successful",
                 buttons: [{ type: "close", text: "Close" }],
               });
             } else if (res === "cancelled") {
@@ -76,7 +76,7 @@ const ProfilePage = () => {
         style={{ backgroundColor: bgColor }}
         className="w-full flex flex-col flex-grow rounded-t-xl"
       >
-        {!isGettingProfile && (
+        {!isGettingProfile && profile && (
           <div className="-mt-[50px] flex flex-col items-center space-y-6 w-full">
             <div className="flex flex-col items-center space-y-2 w-full">
               <div
@@ -85,13 +85,11 @@ const ProfilePage = () => {
               >
                 <img
                   src={
-                    profile
-                      ? profile.photos
-                        ? profile.photos[0]
-                        : profile.gender.id === 1
-                        ? manPlaceHolderImg
-                        : womanPlaceHolderImg
-                      : ""
+                    profile.photos
+                      ? profile.photos[0]
+                      : profile.gender.id === 1
+                      ? manPlaceHolderImg
+                      : womanPlaceHolderImg
                   }
                   alt="profile profile"
                   className="rounded-full"
