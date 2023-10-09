@@ -50,8 +50,8 @@ const ProfileCardShimmer = () => {
         </div>
         <div className="px-4 w-full">
           <div
-            className={`h-[1.5px] ${
-              mode ? "bg-black/20" : "bg-[#2c2c2c]"
+            className={`border-t ${
+              mode ? "border-black/20" : "border-slate-100"
             } w-full`}
           />
         </div>
