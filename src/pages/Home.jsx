@@ -13,6 +13,7 @@ import SearchAnime from "../components/animatedIcons/SearchAnime";
 
 import manPlaceHolderImg from "../assets/man_placeholder.jpg";
 import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
+import ProfileCardShimmer from "../components/shimmers/ProfileCardShimmer";
 
 const HomePage = () => {
   const {
@@ -74,7 +75,7 @@ const HomePage = () => {
     secondary_bg_color: secondaryBgColor,
     text_color: txtColor,
     hint_color: hintColor,
-    button_color: btnColor,
+    // button_color: btnColor,
   } = colors;
 
   const likeUser = (id) => {
@@ -157,12 +158,7 @@ const HomePage = () => {
       )}
       <ImagePreloader imageUrls={allImageUrls} />
       {isGettingUsers && users.length === 0 ? (
-        <div className="w-full flex justify-center mt-16">
-          <div
-            style={{ borderTop: `2px  solid ${btnColor}` }}
-            className="w-[40px] h-[40px] rounded-full animate-spin"
-          ></div>
-        </div>
+        <ProfileCardShimmer />
       ) : users.length !== 0 ? (
         <ProfileCard
           name={users[index].name}

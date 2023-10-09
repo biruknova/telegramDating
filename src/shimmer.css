@@ -12,3 +12,32 @@
     background-position: -200% 0;
   }
 }
+
+.animate-waiter-dark {
+  background: linear-gradient(to right, #242424 0%, #313131 50%, #242424 100%);
+  background-size: 200% auto;
+  animation: pulse-gradient 3.5s ease-in infinite;
+}
+
+@keyframes pulse-gradient {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+.animate-waiter-light {
+  background: linear-gradient(to right, #e2e8f0 0%, #f1f5f9 50%, #e2e8f0 100%);
+  background-size: 200% auto;
+  animation: pulse-gradient 3.5s ease-in infinite;
+}
+
+@keyframes pulse-gradient {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
