@@ -45,6 +45,21 @@ const ProfilePage = () => {
         if (result.success) {
           window.Telegram.WebApp.openInvoice(result.payment_url, (res) => {
             console.log(res);
+
+            if (res === "paid") {
+              window.Telegram.WebApp.showPopup({
+                title: "Welcome to Pro",
+                message:
+                  "You have upgraded to dating pro. your payment has been received",
+                buttons: [{ type: "close", text: "Close" }],
+              });
+            } else if (res === "cancelled") {
+              window.Telegram.WebApp.showPopup({
+                title: "Not Paid",
+                message: "You have aborted the payment process",
+                buttons: [{ type: "close", text: "Close" }],
+              });
+            }
           });
         }
       })
@@ -164,7 +179,8 @@ const ProfilePage = () => {
             </div>
             <button
               onClick={UpgradeToPro}
-              className="bg-blue-500 text-white p-2"
+              disabled={isFetching}
+              className="bg-blue-500 text-white p-2 w-full"
             >
               {isFetching ? "wait ..." : "Upgrade"}
             </button>
