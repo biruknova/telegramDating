@@ -208,9 +208,11 @@ const EditProfile = () => {
 
   useEffect(() => {
     MainButton.onClick(handleButtonClick);
+    MainButton.setText("Save Changes");
 
     return () => {
       MainButton.offClick(handleButtonClick);
+      MainButton.hide();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
