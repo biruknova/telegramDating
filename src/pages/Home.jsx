@@ -199,8 +199,7 @@ const HomePage = () => {
                 className="dark:drop-shadow text-sm"
               >
                 Don't worry! New potential connections are joining our dating
-                community all the time. No one is avaliable at the moment.
-                please try again later
+                community all the time.
               </p>
             </div>
             <SearchAnime />
