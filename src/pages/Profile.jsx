@@ -72,7 +72,7 @@ const ProfilePage = () => {
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
-      className="w-full flex flex-grow  pt-[130px] z-50"
+      className="w-full flex flex-grow  pt-[100px] z-50"
     >
       <div
         style={{ backgroundColor: bgColor }}
