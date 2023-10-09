@@ -63,6 +63,17 @@ const Rootlayout = () => {
           <PersonIcon styles="w-5 h-5" />
           <h1>Profile</h1>
         </NavLink>
+        <NavLink
+          to="/profile"
+          className="flex flex-col items-center space-y-1.5 w-1/3"
+          style={({ isActive }) => ({
+            color: isActive ? btnColor : hintColor,
+          })}
+          end
+        >
+          <PersonIcon styles="w-5 h-5" />
+          <h1>Profile</h1>
+        </NavLink>
       </div>
     </div>
   );
