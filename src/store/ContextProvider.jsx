@@ -44,7 +44,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenValue && tokenIsSet) {
+    if (tokenValue) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,7 +84,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenValue && tokenIsSet) {
+    if (tokenValue) {
       getMatches();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -116,7 +116,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenValue && tokenIsSet) {
+    if (tokenValue) {
       getProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -152,6 +152,7 @@ const DatingContextProvider = (props) => {
 
   const value = {
     tokenValue,
+    tokenIsSet,
     setTokenIsSet,
     setTokenValue,
     isGettingUsers,
