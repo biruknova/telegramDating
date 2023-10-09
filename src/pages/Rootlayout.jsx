@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 
 import HomeIcon from "../components/icons/Home";
@@ -16,6 +17,14 @@ const Rootlayout = () => {
   } = colors;
 
   console.log("colors", txtColor, hintColor, btnTxtColor);
+
+  useEffect(() => {
+    window.Telegram.WebApp.enableClosingConfirmation();
+
+    return () => {
+      window.Telegram.WebApp.disableClosingConfirmation();
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-[600px] mx-auto">
