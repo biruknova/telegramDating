@@ -12,7 +12,7 @@ const ProfileCardShimmer = () => {
           <div
             style={{ height: "100vw" }}
             className={`w-full relative ${
-              mode ? "bg-white/10" : "bg-slate-100"
+              mode ? "bg-black/10" : "bg-slate-100"
             } `}
           >
             <div className="flex flex-col items-start text-white absolute bottom-0 left-0 p-4 w-full">
