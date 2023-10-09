@@ -155,6 +155,7 @@ const DatingContextProvider = (props) => {
     isGettingUsers,
     users,
     setUsers,
+    getUsers,
     gettingMatches,
     matches,
     setMatches,
