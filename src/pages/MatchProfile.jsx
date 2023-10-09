@@ -71,7 +71,7 @@ const MatchProfile = () => {
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
-      className=" w-full min-h-screen flex flex-grow pt-[100px] z-50"
+      className=" w-full min-h-screen flex flex-grow pt-[80px] z-50"
     >
       <div
         style={{ backgroundColor: bgColor }}
