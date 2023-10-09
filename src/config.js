@@ -1,3 +1,3 @@
-const BASE_URL = "https://telegram-date.bytemela.com";
+const BASE_URL = "";
 
 export default BASE_URL;

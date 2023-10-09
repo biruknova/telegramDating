@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# Telegram Dating mini App Installation Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Introduction:**
 
-## Available Scripts
+The Telegram Dating miniApp is built with react js.
 
-In the project directory, you can run:
+**Prerequisites:**
 
-### `npm start`
+Before you begin, ensure you have met the following requirements:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Node.js](https://nodejs.org/) (version LTS)
+- [npm](https://www.npmjs.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Installation:**
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```sh
+   git clone https://github.com/your-username/your-repo.git
+   ```
 
-### `npm run build`
+2. Change to the project's directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```sh
+   cd your-repo
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies using npm:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```sh
+   npm install
+   ```
 
-### `npm run eject`
+4. Start the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```sh
+   npm run start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Configuration :**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Set your `BASE_URL` is the `config.js` file located in the `src` directory:
 
-## Learn More
+   ```javascript
+   const BASE_URL = "your base url";
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   export default BASE_URL;
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Save the file and restart the development server.
 
-### Code Splitting
+# Telegram Mini App Usage - Dating App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Overview
 
-### Analyzing the Bundle Size
+This miniapp is built using the Telegram Mini App API and React JS.
+It facilitates users to connect with others and find matches based on preferences.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Features
 
-### Making a Progressive Web App
+### **Bottom Navigation**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+There are three main tabs in the bottom navigation:
 
-### Advanced Configuration
+- **Home**
+- **Matches**
+- **Profile**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### **Home Tab**
 
-### Deployment
+- Users are displayed in a card layout.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  - **User Information Displayed**:
+    - User Image
+    - Name
+    - Age
+    - Bio (if available)
+  - Two action buttons:
+    - **Like**: If clicked, you move on to the next user card. If there's a match, a match modal pops up.
+    - **Dislike**: If clicked, you move on to the next user card.
 
-### `npm run build` fails to minify
+- If there are no users left to display, a card shows up with the message:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  > "No one is available."
+
+- **Match Modal**:
+  - **Header**: "It's a match!"
+  - Displays images of both users (the user and the person they matched with).
+  - Two buttons:
+    - **Profile**: Opens the matched user's profile.
+    - **Continue**: Closes the match popup and moves to the next user card.
+
+### **Matches Tab**
+
+- Displays all the people you've matched with. Which when clicked, navigates to the profile of the clicked match.
+- **Matched User Profile**:
+
+  - Profile Picture
+  - **Message Button**: Opens the matched user's Telegram chat.
+  - **Unmatch Button**: Removes the matched user from your matches list.
+  - Display of matched user's:
+    - Username
+    - Bio
+    - Gender
+    - Age
+
+- **Note**: If a matched user doesn't have a username and you try to message them, a snackbar notification will appear with a message.
+
+### **Profile Tab**
+
+- Displays the user's:
+
+  - Profile Picture (with an edit icon on top)
+  - Username
+  - Bio
+  - Age
+  - Gender
+  - **Upgrade Button**: Allows users to upgrade and earn a `pro` badge. Payment processing is via Stripe. With the `pro` feature, the user will be able to see the 'Likes you' badge on the users list.
+
+- **Edit Profile**:
+  - Clicking on the pen icon above the profile picture opens the "Edit Profile" page.
+  - Users can edit:
+    - Name
+    - Age (Minimum age limit: 16 years)
+    - Bio
+
+### **On First Launch**
+
+- **Auto Login**: Users are automatically logged in.
+- **New Users**:
+  - Redirected to a signup page with:
+    - Editable name input (autofilled).
+    - Age input (Minimum age 16 years).
+    - Gender selector buttons: "Male" and "Female".
+  - Once all fields are valid and filled, a Telegram main button will appear labeled "Continue".
+  - Clicking "Continue" registers the user and redirects them to the "Home" tab.
