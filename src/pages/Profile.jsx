@@ -201,8 +201,8 @@ const ProfilePage = () => {
                     className="animate-button text-white p-2 w-full font-medium rounded relative overflow-hidden"
                   >
                     {isFetching && (
-                      <div className="absolute top-0 left-0 w-full h-full flex justify-end pr-6">
-                        <div className="w-7 h-7 border-t border-white animate-spin rounded-full"></div>
+                      <div className="absolute top-0 left-0 w-full h-full flex justify-end items-center pr-6">
+                        <div className="w-7 h-7 border-t-2 border-white animate-spin rounded-full"></div>
                       </div>
                     )}
                     Upgrade
