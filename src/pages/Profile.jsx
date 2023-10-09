@@ -22,9 +22,6 @@ const ProfilePage = () => {
 
   const { isGettingProfile, profile } = useContext(context);
 
-  const placeHolderImg =
-    profile.gender.id === 1 ? manPlaceHolderImg : womanPlaceHolderImg;
-
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
@@ -45,7 +42,9 @@ const ProfilePage = () => {
                   src={
                     profile && profile.photos
                       ? profile.photos[0]
-                      : placeHolderImg
+                      : profile.gender.id === 1
+                      ? manPlaceHolderImg
+                      : womanPlaceHolderImg
                   }
                   alt="profile profile"
                   className="rounded-full"
