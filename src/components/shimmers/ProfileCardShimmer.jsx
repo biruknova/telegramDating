@@ -24,7 +24,7 @@ const ProfileCardShimmer = () => {
                 ></div>
               </div>
               <div
-                className={`h-2.5 w-1/4 dark:animate-waiter-dark animate-waiter-ligh${
+                className={`h-2.5 w-1/4 ${
                   mode ? "animate-waiter-dark" : "animate-waiter-light"
                 }  rounded-full mt-2`}
               ></div>
@@ -49,7 +49,11 @@ const ProfileCardShimmer = () => {
           </div>
         </div>
         <div className="px-4 w-full">
-          <hr className="border-t border-[#2c2c2c] dark:border-black/20 w-full" />
+          <hr
+            className={`order-t ${
+              mode ? "border-black/20" : "border-[#2c2c2c]"
+            }   w-full`}
+          />
         </div>
 
         <div className="flex space-x-4 px-4 w-full pb-5">

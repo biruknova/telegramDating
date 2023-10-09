@@ -14,7 +14,7 @@
 }
 
 .animate-waiter-dark {
-  background: linear-gradient(to right, #242424 0%, #313131 50%, #242424 100%);
+  background: linear-gradient(to right, #373947 0%, #4d4f5b 50%, #373947 100%);
   background-size: 200% auto;
   animation: pulse-gradient 3.5s ease-in infinite;
 }
