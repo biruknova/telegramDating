@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import context from "../store/context";
@@ -68,6 +68,15 @@ const MatchProfile = () => {
   const placeHolderImg =
     match.gender.id === 1 ? manPlaceHolderImg : womanPlaceHolderImg;
 
+  const [showSnackBar, setShowSnackBar] = useState(false);
+
+  const showNoUsername = () => {
+    setShowSnackBar(true);
+    setTimeout(() => {
+      setShowSnackBar(false);
+    }, 1000);
+  };
+
   return (
     <div
       style={{ backgroundColor: secondaryBgColor }}
@@ -101,23 +110,33 @@ const MatchProfile = () => {
             </div>
           </div>
           <div className="w-full flex text-sm font-medium">
-            <a
-              href={`tg://resolve?domain=${match.tg_username}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-entity-link"
-              dir="auto"
-              data-entity-type="MessageEntityUrl"
-              style={{ color: btnColor }}
-              className="flex flex-col items-center w-1/2"
-            >
-              <ChatIcon styles="w-6 h-6" />
-              <h1>Message</h1>
-            </a>
+            {match.tg_username ? (
+              <a
+                href={`tg://resolve?domain=${match.tg_username}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-entity-link"
+                dir="auto"
+                data-entity-type="MessageEntityUrl"
+                style={{ color: btnColor }}
+                className="flex flex-col items-center w-1/2"
+              >
+                <ChatIcon styles="w-6 h-6" />
+                <h1>Message</h1>
+              </a>
+            ) : (
+              <div
+                style={{ color: btnColor }}
+                onClick={showNoUsername}
+                className="flex flex-col items-center w-1/2 relative"
+              >
+                <ChatIcon styles="w-6 h-6" />
+                <h1>Message</h1>
+              </div>
+            )}
             <div
               onClick={ShowConfirmation}
-              style={{ color: btnColor }}
-              className="flex flex-col items-center w-1/2"
+              className="flex flex-col items-center w-1/2 text-red-500"
             >
               <UnmatchIcon styles="w-6 h-6" />
               <h1>Unmatch</h1>
@@ -162,6 +181,16 @@ const MatchProfile = () => {
           </div>
         </div>
       </div>
+      {showSnackBar && (
+        <div className="w-full px-5 absolute bottom-0">
+          <div
+            style={{ backgroundColor: btnColor }}
+            className="w-full p-3 text-center text-white"
+          >
+            This account doesn't have a username
+          </div>
+        </div>
+      )}
     </div>
   );
 };

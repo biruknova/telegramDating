@@ -132,11 +132,19 @@ const ProfilePage = () => {
               style={{ color: txtColor }}
               className="w-full flex flex-col divide-y dark:divide-black/30 divid-slate-100 pl-5 text-base mt-3"
             >
-              {profile && profile.tg_username && (
+              {profile && profile.tg_username ? (
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>@{profile.tg_username}</h1>
                   <p style={{ color: hintColor }} className="text-xs">
                     Username
+                  </p>
+                </div>
+              ) : (
+                <div className="pr-5 py-3 space-y-1 text-start">
+                  <h1>Username</h1>
+                  <p style={{ color: hintColor }} className="text-xs">
+                    Set your username by going to your telegram's setting and
+                    let your matchs chat with you.
                   </p>
                 </div>
               )}
