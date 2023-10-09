@@ -21,10 +21,10 @@ const ProfilePage = () => {
     secondary_bg_color: secondaryBgColor,
   } = colors;
 
-  const { isGettingProfile, profile, tokenValue } = useContext(context);
+  const { isGettingProfile, profile, setProfile, tokenValue } =
+    useContext(context);
 
   const [isFetching, setIsFetching] = useState(false);
-  const [isProUser, setIsProUser] = useState(profile.is_pro_user);
 
   const UpgradeToPro = () => {
     setIsFetching(true);
@@ -47,7 +47,7 @@ const ProfilePage = () => {
             console.log(res);
 
             if (res === "paid") {
-              setIsProUser(true);
+              setProfile({ ...profile, is_pro_user: true });
               window.Telegram.WebApp.showPopup({
                 title: "Welcome to Pro",
                 message:
@@ -111,7 +111,7 @@ const ProfilePage = () => {
               </div>
 
               <div className="flex flex-col space-y-1.5 items-center text-center w-[85%]">
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1.5">
                   <h1
                     style={{ color: txtColor }}
                     className="text-xl font-semibold min-w-max"
@@ -119,8 +119,8 @@ const ProfilePage = () => {
                     {profile ? profile.name : ""}
                   </h1>
                   {profile.has_telegram_premium && <BadgeIcon />}
-                  {isProUser && (
-                    <div className="px-3 bg-yellow-500 text-black text-xs py-0.5 rounded-full">
+                  {profile.is_pro_user && (
+                    <div className="px-3 bg-yellow-500 text-black text-xs py-0.5 rounded-full font-medium">
                       Pro
                     </div>
                   )}
@@ -178,8 +178,8 @@ const ProfilePage = () => {
                 </div>
               )}
             </div>
-            {!isProUser && (
-              <div className="w-full px-3">
+            {!profile.is_pro_user && (
+              <div className="w-full px-5">
                 <button
                   onClick={UpgradeToPro}
                   disabled={isFetching}

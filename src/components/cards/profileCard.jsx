@@ -81,8 +81,8 @@ const ProfileCard = ({
           >
             {" "}
             {profile ? (
-              profile.is_pro_user ? (
-                <div className="absolute top-5 right-0 bg-red-500 text-white p-2 ">
+              profile.is_pro_user && likedYou ? (
+                <div className="absolute top-5 right-0 bg-yellow-500 text-black font-bold px-5 py-1 text-xs shadow rounded-tl-md rounded-bl-md">
                   likes you
                 </div>
               ) : (
