@@ -189,7 +189,7 @@ const ProfilePage = () => {
                   <button
                     onClick={UpgradeToPro}
                     disabled={isFetching}
-                    className="animate-button text-black p-2 w-full font-medium rounded"
+                    className="animate-button text-white p-2 w-full font-medium rounded"
                   >
                     {isFetching ? "wait ..." : "Upgrade"}
                   </button>
