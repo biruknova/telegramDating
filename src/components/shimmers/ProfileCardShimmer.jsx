@@ -1,6 +1,10 @@
 import "../../shimmer.css";
 
 const ProfileCardShimmer = () => {
+  const colorMode = window.Telegram.WebApp.colorScheme;
+
+  const mode = colorMode === "dark";
+
   return (
     <section className="w-full mx-auto flex flex-col items-center">
       <div className="flex flex-col items-center  rounded-md overflow-hidden space-y-4 w-full">
@@ -27,7 +31,11 @@ const ProfileCardShimmer = () => {
         </div>
 
         <div className="flex space-x-4 px-4 w-full pb-5">
-          <button className="w-1/2 h-[45px] rounded  flex justify-center items-center dark:animate-waiter-dark animate-waiter-light"></button>
+          <button
+            className={`w-1/2 h-[45px] rounded  flex justify-center items-center ${
+              mode ? "animate-waiter-dark" : "animate-waiter-light"
+            }  `}
+          ></button>
           <button className="w-1/2 h-[45px] rounded  flex justify-center items-center  dark:animate-waiter-dark animate-waiter-light"></button>
         </div>
       </div>
