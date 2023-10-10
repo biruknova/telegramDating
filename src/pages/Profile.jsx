@@ -55,14 +55,18 @@ const ProfilePage = () => {
                   "You have upgraded to Dating Pro. Your payment was successful.",
                 buttons: [{ type: "close", text: "Close" }],
               });
-              window.Telegram.WebApp.notificationOccurred("success");
+              window.Telegram.WebApp.HapticFeedback.notificationOccurred(
+                "success"
+              );
             } else if (res === "cancelled") {
               window.Telegram.WebApp.showPopup({
                 title: "Not Paid",
                 message: "You have aborted the payment process",
                 buttons: [{ type: "close", text: "Close" }],
               });
-              window.Telegram.WebApp.notificationOccurred("error");
+              window.Telegram.WebApp.HapticFeedback.notificationOccurred(
+                "error"
+              );
             }
           });
         }
