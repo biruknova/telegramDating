@@ -6,8 +6,6 @@ import context from "../store/context";
 
 import HeartIcon from "../components/icons/Heart";
 
-// import ProfileCardShimmer from "../components/shimmers/ProfileCardShimmer";
-
 const LoginPage = () => {
   const { setTokenValue, setTokenIsSet } = useContext(context);
   const [isLoggingIn, setIsLoggingIn] = useState(true);
@@ -61,9 +59,6 @@ const LoginPage = () => {
       style={{ height: viewPortHeight }}
       className="text-white flex items-center justify-center relative"
     >
-      {/* <div className="fixed w-full min-h-screen top-0 left-0 bg-white">
-        <ProfileCardShimmer />
-      </div> */}
       {isLoggingIn && <HeartIcon styles="w-9 h-9 animate-ping text-red-600" />}
     </div>
   );
