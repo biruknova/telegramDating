@@ -3,10 +3,9 @@
 **Introduction:**
 
 This miniapp is built using the Telegram Mini App API and React JS.
-
 It facilitates users to connect with others and find matches based on preferences.
 
--[https://t.me/VivaDateBot] (Sample Bot.)
+-[Telegram Date]('https://t.me/VivaDateBot) (Sample Bot.)
 
 **Prerequisites:**
 
@@ -17,31 +16,33 @@ Before you begin, ensure you have met the following requirements:
 
 **Installation:**
 
-1. Clone the repository:
+1. install the [Backend](https://github.com/tesfaX/TelegramDating-Backend) of the Mini App [Here](https://github.com/tesfaX/TelegramDating-Backend). There is a full installation guide there.
+
+2. Clone the repository:
 
    ```sh
-   git clone https://github.com/biruknova/telegramDating.git
+   git clone https://github.com/your-username/your-repo.git
    ```
 
-2. Change to the project's directory:
+3. Change to the project's directory:
 
    ```sh
-   cd telegramDating
+   cd your-repo
    ```
 
-3. Install dependencies using npm:
+4. Install dependencies using npm:
 
    ```sh
    npm install
    ```
 
-4. Start the development server:
+5. Start the development server:
 
    ```sh
    npm run start
    ```
 
-5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the app.
+6. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the app.
 
 **Configuration :**
 
@@ -62,7 +63,19 @@ Before you begin, ensure you have met the following requirements:
 This miniapp is built using the Telegram Mini App API and React JS.
 It facilitates users to connect with others and find matches based on preferences.
 
-## Features
+## Walk Through
+
+### **On First Launch**
+
+- **Auto Login**: Users are automatically logged in.
+- **New Users**:
+  - Redirected to a signup page with:
+    - Editable name input (autofilled).
+    - Age input (Minimum age 16 years).
+    - Gender selector buttons: "Male" and "Female".
+  - <img src="https://i.ibb.co/RP9B7m0/signup.jpg" alt="Alt Text" width="200" height="">
+  - Once all fields are valid and filled, a Telegram main button will appear labeled "Continue".
+  - Clicking "Continue" registers the user and redirects them to the "Home" tab.
 
 ### **Bottom Navigation**
 
@@ -72,7 +85,11 @@ There are three main tabs in the bottom navigation:
 - **Matches**
 - **Profile**
 
+> <img src="https://i.ibb.co/h9CCx2H/bottom-Nav.jpg" alt="Alt Text" width="200" height="">
+
 ### **Home Tab**
+
+> <img src="https://i.ibb.co/6tckDMy/home.jpg" alt="Alt Text" width="200" height="">
 
 - Users are displayed in a card layout.
 
@@ -95,8 +112,11 @@ There are three main tabs in the bottom navigation:
   - Two buttons:
     - **Profile**: Opens the matched user's profile.
     - **Continue**: Closes the match popup and moves to the next user card.
+- <img src="https://i.ibb.co/S0PB03Z/itsamatch.jpg" alt="Alt Text" width="200" height="">
 
 ### **Matches Tab**
+
+- <img src="https://i.ibb.co/9y9g7qC/matches.jpg" alt="Alt Text" width="200" height="">
 
 - Displays all the people you've matched with. Which when clicked, navigates to the profile of the clicked match.
 - **Matched User Profile**:
@@ -109,10 +129,14 @@ There are three main tabs in the bottom navigation:
     - Bio
     - Gender
     - Age
+  - <img src="https://i.ibb.co/9trCSMG/matchprofile.jpg" alt="Alt Text" width="200" height="">
 
 - **Note**: If a matched user doesn't have a username and you try to message them, a snackbar notification will appear with a message.
+  <img src="https://i.ibb.co/sW8jMqB/snackbar.jpg" alt="Alt Text" width="200" height="">
 
 ### **Profile Tab**
+
+>  <img src="https://i.ibb.co/fDFQDxF/profile.jpg" alt="Alt Text" width="200" height="">
 
 - Displays the user's:
 
@@ -122,21 +146,15 @@ There are three main tabs in the bottom navigation:
   - Age
   - Gender
   - **Upgrade Button**: Allows users to upgrade and earn a `pro` badge. Payment processing is via Stripe. With the `pro` feature, the user will be able to see the 'Likes you' badge on the users list.
+    > <img src="https://i.ibb.co/7JD0KBj/probadge.jpg" alt="Alt Text" width="200" height="">
 
 - **Edit Profile**:
+
   - Clicking on the pen icon above the profile picture opens the "Edit Profile" page.
   - Users can edit:
+
     - Name
     - Age (Minimum age limit: 16 years)
     - Bio
 
-### **On First Launch**
-
-- **Auto Login**: Users are automatically logged in.
-- **New Users**:
-  - Redirected to a signup page with:
-    - Editable name input (autofilled).
-    - Age input (Minimum age 16 years).
-    - Gender selector buttons: "Male" and "Female".
-  - Once all fields are valid and filled, a Telegram main button will appear labeled "Continue".
-  - Clicking "Continue" registers the user and redirects them to the "Home" tab.
+    <img src="https://i.ibb.co/McwqNKH/edit-Profile.jpg" alt="Alt Text" width="200" height="">
