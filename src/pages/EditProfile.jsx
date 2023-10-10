@@ -99,11 +99,14 @@ const EditProfile = () => {
           [name]: value,
         });
       }
+    } else if (name === "bio") {
+      setCharacters(120 - value.length);
+      resizeTextarea();
+      setFormData({
+        ...formData,
+        [name]: value.substr(0, 120),
+      });
     } else {
-      if (name === "bio") {
-        setCharacters(120 - value.length);
-        resizeTextarea();
-      }
       setFormData({
         ...formData,
         [name]: value,

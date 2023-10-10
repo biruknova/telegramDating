@@ -55,12 +55,14 @@ const ProfilePage = () => {
                   "You have upgraded to Dating Pro. Your payment was successful.",
                 buttons: [{ type: "close", text: "Close" }],
               });
+              window.Telegram.WebApp.notificationOccurred("success");
             } else if (res === "cancelled") {
               window.Telegram.WebApp.showPopup({
                 title: "Not Paid",
                 message: "You have aborted the payment process",
                 buttons: [{ type: "close", text: "Close" }],
               });
+              window.Telegram.WebApp.notificationOccurred("error");
             }
           });
         }
@@ -133,14 +135,14 @@ const ProfilePage = () => {
               {profile && profile.tg_username ? (
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>@{profile.tg_username}</h1>
-                  <p style={{ color: hintColor }} className="text-xs">
+                  <p style={{ color: hintColor }} className="text-sm">
                     Username
                   </p>
                 </div>
               ) : (
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>Username</h1>
-                  <p style={{ color: hintColor }} className="text-xs">
+                  <p style={{ color: hintColor }} className="text-sm">
                     Set your username by going to your Telegram settings and
                     allow your matches to chat with you.
                   </p>
@@ -150,7 +152,7 @@ const ProfilePage = () => {
               {profile.bio ? (
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>Bio</h1>
-                  <p style={{ color: hintColor }} className="text-xs">
+                  <p style={{ color: hintColor }} className="text-sm">
                     {profile.bio}
                   </p>
                 </div>
@@ -160,7 +162,7 @@ const ProfilePage = () => {
                   className="pr-5 py-3 space-y-1 text-start"
                 >
                   <h1>Bio</h1>
-                  <p style={{ color: hintColor }} className="text-xs">
+                  <p style={{ color: hintColor }} className="text-sm">
                     {profile.bio
                       ? profile.bio
                       : "Add a few words about yourself."}
@@ -171,7 +173,7 @@ const ProfilePage = () => {
               {profile && profile.age && (
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>{profile.age}</h1>
-                  <p style={{ color: hintColor }} className="text-xs">
+                  <p style={{ color: hintColor }} className="text-sm">
                     Age
                   </p>
                 </div>
@@ -179,7 +181,7 @@ const ProfilePage = () => {
               {profile && profile.gender && (
                 <div className="pr-5 py-3 space-y-1 text-start">
                   <h1>{profile.gender.name} </h1>
-                  <p style={{ color: hintColor }} className="text-xs">
+                  <p style={{ color: hintColor }} className="text-sm">
                     Gender
                   </p>
                 </div>

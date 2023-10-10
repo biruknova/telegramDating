@@ -126,7 +126,7 @@ const HomePage = () => {
 
   useEffect(() => {
     return () => {
-      if (users.length !== 0) {
+      if (isMatched && users.length !== 0) {
         closeMatchPopUp();
       }
     };

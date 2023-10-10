@@ -30,6 +30,7 @@ const SignupPage = () => {
   const unsafeUserData = window.Telegram.WebApp.initDataUnsafe.user;
 
   const unsafeFirstName = unsafeUserData.first_name;
+
   const unsafeLastName = unsafeUserData.last_name;
 
   const unsafeFullName = unsafeFirstName + " " + unsafeLastName;

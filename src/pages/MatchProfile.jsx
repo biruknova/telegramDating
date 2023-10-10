@@ -150,14 +150,14 @@ const MatchProfile = () => {
             {match && match.tg_username ? (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>@{match.tg_username}</h1>
-                <p style={{ color: hintColor }} className="text-xs">
+                <p style={{ color: hintColor }} className="text-sm">
                   Username
                 </p>
               </div>
             ) : (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>Username</h1>
-                <p style={{ color: hintColor }} className="text-xs">
+                <p style={{ color: hintColor }} className="text-sm">
                   This account does not have a username.
                 </p>
               </div>
@@ -165,7 +165,7 @@ const MatchProfile = () => {
             {match && match.bio && (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>{match.bio}</h1>
-                <p style={{ color: hintColor }} className="text-xs">
+                <p style={{ color: hintColor }} className="text-sm">
                   Bio
                 </p>
               </div>
@@ -173,7 +173,7 @@ const MatchProfile = () => {
             {match && match.age && (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>{match.age}</h1>
-                <p style={{ color: hintColor }} className="text-xs">
+                <p style={{ color: hintColor }} className="text-sm">
                   Age
                 </p>
               </div>
@@ -181,7 +181,7 @@ const MatchProfile = () => {
             {match && match.gender && (
               <div className="pr-5 py-3 space-y-1 text-start">
                 <h1>{match.gender.name} </h1>
-                <p style={{ color: hintColor }} className="text-xs">
+                <p style={{ color: hintColor }} className="text-sm">
                   Gender
                 </p>
               </div>
@@ -195,7 +195,7 @@ const MatchProfile = () => {
             style={{ backgroundColor: btnColor }}
             className="w-full p-3 text-sm rounded text-white"
           >
-            This account doesn't have a username
+            This account doesn't have a username.
           </div>
         </div>
       )}
