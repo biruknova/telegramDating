@@ -43,12 +43,12 @@ const DatingContextProvider = (props) => {
       .catch((error) => console.log("error", error));
   };
 
-  useEffect(() => {
-    if (tokenValue) {
-      getUsers();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenValue]);
+  // useEffect(() => {
+  //   if (tokenValue) {
+  //     getUsers();
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [tokenValue]);
 
   useEffect(() => {
     if (tokenValue && users.length === 6 && hasNextPage) {
@@ -83,12 +83,12 @@ const DatingContextProvider = (props) => {
       .catch((error) => console.log("error", error));
   };
 
-  useEffect(() => {
-    if (tokenValue) {
-      getMatches();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenValue]);
+  // useEffect(() => {
+  //   if (tokenValue) {
+  //     getMatches();
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [tokenValue]);
 
   const [profile, setProfile] = useState({ gender: { id: 1 } });
 
@@ -159,6 +159,7 @@ const DatingContextProvider = (props) => {
     isGettingUsers,
     users,
     setUsers,
+    getUsers,
     gettingMatches,
     matches,
     setMatches,

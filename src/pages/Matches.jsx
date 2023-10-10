@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import context from "../store/context";
 
 import MatchCard from "../components/cards/MatchCard";
@@ -9,7 +9,7 @@ import manPlaceHolderImg from "../assets/man_placeholder.jpg";
 import womanPlaceHolderImg from "../assets/woman_placeholder.jpg";
 
 const MatchesPage = () => {
-  const { gettingMatches, matches } = useContext(context);
+  const { gettingMatches, matches, getMatches } = useContext(context);
 
   const colors = window.Telegram.WebApp.themeParams;
 
@@ -19,6 +19,13 @@ const MatchesPage = () => {
     hint_color: hintColor,
     button_color: btnColor,
   } = colors;
+
+  useEffect(() => {
+    if (matches.length === 0) {
+      getMatches();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="flex flex-col w-full pb-3">

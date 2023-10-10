@@ -20,6 +20,7 @@ const HomePage = () => {
     isGettingUsers,
     users,
     setUsers,
+    getUsers,
     tokenValue,
     matches,
     setMatches,
@@ -130,6 +131,13 @@ const HomePage = () => {
         closeMatchPopUp();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (users.length === 0) {
+      getUsers();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
