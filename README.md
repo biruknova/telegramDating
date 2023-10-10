@@ -2,7 +2,11 @@
 
 **Introduction:**
 
-The Telegram Dating miniApp is built with react js.
+This miniapp is built using the Telegram Mini App API and React JS.
+
+It facilitates users to connect with others and find matches based on preferences.
+
+-[https://t.me/VivaDateBot] (Sample Bot.)
 
 **Prerequisites:**
 
