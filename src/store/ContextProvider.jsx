@@ -44,7 +44,7 @@ const DatingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenValue !== "") {
+    if (tokenValue) {
       getUsers();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
